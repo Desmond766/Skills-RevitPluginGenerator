@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+    <RootNamespace>{{NAMESPACE}}</RootNamespace>
+    <AssemblyName>{{ASSEMBLY_NAME}}</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <Configurations>Debug;Release</Configurations>
+    <!-- Set to true only if the add-in uses WPF dialogs. Most team projects use WinForms. -->
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>false</UseWPF>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RevitVersion>2024</RevitVersion>
+    <RevitInstallPath Condition="'$(RevitInstallPath)' == ''">C:\Program Files\Autodesk\Revit $(RevitVersion)</RevitInstallPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="RevitAPI">
+      <HintPath>$(RevitInstallPath)\RevitAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>$(RevitInstallPath)\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <!-- Uncomment if the command builds ribbon UI via AdWindows / UIFramework:
+    <Reference Include="AdWindows">
+      <HintPath>$(RevitInstallPath)\AdWindows.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UIFramework">
+      <HintPath>$(RevitInstallPath)\UIFramework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="{{ASSEMBLY_NAME}}.addin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

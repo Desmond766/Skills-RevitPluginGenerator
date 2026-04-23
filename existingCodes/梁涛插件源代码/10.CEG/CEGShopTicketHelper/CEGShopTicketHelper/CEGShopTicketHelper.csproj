@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DA7D3F3C-A37A-4EC6-B5A7-C7CCDF754EF9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CEGShopTicketHelper</RootNamespace>
+    <AssemblyName>CEGShopTicketHelper</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CEGToolsHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Administrator\Desktop\25.2.13插件debug\CEGSchedule\CEGSchedule\bin\Debug\CEGToolsHelper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPI">
+      <HintPath>C:\Program Files\Autodesk\Revit 2024\RevitAPI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>C:\Program Files\Autodesk\Revit 2024\RevitAPIUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdjustCtrlMarkCmd.cs" />
+    <Compile Include="AdjustCtrlMarkFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdjustCtrlMarkFrm.Designer.cs">
+      <DependentUpon>AdjustCtrlMarkFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblySheetFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssemblySheetFrm.Designer.cs">
+      <DependentUpon>AssemblySheetFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutoTicketingHelperCmd.cs" />
+    <Compile Include="AutoTicketingHelper\EmbedFilter.cs" />
+    <Compile Include="AutoTicketingHelper\SpandrelTicketingHelper.cs" />
+    <Compile Include="AutoTicketingHelper\DtTicketingHelper.cs" />
+    <Compile Include="AutoTicketingHelper\PCaTicketingHelper.cs" />
+    <Compile Include="AutoTicketingHelper\TicketingSetting.cs" />
+    <Compile Include="AutoTicketingHelper\TopViewCmd.cs" />
+    <Compile Include="AutoTicketingHelper\TopViewFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutoTicketingHelper\TopViewFrm.Designer.cs">
+      <DependentUpon>TopViewFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutoTicketingHelper\ViewAnnotatingHelper.cs" />
+    <Compile Include="AutoTicketingHelper\ViewAnnotatingHelper2.cs" />
+    <Compile Include="CamberLineCmd.cs" />
+    <Compile Include="CamberLineFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CamberLineFrm.Designer.cs">
+      <DependentUpon>CamberLineFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CEGTicketInfo.cs" />
+    <Compile Include="CGPointCmd.cs" />
+    <Compile Include="ClientStandard\TindallBOM.cs" />
+    <Compile Include="ClientStandard\TindallBOMFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientStandard\TindallBOMFrm.Designer.cs">
+      <DependentUpon>TindallBOMFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CopyTicketCmd.cs" />
+    <Compile Include="CopyTicketFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CopyTicketFrm.Designer.cs">
+      <DependentUpon>CopyTicketFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CopyViewCmd2.cs" />
+    <Compile Include="CopyViewCmd3.cs" />
+    <Compile Include="Create3dCmd.cs" />
+    <Compile Include="Create3dFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Create3dFrm.Designer.cs">
+      <DependentUpon>Create3dFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExportInsulationDictCmd.cs" />
+    <Compile Include="FindInsulationCmd.cs" />
+    <Compile Include="FindInsulationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindInsulationFrm.Designer.cs">
+      <DependentUpon>FindInsulationFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GetFourRefer.cs" />
+    <Compile Include="GlobalValue.cs" />
+    <Compile Include="Insulation.cs" />
+    <Compile Include="InsulationDimCmd.cs" />
+    <Compile Include="InsulationListCmd.cs" />
+    <Compile Include="InsulationListCmd2.cs" />
+    <Compile Include="OpenAssemblySheetCmd.cs" />
+    <Compile Include="OpenAssemblySheetFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenAssemblySheetFrm.Designer.cs">
+      <DependentUpon>OpenAssemblySheetFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuickPrintCmd3.cs" />
+    <Compile Include="QuickPrintCmd3Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuickPrintCmd3Frm.Designer.cs">
+      <DependentUpon>QuickPrintCmd3Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RebarMarkCmd.cs" />
+    <Compile Include="RebarMarkFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RebarMarkFrm.Designer.cs">
+      <DependentUpon>RebarMarkFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShopTicketChecking\DimensionChecking.cs" />
+    <Compile Include="ShopTicketChecking\DimensionCheckingFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShopTicketChecking\DimensionCheckingFrm.Designer.cs">
+      <DependentUpon>DimensionCheckingFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShopTicketChecking\DimensionCheckingSettingFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShopTicketChecking\DimensionCheckingSettingFrm.Designer.cs">
+      <DependentUpon>DimensionCheckingSettingFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShopTicketChecking\QtyChecking.cs" />
+    <Compile Include="ShopTicketChecking\QtyCheckingFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShopTicketChecking\QtyCheckingFrm.Designer.cs">
+      <DependentUpon>QtyCheckingFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TC_DimensionCmd.cs" />
+    <Compile Include="TicketChecker.cs" />
+    <Compile Include="TicketCheckerCmd.cs" />
+    <Compile Include="CopyViewCmd.cs" />
+    <Compile Include="CopyViewFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CopyViewFrm.Designer.cs">
+      <DependentUpon>CopyViewFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DuplicateLegendCmd.cs" />
+    <Compile Include="FindLegendCmd.cs" />
+    <Compile Include="InsulationFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsulationFrm.Designer.cs">
+      <DependentUpon>InsulationFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsulationScheduleCmd.cs" />
+    <Compile Include="LegendViewPopulatorCmd.cs" />
+    <Compile Include="PopulateCtrlNumCmd.cs" />
+    <Compile Include="PopulateCtrlNumFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopulateCtrlNumFrm.designer.cs">
+      <DependentUpon>PopulateCtrlNumFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuickPrintCmd.cs" />
+    <Compile Include="QuickPrintCmd2.cs" />
+    <Compile Include="QuickPrintCmd2Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuickPrintCmd2Frm.Designer.cs">
+      <DependentUpon>QuickPrintCmd2Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RebarSketchCmd.cs" />
+    <Compile Include="ScheduleViewPopulatorCmd.cs" />
+    <Compile Include="StringComparer.cs" />
+    <Compile Include="TicketCheckerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TicketCheckerFrm.Designer.cs">
+      <DependentUpon>TicketCheckerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TitleBlockInfoCmd.cs" />
+    <Compile Include="TitleBlockInfoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TitleBlockInfoFrm.Designer.cs">
+      <DependentUpon>TitleBlockInfoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateQtyCmd.cs" />
+    <Compile Include="UpdateCtrlNumCmd.cs" />
+    <Compile Include="UpdateScheduleColumnWidthCmd.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="ViewContentInfo.cs" />
+    <Compile Include="ViewContentInfo2.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AdjustCtrlMarkFrm.resx">
+      <DependentUpon>AdjustCtrlMarkFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssemblySheetFrm.resx">
+      <DependentUpon>AssemblySheetFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AutoTicketingHelper\TopViewFrm.resx">
+      <DependentUpon>TopViewFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CamberLineFrm.resx">
+      <DependentUpon>CamberLineFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientStandard\TindallBOMFrm.resx">
+      <DependentUpon>TindallBOMFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CopyTicketFrm.resx">
+      <DependentUpon>CopyTicketFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CopyViewFrm.resx">
+      <DependentUpon>CopyViewFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Create3dFrm.resx">
+      <DependentUpon>Create3dFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindInsulationFrm.resx">
+      <DependentUpon>FindInsulationFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsulationFrm.resx">
+      <DependentUpon>InsulationFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenAssemblySheetFrm.resx">
+      <DependentUpon>OpenAssemblySheetFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopulateCtrlNumFrm.resx">
+      <DependentUpon>PopulateCtrlNumFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuickPrintCmd2Frm.resx">
+      <DependentUpon>QuickPrintCmd2Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuickPrintCmd3Frm.resx">
+      <DependentUpon>QuickPrintCmd3Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RebarMarkFrm.resx">
+      <DependentUpon>RebarMarkFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShopTicketChecking\DimensionCheckingFrm.resx">
+      <DependentUpon>DimensionCheckingFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShopTicketChecking\DimensionCheckingSettingFrm.resx">
+      <DependentUpon>DimensionCheckingSettingFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShopTicketChecking\QtyCheckingFrm.resx">
+      <DependentUpon>QtyCheckingFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TicketCheckerFrm.resx">
+      <DependentUpon>TicketCheckerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TitleBlockInfoFrm.resx">
+      <DependentUpon>TitleBlockInfoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

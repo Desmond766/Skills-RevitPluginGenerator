@@ -1,0 +1,52 @@
+﻿<Window x:Class="PositioningMarkingOfCShapedSteelHanger.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PositioningMarkingOfCShapedSteelHanger"
+             mc:Ignorable="d" WindowStartupLocation="CenterOwner" MinHeight="220" Height="220" MinWidth="220" Width="220" Title="吊架生成标注/注释" Topmost="True" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0" Margin="5" Header="吊架类型">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton x:Name="rb_cs" Content="C型钢吊架" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Click="rb_cs_Click"/>
+                <RadioButton x:Name="rb_pm" Content="品茗吊架" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Checked="RadioButton_Checked"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Margin="5" Header="生成类型">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton x:Name="rb_tag"  Content="标记(TAG)" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
+                <RadioButton Name="rb_text" Content="文字注释" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="2" Margin="5" Header="生成位置">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton x:Name="rb_upset" Content="A(上)侧" IsChecked="True" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
+                <RadioButton x:Name="rb_downset" Content="B(下)侧" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+            </Grid>
+        </GroupBox>
+        <Button Grid.Row="3" Width="60" Height="25" Content="确定" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,80,0" IsDefault="True" Click="Button_Click"/>
+        <Button Grid.Row="3" Width="60" Height="25" Content="取消" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0" IsCancel="True" Click="Button_Click_1"/>
+        <Label Content="生成注释位置" HorizontalAlignment="Center" Margin="0,31,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <Button Content="A(上)侧" HorizontalAlignment="Left" Margin="66,36,0,0" VerticalAlignment="Top" Click="Button_Click" Grid.Row="1" Visibility="Collapsed"/>
+        <Button Content="B(下)侧" HorizontalAlignment="Left" Margin="183,36,0,0" VerticalAlignment="Top" Click="Button_Click_1" Grid.Row="1" Visibility="Collapsed"/>
+
+    </Grid>
+</Window>

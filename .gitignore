@@ -1,0 +1,18 @@
+# Decompiled Revit API docs — large, regenerable via setup.ps1
+.cursor/skills/revit-api-lookup/docs/
+.cursor/skills/revit-api-lookup/*.chm
+
+# existingCodes catalog — regenerated per machine by scripts/build-index.ps1
+existingCodes/INDEX.md
+
+# .NET build output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# Sample binaries under existingCodes/
+existingCodes/**/bin/
+existingCodes/**/obj/
+existingCodes/**/packages/

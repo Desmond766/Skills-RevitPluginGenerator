@@ -1,0 +1,18 @@
+﻿<Window x:Class="PipeFittingParameterInputHanger.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PipeFittingParameterInputHanger"
+             mc:Ignorable="d" WindowStartupLocation="CenterScreen" Height="196" Width="284">
+    <Grid>
+        <Label Content="DN&lt;50mm的管道是否添加到文字注释？" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Add" Content="是" HorizontalAlignment="Left" Margin="52,40,0,0" VerticalAlignment="Top" IsChecked="True" x:Name="add"/>
+        <RadioButton GroupName="Add" Content="否" HorizontalAlignment="Left" Margin="171,40,0,0" VerticalAlignment="Top"/>
+        <Button Content="确定" HorizontalAlignment="Left" Margin="178,126,0,0" VerticalAlignment="Top" Width="60" Click="Button_Click"/>
+        <Label Content="管道是否考虑保温层" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="19,63,0,0"/>
+        <Label Content="------------------------------------------" HorizontalAlignment="Center" Margin="0,48,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="是" x:Name="Insulation_Layer" HorizontalAlignment="Left" Margin="52,95,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <RadioButton Content="否" HorizontalAlignment="Left" Margin="171,95,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

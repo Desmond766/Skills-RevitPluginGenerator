@@ -1,0 +1,82 @@
+﻿<Window x:Class="HangerUpdate.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HangerUpdate"
+             mc:Ignorable="d" Height="450" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0" Margin="15"  Header="吊架过滤" MinHeight="100">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+                <Label Content="族名称包含：" VerticalAlignment="Center" Margin="15"/>
+                <Border VerticalAlignment="Center" Width="260" Height="20" BorderThickness="0.7" BorderBrush="DimGray">
+                    <StackPanel Orientation="Horizontal" Width="260" Height="20">
+                        <ComboBox x:Name="cb_family" Width="200" Height="20" IsEditable="True" BorderThickness="0">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                        <!-- 左侧显示数据 -->
+                                        <TextBlock Text="{Binding}" VerticalAlignment="Center"  Width="{Binding ActualWidth, ElementName=cb_family, Mode=OneWay}"/>
+                                        <!-- 右侧删除按钮 -->
+                                        <Button Tag="{Binding}" Content="删除" Width="30" Height="auto" Background="White" Foreground="Red" BorderThickness="0" Click="DeleteItem_Click"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <Button Content="添加" Width="60" Height="20" Background="Transparent" BorderThickness="0.7,0,0,0" Click="Button_Click_1"/>
+                    </StackPanel>
+                </Border>
+                <Grid Grid.Row="1">
+                    <Label Content="类型名称包含：" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                    <Border VerticalAlignment="Center" Width="260" Height="20" BorderThickness="0.7" BorderBrush="DimGray">
+                        <StackPanel Orientation="Horizontal" Width="260" Height="20">
+                            <ComboBox Name="cb_symbol"  Width="200" Height="20" IsEditable="True" BorderThickness="0">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                            <!-- 左侧显示数据 -->
+                                            <TextBlock Text="{Binding}" VerticalAlignment="Center"  Width="{Binding ActualWidth, ElementName=cb_symbol, Mode=OneWay}"/>
+                                            <!-- 右侧删除按钮 -->
+                                            <Button Tag="{Binding}" Content="删除" Width="30" Height="auto" Background="White" Foreground="Red" BorderThickness="0" Click="DeleteItem_Click_2"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <Button Content="添加" Width="60" Height="20" Background="Transparent" BorderThickness="0.7,0,0,0" Click="Button_Click_2"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <GridSplitter Visibility="Hidden" Grid.Row="1" HorizontalAlignment="Stretch" Height="2" VerticalAlignment="Stretch" ShowsPreview="False"/>
+        <GroupBox Grid.Row="2" Margin="15"  Header="查找(喷淋管道和照明线槽)范围" MinHeight="100">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+                <Label Content="查找半径：" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="25,0" Grid.Row="0"/>
+                <TextBox x:Name="tb_search_scope" VerticalAlignment="Center" Height="20" Width="200" Margin="100,0" HorizontalAlignment="Left" Grid.Row="0"/>
+                <Label Content="mm" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="300,0,0,0"/>
+                <Grid Grid.Row="1">
+                    <Label Content="垂直向下：" VerticalAlignment="Center" Margin="25,0,0,0"/>
+                    <TextBox x:Name="tb_down_scope"  VerticalAlignment="Center" Height="20" Width="200" Margin="100,0" HorizontalAlignment="Left"/>
+                    <Label Content="mm" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="300,0,0,0"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <Button IsDefault="True" Content="确定" Grid.Row="3" VerticalAlignment="Bottom" Width="60" Height="20" HorizontalAlignment="Right" Margin="100,15" Click="Button_Click" />
+        <Button IsCancel="True" Content="取消" Grid.Row="3" VerticalAlignment="Bottom" Width="60" Height="20" HorizontalAlignment="Right" Margin="20,15"/>
+    </Grid>
+</Window>

@@ -1,0 +1,16 @@
+﻿<Window x:Class="ArrangeHangerAccordingToNozzle.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ArrangeHangerAccordingToNozzle"
+             mc:Ignorable="d" WindowStartupLocation="CenterScreen" Height="194" Width="336">
+    <Grid>
+        <Label Content="往" HorizontalAlignment="Left" Margin="104,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.955,0.495" Width="27"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="132,57,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label Content="布置" HorizontalAlignment="Left" Margin="178,55,0,0" VerticalAlignment="Top"/>
+        <Button Content="确定" HorizontalAlignment="Left" Margin="178,114,0,0" VerticalAlignment="Top" Click="Button_Click_1" Height="20" Width="50"/>
+        <Button Content="取消" HorizontalAlignment="Left" Margin="230,114,0,0" VerticalAlignment="Top" Click="Button_Click" Height="20" Width="50"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,14 @@
+﻿<Window x:Class="ArrangeSingleOrMultiplePipeHangersInTheLinkedModel.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ArrangeSingleOrMultiplePipeHangersInTheLinkedModel"
+             mc:Ignorable="d" Height="160.8" Width="313.6" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,-0.4,29.2">
+        <Button Content="确定" HorizontalAlignment="Left" Margin="26,59,0,-0.2" VerticalAlignment="Top" Width="259" Height="44" Click="Button_Click"/>
+        <RadioButton GroupName="ddb"  Content="单根管吊架" Name="No_More"  HorizontalAlignment="Left" Height="21" Margin="36,21,0,0" VerticalAlignment="Top" Width="104"/>
+        <RadioButton GroupName="ddb" Content="多根管吊架" Name="Is_More"  HorizontalAlignment="Left" Height="21" Margin="181,19,-3.6,0" VerticalAlignment="Top" Width="131" Checked="Is_More_Checked"/>
+
+    </Grid>
+</Window>

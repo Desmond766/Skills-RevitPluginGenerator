@@ -1,0 +1,40 @@
+﻿using Demo02.Properties;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace Demo02
+{
+    /// <summary>
+    /// UserControl01.xaml 的交互逻辑
+    /// </summary>
+    public partial class UserControl01 : Window
+    {
+        public bool cancel { get; private set; } = true;
+        public UserControl01()
+        {
+            InitializeComponent();
+            this.textBox.Text = Settings.Default.num.ToString();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            cancel = false;
+            Settings.Default.num = Convert.ToInt32(this.textBox.Text);
+            Settings.Default.Save();
+            Close();
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Name>List Wall Areas</Name>
+    <Assembly>WallAreaLister.dll</Assembly>
+    <AddInId>55ac37c1-f2ac-4eab-b00d-0ec8819062e3</AddInId>
+    <FullClassName>WallAreaLister.Command</FullClassName>
+    <VendorId>LOCAL</VendorId>
+    <VendorDescription>Local test build</VendorDescription>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+  </AddIn>
+</RevitAddIns>

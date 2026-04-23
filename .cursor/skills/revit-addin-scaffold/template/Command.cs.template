@@ -1,0 +1,41 @@
+using System;
+using Autodesk.Revit.Attributes;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+
+namespace {{NAMESPACE}}
+{
+    [Transaction(TransactionMode.Manual)]
+    [Regeneration(RegenerationOption.Manual)]
+    public class {{CLASS_NAME}} : IExternalCommand
+    {
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        {
+            UIApplication uiApp = commandData.Application;
+            UIDocument uiDoc = uiApp.ActiveUIDocument;
+            Document doc = uiDoc.Document;
+
+            try
+            {
+                using (Transaction tx = new Transaction(doc, "{{TX_NAME}}"))
+                {
+                    tx.Start();
+
+                    // TODO: implement command logic here
+
+                    tx.Commit();
+                }
+                return Result.Succeeded;
+            }
+            catch (Autodesk.Revit.Exceptions.OperationCanceledException)
+            {
+                return Result.Cancelled;
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+                return Result.Failed;
+            }
+        }
+    }
+}

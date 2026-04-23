@@ -1,0 +1,13 @@
+﻿<Window x:Class="CreateTextAnnotationsForHangerHeight.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CreateTextAnnotationsForHangerHeight"
+             mc:Ignorable="d" Height="400" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Title="选择要标注吊架横杆标高">
+    <Grid>
+        <Button Content="横杆底部标高" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Center" Height="40" Width="80" Click="Button_Click"/>
+        <Button Content="横杆顶部标高" HorizontalAlignment="Right" Margin="0,0,130,0" VerticalAlignment="Center" Height="40" Width="80" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>

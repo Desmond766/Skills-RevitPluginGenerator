@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Name>{{COMMAND_NAME}}</Name>
+    <Assembly>{{ASSEMBLY_PATH}}</Assembly>
+    <AddInId>{{GUID}}</AddInId>
+    <FullClassName>{{NAMESPACE}}.{{CLASS_NAME}}</FullClassName>
+    <VendorId>{{VENDOR_ID}}</VendorId>
+    <VendorDescription>{{VENDOR_DESC}}</VendorDescription>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+  </AddIn>
+</RevitAddIns>
