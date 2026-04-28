@@ -5,23 +5,23 @@
 .DESCRIPTION
     Run this once after cloning the repo. It:
       1. Verifies Revit 2024 is installed and a C# builder is available.
-      2. Locates RevitAPI.chm (from the Revit SDK or prompts you).
-      3. Decompiles the CHM into HTML (~3 min, ~420 MB on disk, gitignored).
-      4. Builds the structured symbol index + markdown sidecars (~3 min, ~30 MB, gitignored).
-      5. Builds the existingCodes\INDEX.md catalog (~3 sec).
+      2. Verifies the packaged Revit API index is present.
+      3. Verifies the packaged scaffold sample index is present.
+
+    Maintainers can pass -Force (and optionally -ChmPath) to refresh the
+    packaged API and scaffold indexes from RevitAPI.chm and existingCodes/.
 
     Safe to re-run: each step skips if its output already exists unless -Force.
 
 .PARAMETER ChmPath
-    Explicit path to RevitAPI.chm. If omitted, setup checks the skill folder
-    and then common SDK install locations.
+    Maintainer-only explicit path to RevitAPI.chm. Normal users do not need it
+    when the packaged API index is present.
 
 .PARAMETER Force
-    Re-run all generation steps, overwriting existing output.
+    Re-run generation steps, overwriting existing packaged outputs.
 
 .PARAMETER SkipApiIndex
-    Skip the CHM decompile + symbol index build (useful if you only want
-    existingCodes\INDEX.md rebuilt).
+    Skip packaged API index verification/refresh.
 
 .EXAMPLE
     # Default: detect everything, run all steps that need running.
@@ -45,7 +45,7 @@ $docsDir    = Join-Path $skillDir 'docs'
 $htmlDir    = Join-Path $docsDir 'html'
 $jsonl      = Join-Path $docsDir 'symbols.jsonl'
 $existing   = Join-Path $repoRoot 'existingCodes'
-$indexFile  = Join-Path $existing 'INDEX.md'
+$indexFile  = Join-Path $repoRoot '.cursor\skills\revit-addin-scaffold\samples-index\INDEX.md'
 $builtInChm = Join-Path $skillDir 'RevitAPI.chm'
 
 function Write-Step   ([string]$m) { Write-Host "==> $m" -ForegroundColor Cyan }
@@ -90,9 +90,14 @@ if ($rg) {
 }
 
 # ---------------------------------------------------------------------------
-# 2. Locate RevitAPI.chm
+# 2. Verify packaged API index, or refresh it from RevitAPI.chm as maintainer
 # ---------------------------------------------------------------------------
 if (-not $SkipApiIndex) {
+    $apiIndexReady = (Test-Path $jsonl) -and ((Get-Item $jsonl).Length -gt 1MB)
+    if ($apiIndexReady -and -not $Force) {
+        Write-Step 'Checking packaged Revit API index'
+        Write-Ok "Packaged symbol index present ($([math]::Round((Get-Item $jsonl).Length / 1MB, 1)) MB). No CHM download/setup needed."
+    } else {
     Write-Step 'Locating RevitAPI.chm'
 
     $chm = $null
@@ -121,7 +126,7 @@ if (-not $SkipApiIndex) {
     }
 
     # -----------------------------------------------------------------------
-    # 3. Decompile CHM -> HTML
+    # 3. Decompile CHM -> HTML (maintainer refresh only)
     # -----------------------------------------------------------------------
     Write-Step 'Step 1/3: decompile CHM -> HTML'
     $needDecompile = $Force -or -not (Test-Path $htmlDir) -or `
@@ -135,7 +140,7 @@ if (-not $SkipApiIndex) {
     }
 
     # -----------------------------------------------------------------------
-    # 4. Build symbol index + md sidecars
+    # 4. Build symbol index + md sidecars (packaged output)
     # -----------------------------------------------------------------------
     Write-Step 'Step 2/3: build symbol index (JSONL + markdown sidecars)'
     $needIndex = $Force -or -not (Test-Path $jsonl) -or ((Get-Item $jsonl).Length -lt 1MB)
@@ -147,16 +152,21 @@ if (-not $SkipApiIndex) {
     } else {
         Write-Ok "Symbol index already present ($([math]::Round((Get-Item $jsonl).Length / 1MB, 1)) MB); skip. Use -Force to rebuild."
     }
+    }
 } else {
-    Write-Warn2 'Skipping API index (--SkipApiIndex). API-lookup skill will not work until this is run.'
+    Write-Warn2 'Skipping packaged API index check (--SkipApiIndex).'
 }
 
 # ---------------------------------------------------------------------------
-# 5. Build existingCodes catalog
+# 5. Verify or build packaged scaffold sample catalog
 # ---------------------------------------------------------------------------
-Write-Step 'Step 3/3: build existingCodes\INDEX.md'
-if (-not (Test-Path $existing)) {
-    Write-Warn2 "No existingCodes\ directory found; skip. (That folder is where the scaffold skill looks for reference plug-ins.)"
+Write-Step 'Checking packaged scaffold sample index'
+if ((Test-Path $indexFile) -and -not $Force) {
+    $entries = (Select-String -Path $indexFile -Pattern '^### ' -AllMatches | Measure-Object).Count
+    Write-Ok "Packaged samples index present with $entries entries. No existingCodes\ directory needed."
+} elseif (-not (Test-Path $existing)) {
+    Write-Warn2 "No existingCodes\ directory found; cannot refresh packaged samples index."
+    Write-Warn2 "Normal users can ignore this if $indexFile already exists."
 } else {
     & powershell -ExecutionPolicy Bypass -File (Join-Path $repoRoot 'scripts\build-index.ps1')
     if ($LASTEXITCODE -ne 0) { Write-Fail 'build-index failed.'; exit $LASTEXITCODE }

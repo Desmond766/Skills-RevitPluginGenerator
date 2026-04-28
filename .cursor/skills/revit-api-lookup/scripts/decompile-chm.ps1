@@ -1,6 +1,7 @@
 <#
 .SYNOPSIS
-    One-time decompile of RevitAPI.chm into ./docs for grep-based lookup.
+    Maintainer-only decompile of RevitAPI.chm into ./docs/html for rebuilding
+    the packaged API symbol index.
 
 .DESCRIPTION
     Uses Windows built-in hh.exe -decompile to extract HTML from the CHM.

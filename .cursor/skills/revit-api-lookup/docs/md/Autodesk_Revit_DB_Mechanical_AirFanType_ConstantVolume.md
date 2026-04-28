@@ -1,0 +1,8 @@
+﻿---
+kind: enumMember
+id: F:Autodesk.Revit.DB.Mechanical.AirFanType.ConstantVolume
+enum: Autodesk.Revit.DB.Mechanical.AirFanType
+source: html/11ab7406-948d-6685-1523-549e4cbef3ff.htm
+---
+# Autodesk.Revit.DB.Mechanical.AirFanType.ConstantVolume
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Name>Generate Pipe Array</Name>
+    <Text>Generate Pipe Array</Text>
+    <Description>Creates a linear array of pipes along the Y-axis from DN25 to DN200, each 10 m long along the X-axis.</Description>
+    <Assembly>PipeArrayGenerator.dll</Assembly>
+    <AddInId>79a39da2-df36-44a6-992a-08058b4d6260</AddInId>
+    <FullClassName>PipeArrayGenerator.Command</FullClassName>
+    <VendorId>LOCAL</VendorId>
+    <VendorDescription>Local test build</VendorDescription>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+  </AddIn>
+</RevitAddIns>

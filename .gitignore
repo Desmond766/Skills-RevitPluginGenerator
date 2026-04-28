@@ -1,8 +1,15 @@
-# Decompiled Revit API docs — large, regenerable via setup.ps1
-.cursor/skills/revit-api-lookup/docs/
+# Revit API source docs — do not redistribute Autodesk CHM/raw HTML
 .cursor/skills/revit-api-lookup/*.chm
+.cursor/skills/revit-api-lookup/docs/*
 
-# existingCodes catalog — regenerated per machine by scripts/build-index.ps1
+# Keep the lightweight API lookup index in the skill so users do not need CHM setup.
+!.cursor/skills/revit-api-lookup/docs/
+!.cursor/skills/revit-api-lookup/docs/symbols.jsonl
+!.cursor/skills/revit-api-lookup/docs/md/
+!.cursor/skills/revit-api-lookup/docs/md/**
+
+# Keep the scaffold reference catalog in the skill. The original existingCodes/
+# tree is optional maintainer input, not required for normal users.
 existingCodes/INDEX.md
 
 # .NET build output

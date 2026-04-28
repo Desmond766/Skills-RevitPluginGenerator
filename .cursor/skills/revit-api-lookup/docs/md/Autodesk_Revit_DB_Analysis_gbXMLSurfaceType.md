@@ -1,0 +1,15 @@
+﻿---
+kind: type
+id: T:Autodesk.Revit.DB.Analysis.gbXMLSurfaceType
+source: html/e98d60e1-4ca1-59ff-09d0-2b3b8ec0e898.htm
+---
+# Autodesk.Revit.DB.Analysis.gbXMLSurfaceType
+
+This enumeration corresponds to the surfaceType attribute in gbXML
+ and identifies the type of surface defined.
+
+## Syntax (C#)
+```csharp
+public enum gbXMLSurfaceType
+```
+

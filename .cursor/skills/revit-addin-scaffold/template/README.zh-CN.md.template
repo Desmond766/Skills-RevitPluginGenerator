@@ -1,0 +1,57 @@
+# {{COMMAND_NAME}} 插件技术说明
+
+## 插件功能
+
+`{{ASSEMBLY_NAME}}` 是一个面向 Revit 2024 的 C# 外部命令插件。它用于：
+
+- {{FUNCTION_SUMMARY}}
+- {{TARGET_ELEMENTS}}
+- {{EXPECTED_RESULT}}
+
+## 适用环境
+
+- Revit 版本：Autodesk Revit 2024
+- .NET 版本：.NET Framework 4.8
+- 平台：x64
+- 程序集：`{{ASSEMBLY_NAME}}.dll`
+- Add-in 清单：`{{ASSEMBLY_NAME}}.addin`
+
+## 使用说明
+
+1. 构建并部署插件后，启动或重启 Revit 2024。
+2. 打开需要处理的 Revit 项目文件。
+3. {{PRECONDITION}}
+4. 在 Revit 中运行 `{{COMMAND_NAME}}` 命令。
+5. 根据提示完成操作，并检查处理结果。
+
+## 代码结构
+
+- `{{ASSEMBLY_NAME}}.csproj`：Revit 2024 / .NET Framework 4.8 项目文件，引用 `RevitAPI.dll` 和 `RevitAPIUI.dll`。
+- `{{ASSEMBLY_NAME}}.addin`：Revit add-in 清单，注册外部命令和程序集路径。
+- `{{CLASS_NAME}}.cs`：插件入口命令，包含 `IExternalCommand.Execute()` 实现。
+- `App.cs`：仅在插件包含 Ribbon 面板或启动逻辑时使用。
+
+## 实现方式
+
+插件通过 `IExternalCommand` 接入 Revit。命令执行时从 `ExternalCommandData` 获取 `UIApplication`、`UIDocument` 和 `Document`，再根据插件目标读取当前选择或使用 `FilteredElementCollector` 收集元素。
+
+涉及模型修改的逻辑必须放在 `Transaction` 中执行，确保 Revit 可以正确提交、撤销或回滚更改。只读分析类操作不应开启不必要的事务。
+
+关键实现点：
+
+- {{IMPLEMENTATION_POINT_1}}
+- {{IMPLEMENTATION_POINT_2}}
+- {{IMPLEMENTATION_POINT_3}}
+
+主要 Revit API：
+
+- {{REVIT_API_1}}
+- {{REVIT_API_2}}
+- {{REVIT_API_3}}
+
+## 注意事项
+
+- 插件仅面向 Revit 2024，不能直接用于 .NET 6/8 或 AnyCPU 项目。
+- 不要将 `RevitAPI.dll` / `RevitAPIUI.dll` 复制到输出目录，运行时由 Revit 提供。
+- {{LIMITATION_1}}
+- {{LIMITATION_2}}

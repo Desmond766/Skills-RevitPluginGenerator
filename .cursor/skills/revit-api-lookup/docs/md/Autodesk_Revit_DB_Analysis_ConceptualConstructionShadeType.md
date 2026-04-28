@@ -1,0 +1,14 @@
+﻿---
+kind: type
+id: T:Autodesk.Revit.DB.Analysis.ConceptualConstructionShadeType
+source: html/83f85da2-200e-1a3f-f879-9778de9ff548.htm
+---
+# Autodesk.Revit.DB.Analysis.ConceptualConstructionShadeType
+
+ConceptualConstructionType values for Shades.
+
+## Syntax (C#)
+```csharp
+public enum ConceptualConstructionShadeType
+```
+

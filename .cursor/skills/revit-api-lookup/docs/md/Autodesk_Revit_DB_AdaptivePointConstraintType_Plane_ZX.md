@@ -1,0 +1,10 @@
+﻿---
+kind: enumMember
+id: F:Autodesk.Revit.DB.AdaptivePointConstraintType.Plane_ZX
+enum: Autodesk.Revit.DB.AdaptivePointConstraintType
+source: html/9aa479aa-36be-bf1b-7570-026afcd4d02e.htm
+---
+# Autodesk.Revit.DB.AdaptivePointConstraintType.Plane_ZX
+
+Constrained to the ZX Plane (y=0).
+

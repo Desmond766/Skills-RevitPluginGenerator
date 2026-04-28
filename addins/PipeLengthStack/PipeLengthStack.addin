@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Name>水管按长度并排挤布(10cm)</Name>
+    <Assembly>__ASSEMBLY__</Assembly>
+    <AddInId>32bec681-9951-40d4-8676-0ff7aa4deabf</AddInId>
+    <FullClassName>RevitAddins.PipeLengthStack.PipeLengthSortCommand</FullClassName>
+    <VendorId>RVTS</VendorId>
+    <VendorDescription>RevitSkills</VendorDescription>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+  </AddIn>
+</RevitAddIns>

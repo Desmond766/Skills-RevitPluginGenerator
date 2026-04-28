@@ -11,14 +11,14 @@ Three composable Cursor skills under `.cursor/skills/`:
 | Skill | Job |
 |---|---|
 | [`revit-addin-scaffold`](.cursor/skills/revit-addin-scaffold/SKILL.md) | Generate a new `.csproj` + `.addin` + `IExternalCommand` / `IExternalApplication` from a plain-English request. |
-| [`revit-api-lookup`](.cursor/skills/revit-api-lookup/SKILL.md) | Look up API signatures, enums, and usage via a structured symbol index (12 MB JSONL + 36K clean markdown sidecars) built once from `RevitAPI.chm`. Fulltext fallback for prose queries. |
+| [`revit-api-lookup`](.cursor/skills/revit-api-lookup/SKILL.md) | Look up API signatures, enums, and usage via the packaged structured symbol index (`symbols.jsonl` + clean markdown sidecars). No user-side CHM download required. |
 | [`revit-addin-build-deploy`](.cursor/skills/revit-addin-build-deploy/SKILL.md) | MSBuild the project and copy the DLL + rewritten `.addin` into `%AppData%\Autodesk\Revit\Addins\2024\`. |
 
-Plus two project-level setup scripts in [`scripts/`](scripts) and a single-entry orchestrator at the repo root:
+Plus two maintainer scripts in [`scripts/`](scripts) and a single-entry setup/check script at the repo root:
 
-- [`setup.ps1`](setup.ps1) — one-shot onboarding: prereq check + run all setup scripts below.
-- [`scripts/build-index.ps1`](scripts/build-index.ps1) — mines `existingCodes/` into `INDEX.md`, the catalog the scaffold skill greps before generating code.
-- [`scripts/build-api-index.ps1`](scripts/build-api-index.ps1) — turns the decompiled `RevitAPI.chm` into a structured JSONL symbol index + per-symbol markdown sidecars for the lookup skill.
+- [`setup.ps1`](setup.ps1) — onboarding check: verifies prerequisites and packaged indexes.
+- [`scripts/build-index.ps1`](scripts/build-index.ps1) — maintainer tool that mines `existingCodes/` into the packaged scaffold `samples-index/`.
+- [`scripts/build-api-index.ps1`](scripts/build-api-index.ps1) — maintainer tool that turns decompiled `RevitAPI.chm` into the packaged API symbol index + sidecars.
 
 The agent picks the right skill from its description — you don't invoke them manually.
 
@@ -26,7 +26,7 @@ The agent picks the right skill from its description — you don't invoke them m
 
 ## Onboarding for a new colleague
 
-Three steps. Takes ~10 minutes the first time, most of which is idle CHM decompilation.
+Three steps. Normal users do not download Revit API docs or the original existing-code library.
 
 ### 1. Prerequisites
 
@@ -35,7 +35,6 @@ Install once on each developer machine:
 | Tool | Why | Install link |
 |---|---|---|
 | Revit 2024 | Provides `RevitAPI.dll` / `RevitAPIUI.dll` for the build | (normal Revit install) |
-| Revit 2024 SDK | Ships `RevitAPI.chm` — the API docs source of truth | [Autodesk developer portal](https://www.autodesk.com/developer-network/platform-technologies/revit) |
 | .NET SDK 6.0+ **or** VS Build Tools | Compiles the add-ins (the repo's `deploy-addin.ps1` picks whichever is on PATH) | [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download) |
 | Cursor (or VS Code) | Runs the skills; also ships the `ripgrep` binary the skills use | [cursor.com](https://cursor.com/) |
 | Git | Clones and pulls updates | [git-scm.com](https://git-scm.com/) |
@@ -51,12 +50,10 @@ cd RevitSkills
 `setup.ps1` will:
 
 1. Check Revit 2024, a builder (msbuild or dotnet), and ripgrep.
-2. Find `RevitAPI.chm` in the Revit SDK (or accept a `-ChmPath` override).
-3. Decompile the CHM into HTML (~3 min).
-4. Build the symbol index + markdown sidecars (~3 min).
-5. Build `existingCodes/INDEX.md` (~3 sec).
+2. Verify the packaged Revit API symbol index is present.
+3. Verify the packaged scaffold sample index is present.
 
-Safe to re-run — each step skips if its output already exists. Pass `-Force` to rebuild everything.
+Safe to re-run. Maintainers can pass `-Force` (and optionally `-ChmPath`) to rebuild packaged indexes from their local `RevitAPI.chm` and `existingCodes/` source tree.
 
 If Revit is installed somewhere other than `C:\Program Files\Autodesk\Revit 2024\`, set this once in your PowerShell profile before building any add-in:
 
@@ -106,33 +103,41 @@ cd RevitSkills
 
 Pros: versioned, reviewable, `git pull` brings new skill updates. You can branch/PR changes to skill prompts the same way as code.
 
-What travels: everything under source control. What's `.gitignore`d and regenerated locally:
+What travels: everything ordinary users need for lookup/scaffold/build. What's `.gitignore`d:
 
-- `.cursor/skills/revit-api-lookup/docs/` (decompiled HTML + 36K md sidecars + `symbols.jsonl`) — ~450 MB, all regenerable from the CHM
-- `.cursor/skills/revit-api-lookup/*.chm` — each colleague gets their own from their local SDK install
-- `existingCodes/INDEX.md` — regenerated from the `existingCodes/` folder on each machine
+- `.cursor/skills/revit-api-lookup/docs/html/` — raw decompiled HTML, maintainer-only and regenerable from CHM
+- `.cursor/skills/revit-api-lookup/*.chm` — Autodesk IP, never redistribute
+- `existingCodes/INDEX.md` — legacy local output; the packaged catalog lives under `.cursor/skills/revit-addin-scaffold/samples-index/`
 - `bin/`, `obj/`, any `*.user`, `*.suo`, `.vs/`
+
+Committed with the skills:
+
+- `.cursor/skills/revit-api-lookup/docs/symbols.jsonl`
+- `.cursor/skills/revit-api-lookup/docs/md/**`
+- `.cursor/skills/revit-addin-scaffold/samples-index/INDEX.md`
+- `.cursor/skills/revit-addin-scaffold/samples-index/snippets/**`
 
 ### Option B — Zip file (simplest, no git required)
 
-Zip the repo, skipping the big generated folders:
+Zip the repo, keeping `.cursor/skills/**` so the packaged indexes travel with it:
 
 ```powershell
 Compress-Archive -Path `
-    .\.cursor, .\scripts, .\existingCodes, .\setup.ps1, .\README.md, .\.gitignore `
+    .\.cursor, .\scripts, .\setup.ps1, .\README.md, .\.gitignore `
     -DestinationPath .\RevitSkills.zip
 ```
 
-Email / share the zip. Colleagues unzip and run `.\setup.ps1`. Downside: no painless update path — you redistribute a new zip each time.
+Email / share the zip. Colleagues unzip and run `.\setup.ps1` to verify prerequisites. Downside: no painless update path — you redistribute a new zip each time.
 
 ### Option C — Shared network drive
 
-Point the team at `\\fileserver\tools\RevitSkills\`. Each user `robocopy`s it locally first (the skill scripts write to `docs/`, which needs to be machine-local), then runs `setup.ps1`. Works but less clean than git; no history.
+Point the team at `\\fileserver\tools\RevitSkills\`. Each user `robocopy`s it locally first, then runs `setup.ps1`. Works but less clean than git; no history.
 
 ### What you should **not** redistribute in any scenario
 
-- `RevitAPI.chm` itself — Autodesk IP. Each colleague already has it via their own Revit SDK install, and `setup.ps1` finds it.
-- Anything under `existingCodes/` that's 3rd-party code you don't own the license to — audit that folder before opening the repo outside your team.
+- `RevitAPI.chm` itself — Autodesk IP. Only maintainers need it when refreshing the packaged API index.
+- Raw `docs/html/` output from CHM decompilation.
+- Full `existingCodes/` trees that include third-party or private source you do not want to redistribute. The packaged `samples-index/` is the normal-user reference surface.
 
 ---
 
@@ -143,21 +148,20 @@ Point the team at `\\fileserver\tools\RevitSkills\`. Each user `robocopy`s it lo
 - *"What's the Revit API method for getting a wall's base offset?"* *(triggers the lookup skill alone)*
 - *"Deploy the `WallRenamer` add-in to Revit."* *(triggers the build/deploy skill alone)*
 
-Existing projects under `existingCodes/` target Revit 2020/2018; the scaffold skill upgrades API references to Revit 2024 when porting code (see [scaffold SKILL.md](.cursor/skills/revit-addin-scaffold/SKILL.md) → *Revit version migration*).
+The packaged sample index was generated from existing projects that may target Revit 2020/2018; the scaffold skill upgrades API references to Revit 2024 when porting patterns (see [scaffold SKILL.md](.cursor/skills/revit-addin-scaffold/SKILL.md) → *Revit version migration*).
 
 ## Layout
 
 ```
 d:\Codes\RevitSkills\
 ├── .cursor/skills/
-│   ├── revit-addin-scaffold/      SKILL.md + template/ + patterns.md
-│   ├── revit-api-lookup/          SKILL.md + scripts/ + cheatsheet.md + docs/ (generated, gitignored)
+│   ├── revit-addin-scaffold/      SKILL.md + template/ + patterns.md + samples-index/
+│   ├── revit-api-lookup/          SKILL.md + scripts/ + cheatsheet.md + docs/ (packaged index)
 │   └── revit-addin-build-deploy/  SKILL.md + scripts/deploy-addin.ps1
 ├── scripts/
-│   ├── build-index.ps1            mines existingCodes/ -> INDEX.md
+│   ├── build-index.ps1            mines existingCodes/ -> scaffold samples-index
 │   └── build-api-index.ps1        preprocesses RevitAPI docs -> symbols.jsonl + md sidecars
-├── existingCodes/                 your ~200 existing plug-ins (reference material)
-│   └── INDEX.md                   generated catalog, agent greps this first (gitignored)
+├── existingCodes/                 optional maintainer-only source material
 ├── setup.ps1                      one-shot onboarding for new machines
 ├── .gitignore
 └── README.md                      this file

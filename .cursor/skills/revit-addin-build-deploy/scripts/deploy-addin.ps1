@@ -119,7 +119,8 @@ $deployedDll = Join-Path $AddinsDir $dll.Name
 $deployedAddin = Join-Path $AddinsDir $addinSrc.Name
 
 # Rewrite <Assembly> path inside the addin manifest to the deployed DLL location.
-[xml]$x = Get-Content -Raw -LiteralPath $addinSrc.FullName
+# UTF-8: manifests often use Chinese in <Name>/<Text>; default encoding would corrupt XML.
+[xml]$x = Get-Content -Raw -LiteralPath $addinSrc.FullName -Encoding UTF8
 $changed = $false
 foreach ($a in $x.SelectNodes('//AddIn')) {
     $asmNode = $a.SelectSingleNode('Assembly')

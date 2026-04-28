@@ -1,7 +1,8 @@
-<#
+﻿<#
 .SYNOPSIS
-    Search the Revit 2024 API docs. Defaults to the structured symbol index
-    (fast, precise, ~10x fewer tokens); falls back to fulltext HTML grep.
+    Search the packaged Revit 2024 API symbol index. Defaults to structured
+    symbol lookup (fast, precise, ~10x fewer tokens); optionally falls back to
+    raw HTML fulltext when a maintainer has generated local HTML docs.
 
 .DESCRIPTION
     Two modes:
@@ -11,11 +12,11 @@
        Use this for "what's the signature of X", "what does this enum value
        mean", "which methods live on this class".
 
-    2. Fulltext mode (-Fulltext): greps the raw decompiled HTML for arbitrary
-       phrase matches. Slower, noisier, but covers prose in remarks/examples
-       that isn't in the symbol index.
+    2. Fulltext mode (-Fulltext): greps raw decompiled HTML for arbitrary
+       phrase matches if docs\html exists locally. This is maintainer-only and
+       is not required for normal packaged-skill use.
 
-    Symbol mode requires scripts\build-api-index.ps1 to have been run once.
+    Symbol mode uses the packaged docs\symbols.jsonl and docs\md sidecars.
 
 .PARAMETER Query
     Positional. Symbol name or phrase to look up.
@@ -67,7 +68,9 @@ param(
     [string]$Kind = '',
     [int]$Top = 8,
     [int]$Context = 3,
-    [string]$RgPath
+    [string]$RgPath,
+    [string]$GlossaryPath,
+    [switch]$NoTranslate
 )
 
 $ErrorActionPreference = 'Stop'
@@ -78,10 +81,78 @@ $htmlDir  = Join-Path $docsDir  'html'
 $mdDir    = Join-Path $docsDir  'md'
 $jsonl    = Join-Path $docsDir  'symbols.jsonl'
 
+# Default glossary lives alongside the three skills (parent of this skill folder).
+if (-not $GlossaryPath) {
+    $skillsRoot = Split-Path -Parent $skillDir
+    $GlossaryPath = Join-Path $skillsRoot 'glossary.zh-en.md'
+}
+
 if (-not (Test-Path $docsDir)) {
-    Write-Error "Docs not found at $docsDir. Run scripts\decompile-chm.ps1 first."
+    Write-Error "Packaged API index not found at $docsDir. Restore docs\symbols.jsonl and docs\md, or rebuild them from RevitAPI.chm as a maintainer."
     exit 1
 }
+
+# ----------- bilingual query expansion -----------
+function Load-ZhEnGlossary {
+    param([string]$Path)
+    if (-not $Path -or -not (Test-Path $Path)) { return @() }
+    $text = [System.IO.File]::ReadAllText((Resolve-Path $Path).Path, [System.Text.UTF8Encoding]::new($false))
+    $rows = New-Object System.Collections.Generic.List[object]
+    foreach ($line in ($text -split "`r?`n")) {
+        if ($line -notmatch '^\s*\|') { continue }
+        $m = [regex]::Match($line, '^\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*$')
+        if (-not $m.Success) { continue }
+        $en  = $m.Groups[1].Value.Trim()
+        $zh  = $m.Groups[2].Value.Trim()
+        $api = $m.Groups[3].Value.Trim()
+        if ($en -ieq 'en' -or $en -match '^:?-+:?$') { continue }
+        # Split on , 、 ; but NOT '/' so "n/a" stays atomic (otherwise "n/a"
+        # becomes ["n", "a"], which both match every English word).
+        $split = {
+            param($c)
+            if (-not $c -or $c.Trim() -ieq 'n/a') { return @() }
+            ($c -split '[,、;]') | ForEach-Object { $_.Trim() } |
+                Where-Object { $_ -and $_ -ine 'n/a' }
+        }
+        $enArr  = @(& $split $en)
+        $zhArr  = @(& $split $zh)
+        $apiArr = @(& $split $api)
+        # Defence in depth: drop single-char EN/API tokens; keep all CJK.
+        $enArr  = @($enArr  | Where-Object { $_.Length -ge 2 })
+        $apiArr = @($apiArr | Where-Object { $_.Length -ge 2 })
+        $rows.Add([pscustomobject]@{
+            En  = $enArr
+            Zh  = $zhArr
+            Api = $apiArr
+        })
+    }
+    return $rows
+}
+
+# For a query containing CJK, return the set of English / API symbol alternatives
+# to try. The original query is always included so we never lose a match.
+function Expand-QueryAlternatives {
+    param(
+        [string]$Query,
+        [array]$Glossary
+    )
+    $alts = New-Object System.Collections.Generic.List[string]
+    if ($Query) { $alts.Add($Query) }
+    if (-not $Query -or -not $Glossary -or $Glossary.Count -eq 0) { return @($alts) }
+    $hasCjk = [regex]::IsMatch($Query, '\p{IsCJKUnifiedIdeographs}')
+    if (-not $hasCjk) { return @($alts) }
+    foreach ($g in $Glossary) {
+        $hit = $false
+        foreach ($t in $g.Zh) { if ($t -and $Query.Contains($t)) { $hit = $true; break } }
+        if (-not $hit) { continue }
+        # Prefer API identifiers first (more precise), then bare English terms.
+        foreach ($t in $g.Api) { if ($t) { [void]$alts.Add($t) } }
+        foreach ($t in $g.En)  { if ($t) { [void]$alts.Add($t) } }
+    }
+    return @($alts | Select-Object -Unique)
+}
+
+$glossary = if ($NoTranslate) { @() } else { Load-ZhEnGlossary -Path $GlossaryPath }
 
 function Find-Rg {
     param([string]$Explicit)
@@ -117,7 +188,8 @@ function Invoke-SymbolMode {
     if (-not (Test-Path $jsonl)) {
         Write-Error @"
 symbols.jsonl not found at $jsonl.
-Run: powershell -ExecutionPolicy Bypass -File scripts\build-api-index.ps1
+Restore the packaged index, or rebuild it as a maintainer:
+  powershell -ExecutionPolicy Bypass -File scripts\build-api-index.ps1
 "@
         exit 1
     }
@@ -127,10 +199,23 @@ Run: powershell -ExecutionPolicy Bypass -File scripts\build-api-index.ps1
         exit 1
     }
 
+    # Bilingual expansion: if $Query contains CJK, translate to English/API
+    # symbol alternatives via the glossary. Matches are unioned across all alts
+    # AND against the record's own "zh":"..." field (written by
+    # build-api-index.ps1 for records whose name/parent maps to Chinese).
+    $alternatives = Expand-QueryAlternatives -Query $Query -Glossary $glossary
+    $queryIsCjk = $Query -and [regex]::IsMatch($Query, '\p{IsCJKUnifiedIdeographs}')
+    if ($queryIsCjk -and $alternatives.Count -gt 1) {
+        Write-Host ("CJK query '$Query' -> trying alternatives: " + (($alternatives | Select-Object -Skip 1) -join ', ')) -ForegroundColor DarkGray
+    }
+    $nameRegexes = @()
+    foreach ($alt in $alternatives) {
+        if ($alt) { $nameRegexes += [regex]::new([regex]::Escape($alt), 'IgnoreCase') }
+    }
+
     # Stream + filter in PowerShell. Faster than shelling out to rg for this
     # use case, and avoids the PowerShell/rg nested-quote escaping nightmare.
     $candidates = [System.Collections.Generic.List[object]]::new()
-    $nameRx = if ($Query) { [regex]::new([regex]::Escape($Query), 'IgnoreCase') } else { $null }
 
     # Stream the jsonl line-by-line.
     $reader = [System.IO.StreamReader]::new($jsonl)
@@ -142,10 +227,20 @@ Run: powershell -ExecutionPolicy Bypass -File scripts\build-api-index.ps1
             if ($Parent -and $line -notmatch ('"parent":"' + [regex]::Escape($Parent) + '"')) { continue }
             if ($Kind   -and $line -notmatch ('"kind":"'   + [regex]::Escape($Kind)   + '"')) { continue }
 
-            if ($nameRx) {
+            if ($Query) {
                 $nameMatch = [regex]::Match($line, '"name":"([^"]+)"')
                 if (-not $nameMatch.Success) { continue }
-                if (-not $nameRx.IsMatch($nameMatch.Groups[1].Value)) { continue }
+                $name = $nameMatch.Groups[1].Value
+                $hit = $false
+                foreach ($rx in $nameRegexes) {
+                    if ($rx.IsMatch($name)) { $hit = $true; break }
+                }
+                # For CJK queries, also match the record's own "zh" field.
+                if (-not $hit -and $queryIsCjk) {
+                    $zhMatch = [regex]::Match($line, '"zh":"([^"]+)"')
+                    if ($zhMatch.Success -and $zhMatch.Groups[1].Value.Contains($Query)) { $hit = $true }
+                }
+                if (-not $hit) { continue }
             }
 
             $candidates.Add($line)
@@ -159,19 +254,30 @@ Run: powershell -ExecutionPolicy Bypass -File scripts\build-api-index.ps1
         if ($Parent) { $filter += "parent=$Parent" }
         if ($Kind)   { $filter += "kind=$Kind" }
         Write-Host "No symbols found for: $($filter -join ', ')" -ForegroundColor Yellow
+        if ($queryIsCjk) {
+            Write-Host "Query was CJK; tried alternatives: $($alternatives -join ', ')" -ForegroundColor DarkYellow
+            Write-Host "If the term should map to a Revit API symbol, add a row to:" -ForegroundColor DarkYellow
+            Write-Host "  $GlossaryPath" -ForegroundColor DarkYellow
+        }
         return
     }
 
-    # Rank: exact name match first, then startswith, then substring, then shortest name.
+    # Rank: exact name match first (against any alternative), then startswith,
+    # then substring, then shortest name.
+    $primary = if ($alternatives.Count -gt 0) { $alternatives[0] } else { $Query }
+    # Prefer scoring against the first English alternative when the original is CJK,
+    # since the JSONL "name" field is always English.
+    $scoreKey = if ($queryIsCjk -and $alternatives.Count -gt 1) { $alternatives[1] } else { $primary }
+
     $ranked = @($candidates | ForEach-Object {
         $l = $_
         $n = ''
         if ($l -match '"name":"([^"]+)"') { $n = $Matches[1] }
         $score = 100
-        if ($Query) {
-            if ($n -ieq $Query)         { $score = 0 }
-            elseif ($n -ilike "$Query*") { $score = 1 }
-            elseif ($n -imatch [regex]::Escape($Query)) { $score = 2 }
+        if ($scoreKey) {
+            if ($n -ieq $scoreKey)               { $score = 0 }
+            elseif ($n -ilike "$scoreKey*")      { $score = 1 }
+            elseif ($n -imatch [regex]::Escape($scoreKey)) { $score = 2 }
         }
         [pscustomobject]@{ Line = $l; Name = $n; Score = $score; Len = $n.Length }
     } | Sort-Object Score, Len, Name | Select-Object -First $Top)
@@ -226,7 +332,7 @@ function Strip-Chrome {
 
 function Invoke-FulltextMode {
     if (-not (Test-Path $htmlDir)) {
-        Write-Error "HTML dir missing at $htmlDir."
+        Write-Error "HTML dir missing at $htmlDir. Fulltext mode is optional and requires maintainer-generated raw HTML from RevitAPI.chm. Use symbol mode for normal packaged-skill lookup."
         exit 1
     }
     if (-not $Query) { Write-Error "Provide -Query for fulltext mode."; exit 1 }

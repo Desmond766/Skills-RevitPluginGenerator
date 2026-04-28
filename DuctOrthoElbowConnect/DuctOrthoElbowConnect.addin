@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Name>风管 X 向 Y 向弯头连接</Name>
+    <Text>风管 X 向 Y 向弯头连接</Text>
+    <Description>Rigid ducts: first pick duct mainly along global X, second along global Y; extend to intersection and place elbow.</Description>
+    <Assembly>DuctOrthoElbowConnect.dll</Assembly>
+    <AddInId>e8a5dae2-3a10-4e27-b57d-7723acd80134</AddInId>
+    <FullClassName>RevitAddins.DuctOrthoElbowConnect.Command</FullClassName>
+    <VendorId>LOCAL</VendorId>
+    <VendorDescription>RevitSkills local build</VendorDescription>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+  </AddIn>
+</RevitAddIns>

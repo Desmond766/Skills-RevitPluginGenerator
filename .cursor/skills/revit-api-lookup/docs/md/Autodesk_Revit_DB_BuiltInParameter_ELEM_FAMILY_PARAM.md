@@ -1,0 +1,13 @@
+﻿---
+kind: enumMember
+id: F:Autodesk.Revit.DB.BuiltInParameter.ELEM_FAMILY_PARAM
+enum: Autodesk.Revit.DB.BuiltInParameter
+zh: 族名称
+source: html/fb011c91-be7e-f737-28c7-3f1e1917a0e0.htm
+---
+# Autodesk.Revit.DB.BuiltInParameter.ELEM_FAMILY_PARAM
+
+**中文**: 族名称
+
+"Family"
+

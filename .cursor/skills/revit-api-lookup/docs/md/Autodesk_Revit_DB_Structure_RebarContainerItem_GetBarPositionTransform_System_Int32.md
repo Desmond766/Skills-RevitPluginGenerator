@@ -1,0 +1,32 @@
+﻿---
+kind: method
+id: M:Autodesk.Revit.DB.Structure.RebarContainerItem.GetBarPositionTransform(System.Int32)
+source: html/b04c00e0-b32c-428e-0217-65a0958a6308.htm
+---
+# Autodesk.Revit.DB.Structure.RebarContainerItem.GetBarPositionTransform Method
+
+Return a transform representing the relative position of any
+ individual bar in the set.
+
+## Syntax (C#)
+```csharp
+public Transform GetBarPositionTransform(
+	int barPositionIndex
+)
+```
+
+## Parameters
+- **barPositionIndex** (`System.Int32`) - An index between 0 and (NumberOfBarPositions-1).
+
+## Returns
+The position of a bar in the set relative to the first position.
+
+## Remarks
+The transform is a translation along the distribution path.
+ It can be applied to the results of GetCenterlineCurves() to
+ produce any bar in the rebar set. For barPositionIndex=0,
+ the identity transform is always returned.
+
+## Exceptions
+- **Autodesk.Revit.Exceptions.ArgumentOutOfRangeException** - barPositionIndex is not in the range [ 0, NumberOfBarPositions-1 ].
+

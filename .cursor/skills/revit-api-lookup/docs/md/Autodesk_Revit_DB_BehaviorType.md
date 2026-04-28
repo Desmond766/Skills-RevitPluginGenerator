@@ -1,0 +1,14 @@
+﻿---
+kind: type
+id: T:Autodesk.Revit.DB.BehaviorType
+source: html/48ef9278-5352-63e9-f556-d0abd4c31b48.htm
+---
+# Autodesk.Revit.DB.BehaviorType
+
+An enumerated type listing all the behavior type for MEP Components.
+
+## Syntax (C#)
+```csharp
+public enum BehaviorType
+```
+

@@ -10,10 +10,18 @@ Compile an SDK-style .NET Framework 4.8 Revit add-in and drop the DLL + `.addin`
 ## When to use this skill
 
 Trigger on:
-- "Build the add-in"
-- "Deploy / install / register it in Revit"
+- "Build the add-in" / "编译这个插件" / "构建并部署"
+- "Deploy / install / register it in Revit" / "部署到 Revit" / "安装到 Revit 的 Addins 目录"
 - "Copy the addin manifest to Revit's Addins folder"
 - Any hand-off from `revit-addin-scaffold` after code is ready.
+
+## Bilingual prompt protocol
+
+This skill's inputs/outputs are file paths and exit codes, so bilingual handling is light:
+
+- Accept the above Chinese triggers as equivalent to the English ones.
+- Pass through any Chinese project paths (`existingCodes\梁涛插件源代码\...`) unmodified — `deploy-addin.ps1` and MSBuild handle UTF-8 paths fine as long as PowerShell is invoked with the default console code page.
+- When reporting status back to a Chinese-prompting user, translate the success/failure summary into Chinese. Do **not** translate tool output (MSBuild errors, file paths) — the user needs the literal strings to debug.
 
 ## Prerequisites
 

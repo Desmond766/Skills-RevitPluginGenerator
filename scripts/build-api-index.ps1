@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Build a structured symbol index and per-symbol markdown sidecars from the
     decompiled Revit API docs. One-time preprocessing that turns 420 MB of noisy
@@ -19,8 +19,7 @@
 
     Writes:
         <DocsDir>\symbols.jsonl        - one JSON object per symbol (fast grep target)
-        <DocsDir>\md\<guid>.md         - per-page markdown sidecar
-        <DocsDir>\md\<guid>__<m>.md    - per-enum-member sidecar
+        <DocsDir>\md\<HelpIdStem>.md  - markdown sidecars (stem from Microsoft.Help.Id; enum members use their `F:` member id)
 
     Typical reduction per lookup: ~10x fewer tokens and far better precision,
     because the index contains no navigation chrome.
@@ -61,6 +60,9 @@ if ((Test-Path $jsonl) -and -not $Force) {
 if (Test-Path $mdDir) { Remove-Item $mdDir -Recurse -Force }
 New-Item -ItemType Directory -Force -Path $mdDir | Out-Null
 if (Test-Path $jsonl) { Remove-Item $jsonl -Force }
+
+# Shared sidecar naming — must match rename-api-md-sidecars.ps1
+. (Join-Path $PSScriptRoot 'api-md-naming.ps1')
 
 # ----------- helpers -----------
 
@@ -405,9 +407,9 @@ try {
             default    { $title }
         }
 
-        $baseName = [System.IO.Path]::GetFileNameWithoutExtension($f.Name)
-        $mdRel    = "md/$baseName.md"
-        $mdFull   = Join-Path $mdDir "$baseName.md"
+        $stem = Get-ApiSidecarStemFromHelpId -HelpId $helpId
+        $mdRel    = "md/$stem.md"
+        $mdFull   = Join-Path $mdDir "$stem.md"
         $htmlRel  = "html/$($f.Name)"
 
         Write-MdSidecar `
@@ -454,9 +456,9 @@ try {
                     }
                     if (-not $mName) { continue }
                     $idx++
-                    $mdMemberName = "$($baseName)__$mName.md"
-                    $mdMemberRel  = "md/$mdMemberName"
-                    $mdMemberFull = Join-Path $mdDir $mdMemberName
+                    $memberStem = Get-ApiSidecarStemFromHelpId -HelpId $memberId
+                    $mdMemberRel  = "md/$memberStem.md"
+                    $mdMemberFull = Join-Path $mdDir "$memberStem.md"
 
                     $sb = [System.Text.StringBuilder]::new()
                     $null = $sb.AppendLine('---')

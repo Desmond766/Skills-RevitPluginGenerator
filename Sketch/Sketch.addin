@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Name>Sketch</Name>
+    <Text>Sketch — 框选拉伸管线</Text>
+    <Description>Crossing window on pipe/duct/cable tray; pick two reference points to stretch selected ends along axis.</Description>
+    <Assembly>Sketch.dll</Assembly>
+    <AddInId>1a6dc58a-9e67-4d67-8670-746a0bc184fc</AddInId>
+    <FullClassName>RevitAddins.Sketch.Command</FullClassName>
+    <VendorId>LOCAL</VendorId>
+    <VendorDescription>RevitSkills local build</VendorDescription>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+  </AddIn>
+</RevitAddIns>
