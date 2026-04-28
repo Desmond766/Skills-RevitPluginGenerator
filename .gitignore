@@ -1,25 +1,37 @@
-# Revit API source docs — do not redistribute Autodesk CHM/raw HTML
+# -----------------------------------------------------------------------------
+# Revit API docs (skill): strip raw CHM decompress; keep packaged index only
+# -----------------------------------------------------------------------------
 .cursor/skills/revit-api-lookup/*.chm
+
+# Drop everything under docs/ except the packaged index (see un-ignores below).
 .cursor/skills/revit-api-lookup/docs/*
 
-# Keep the lightweight API lookup index in the skill so users do not need CHM setup.
 !.cursor/skills/revit-api-lookup/docs/
 !.cursor/skills/revit-api-lookup/docs/symbols.jsonl
 !.cursor/skills/revit-api-lookup/docs/md/
 !.cursor/skills/revit-api-lookup/docs/md/**
 
-# Keep the scaffold reference catalog in the skill. The original existingCodes/
-# tree is optional maintainer input, not required for normal users.
-existingCodes/INDEX.md
+# Tooling side effects (rename / rebuild)
+.cursor/skills/revit-api-lookup/docs/symbols.jsonl.bak.*
+.cursor/skills/revit-api-lookup/docs/symbols.jsonl.new
+.cursor/skills/revit-api-lookup/docs/md/.rename-stage-*/
 
-# .NET build output
+# -----------------------------------------------------------------------------
+# Full legacy plug-in source tree — only used by maintainers to regenerate
+# samples-index. End users only need .cursor/skills/revit-addin-scaffold/samples-index/
+# -----------------------------------------------------------------------------
+existingCodes/
+
+# -----------------------------------------------------------------------------
+# IDE / build / OS
+# -----------------------------------------------------------------------------
 bin/
 obj/
 *.user
 *.suo
+*.userosscache
 .vs/
 
-# Sample binaries under existingCodes/
-existingCodes/**/bin/
-existingCodes/**/obj/
-existingCodes/**/packages/
+Thumbs.db
+Desktop.ini
+.DS_Store
