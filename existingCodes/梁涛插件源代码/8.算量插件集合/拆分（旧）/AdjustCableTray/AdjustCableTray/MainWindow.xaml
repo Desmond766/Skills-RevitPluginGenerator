@@ -1,0 +1,19 @@
+﻿<Window x:Class="AdjustCableTray.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AdjustCableTray"
+             mc:Ignorable="d" Height="112" Width="514" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="65*"/>
+        </Grid.RowDefinitions>
+        <Label Content="照明线槽中心线距行车线中心线距离：" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <TextBox x:Name="Dis_TB" HorizontalAlignment="Left" Margin="229,24,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Label Content="mm" HorizontalAlignment="Left" Margin="354,20,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Button Content="确定" HorizontalAlignment="Left" Margin="412,23,0,0" VerticalAlignment="Top" Width="60" Grid.Row="1" Click="Button_Click"/>
+
+    </Grid>
+</Window>

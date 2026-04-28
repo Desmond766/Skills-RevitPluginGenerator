@@ -1,0 +1,62 @@
+﻿<Window x:Class="WallReview.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WallReview"
+             Closing="Window_Closing"
+             mc:Ignorable="d" WindowStartupLocation="CenterScreen" Topmost="True" Title="墙复核" Width="345" Height="487">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style x:Key="dgCell" TargetType="TextBlock">
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="ColumnHeaderStyleC" TargetType="DataGridColumnHeader">
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="ToolTip" Value="Click to sort."/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <local:StringToBrushConverter x:Key="StringToBrushConverter"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.7*"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid IsReadOnly="True" Grid.Row="0" Name="list" AutoGenerateColumns="False" CanUserAddRows="False" ColumnHeaderStyle="{DynamicResource ColumnHeaderStyleC}" SelectionChanged="list_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="墙名称" Binding="{Binding WallName,Mode=OneWay}" ElementStyle="{StaticResource dgCell}"></DataGridTextColumn>
+                <DataGridTextColumn Header="顶部偏移(mm)" Binding="{Binding TopOffset,Mode=OneWay}" ElementStyle="{StaticResource dgCell}"></DataGridTextColumn>
+                <DataGridTextColumn Header="底部偏移(mm)" Binding="{Binding BottomOffset,Mode=OneWay}" ElementStyle="{StaticResource dgCell}"></DataGridTextColumn>
+                <DataGridTextColumn Header="是否复核" Binding="{Binding Check,Mode=OneWay}" ElementStyle="{StaticResource dgCell}">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Foreground" Value="{Binding TextColor, Converter={StaticResource StringToBrushConverter}}"/>
+                            <Setter Property="FontWeight" Value="Normal"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsBold}" Value="True">
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="lb_buttom" Content="底部约束:" HorizontalAlignment="Left" Margin="28,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label x:Name="lb_top" Content="顶部约束:" HorizontalAlignment="Left" Margin="28,71,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="底部偏移:" HorizontalAlignment="Left" Margin="28,40,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="顶部偏移:" HorizontalAlignment="Left" Margin="28,101,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_buttom" HorizontalAlignment="Left" Margin="97,44,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="85" PreviewTextInput="NumericTextBox_PreviewTextInput"/>
+        <TextBox x:Name="tb_top" HorizontalAlignment="Left" Margin="97,105,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="85" PreviewTextInput="NumericTextBox_PreviewTextInput2"/>
+        <Button x:Name="bt_change_buttom" Visibility="Visible" Content="修改" HorizontalAlignment="Left" Margin="234,43,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" Click="bt_change_buttom_Click"/>
+        <Button x:Name="bt_change_top" Content="修改" HorizontalAlignment="Left" Margin="234,105,0,0" Grid.Row="1" VerticalAlignment="Top" Width="40" Click="bt_change_top_Click"/>
+        <Label Content="(mm)" HorizontalAlignment="Left" Margin="187,40,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="(mm)" HorizontalAlignment="Left" Margin="187,102,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

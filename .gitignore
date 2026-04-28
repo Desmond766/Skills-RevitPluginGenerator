@@ -1,18 +1,32 @@
 # =============================================================================
-# Repository policy: track `.cursor/**`, root `README.md`, and this file.
-# All other paths are excluded by the leading `*`. Re-apply exclusions under
-# `.cursor/` for CHM / raw HTML so they are never committed inside the skills tree.
+# Branch: develop — track everything needed to MAINTAIN and refresh skills:
+#   - .cursor/skills/           (skills + packaged indexes shipped to users)
+#   - scripts/                  (build-api-index.ps1, build-index.ps1, helpers)
+#   - existingCodes/            (source corpus for scaffolding samples-index)
+#   - setup.ps1                 (verify / regenerate packaged outputs)
+#   plus README.md and this file.
+#
+# Still excluded: RevitAPI.chm (Autodesk redistribution), transient API index
+# rebuild artifacts (bak/new/rename-stage), and decompressed CHM HTML under
+# docs/html/ — regenerate locally; see README.md.
 # =============================================================================
 
 *
 
 !.gitignore
 !README.md
+!setup.ps1
+
+!scripts/
+!scripts/**/*
+
+!existingCodes/
+!existingCodes/**/*
 
 !.cursor/
 !.cursor/**/*
 
-# --- Revit API skill: keep packaged index only (no CHM / decompressed HTML)
+# --- revit-api-lookup: do not commit CHM; packaged JSONL + md sidecars yes
 .cursor/skills/revit-api-lookup/*.chm
 
 .cursor/skills/revit-api-lookup/docs/*
@@ -25,3 +39,21 @@
 .cursor/skills/revit-api-lookup/docs/symbols.jsonl.bak.*
 .cursor/skills/revit-api-lookup/docs/symbols.jsonl.new
 .cursor/skills/revit-api-lookup/docs/md/.rename-stage-*/
+
+# --- Build / IDE noise (often present under existingCodes sample solutions)
+**/bin/
+**/obj/
+**/packages/
+**/TestResults/
+**/*.csproj.user
+**/*.vbproj.user
+**/*.props.user
+*.suo
+*.user
+*.userosscache
+**/.vs/
+# Local experiment outputs outside tracked roots (if any)
+sandbox/
+scratch-addins/
+local-addins/
+generated-addins/

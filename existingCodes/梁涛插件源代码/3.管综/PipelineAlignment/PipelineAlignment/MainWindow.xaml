@@ -1,0 +1,22 @@
+﻿<Window x:Class="PipelineAlignment.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PipelineAlignment"
+             mc:Ignorable="d" Height="300" Width="200" Title="横管对齐" Topmost="True" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Closed="Window_Closed" Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.85*"/>
+            <RowDefinition Height="0.15*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="对齐基准方式" Grid.Row="0" Margin="5">
+            <Grid>
+                <RadioButton x:Name="rb_top" Content="顶对齐" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,30" Checked="rb_top_Checked"/>
+                <RadioButton x:Name="rb_center" Content="中心对齐" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="90,0,0,30" Checked="rb_center_Checked"/>
+                <RadioButton x:Name="rb_bottom" Content="底对齐" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,5" IsChecked="True" Checked="rb_bottom_Checked"/>
+            </Grid>
+        </GroupBox>
+        <CheckBox x:Name="cb_thickness" Content="考虑保温厚度" Grid.Row="1" VerticalAlignment="Center" Margin="5" Checked="cb_thickness_Checked"/>
+    </Grid>
+</Window>

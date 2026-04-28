@@ -1,0 +1,45 @@
+﻿<Window x:Class="CorrectionOfJunctionBoxHeight.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CorrectionOfJunctionBoxHeight"
+             mc:Ignorable="d"  Height="602" Width="280" Title="设备智能贴墙/板" WindowStartupLocation="CenterScreen" Topmost="True" ResizeMode="CanMinimize" x:Name="window">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="300" Margin="33,12,0,0" VerticalAlignment="Top" Width="200">
+            <TabItem Header="设备选择" Height="20" VerticalAlignment="Bottom">
+                <Grid Background="#FFE5E5E5" Margin="0,-1,0,1">
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <TabControl HorizontalAlignment="Left" Height="75" Margin="33,325,0,0" VerticalAlignment="Top" Width="200">
+            <TabItem Header="放置位置（接线盒不受该选项影响）">
+                <Grid Background="#FFE5E5E5">
+                    <RadioButton IsEnabled="False" x:Name="RB_Wall"  IsChecked="True" Content="贴墙(壁装)" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                    <RadioButton IsEnabled="False" Content="贴板(吸顶)" HorizontalAlignment="Left" Margin="120,0,0,0" VerticalAlignment="Center"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button Content="确定" HorizontalAlignment="Left" Margin="33,500,0,0" VerticalAlignment="Top" Width="50" Click="Button_Click"/>
+        <Button Content="取消" HorizontalAlignment="Left" Margin="183,500,0,0" VerticalAlignment="Top" Width="50" Click="Button_Click_1"/>
+        <CheckBox x:Name="D1" Content="接线盒（板/墙内）" HorizontalAlignment="Left" Margin="75,70,0,0" VerticalAlignment="Top" Click="D1_Click"/>
+        <CheckBox x:Name="D2" Content="通讯设备" HorizontalAlignment="Left" Margin="75,100,0,0" VerticalAlignment="Top" Click="D2_Click"/>
+        <CheckBox x:Name="D3" Content="数据设备" HorizontalAlignment="Left" Margin="75,130,0,0" VerticalAlignment="Top" Click="D3_Click"/>
+        <CheckBox x:Name="D4" Content="火警设备" HorizontalAlignment="Left" Margin="75,160,0,0" VerticalAlignment="Top" Click="D4_Click"/>
+        <CheckBox x:Name="D5" Content="照明设备" HorizontalAlignment="Left" Margin="75,190,0,0" VerticalAlignment="Top" Click="D5_Click"/>
+        <CheckBox x:Name="D6" Content="安全设备" HorizontalAlignment="Left" Margin="75,220,0,0" VerticalAlignment="Top" Click="D6_Click"/>
+        <CheckBox x:Name="D7" Content="电话设备" HorizontalAlignment="Left" Margin="75,250,0,0" VerticalAlignment="Top" Click="D7_Click"/>
+        <CheckBox x:Name="D8" Content="护理呼叫设备" HorizontalAlignment="Left" Margin="75,280,0,0" VerticalAlignment="Top" Click="D8_Click"/>
+        <CheckBox x:Name="AllSel" Content="全选" HorizontalAlignment="Left" Margin="59,42,0,0" VerticalAlignment="Top" Checked="AllSel_Checked" Click="AllSel_Click"/>
+        <TabControl HorizontalAlignment="Left" Height="75" Margin="33,410,0,0" VerticalAlignment="Top" Width="200">
+            <TabItem Header="范围" Height="20" VerticalAlignment="Bottom">
+                <Grid Background="#FFE5E5E5" Margin="0,-1,0,1">
+                    <RadioButton x:Name="RB_ActiveView"  IsChecked="True" Content="当前视图可见" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                    <RadioButton Content="当前项目" HorizontalAlignment="Left" Margin="120,0,0,0" VerticalAlignment="Center"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="bt_import" Content="导入Excel" HorizontalAlignment="Left" Margin="103,500,0,0" VerticalAlignment="Top" Width="62" Click="Button_Click_2"/>
+    </Grid>
+</Window>

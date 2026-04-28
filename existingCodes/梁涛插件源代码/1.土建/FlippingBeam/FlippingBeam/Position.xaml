@@ -1,0 +1,84 @@
+﻿<Window x:Class="FlippingBeam.Position"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlippingBeam"
+             mc:Ignorable="d" 
+             d:DesignHeight="495" WindowStartupLocation="CenterScreen" Topmost="True" Width="380" Closing="Window_Closing">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style x:Key="dgCell" TargetType="TextBlock">
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="ColumnHeaderStyleC" TargetType="DataGridColumnHeader">
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="ToolTip" Value="Click to sort."/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <local:StringToBrushConverter x:Key="StringToBrushConverter"/>
+            <local:BrushBackColorConverter x:Key="BrushBackColorConverter"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="0.8*"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="1" ColumnWidth="*" Name="list" AutoGenerateColumns="False" SelectionChanged="DataGrid_SelectionChanged" CanUserAddRows="False" ColumnHeaderStyle="{DynamicResource ColumnHeaderStyleC}">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="sd" Header="梁" Binding="{Binding beamName,Mode=TwoWay}" IsReadOnly="True" ElementStyle="{StaticResource dgCell}"/>
+                <DataGridTextColumn Header="CAD文字信息" Binding="{Binding noteText}" IsReadOnly="True" ElementStyle="{StaticResource dgCell}"/>
+                <DataGridTextColumn Header="梁ID" Binding="{Binding beamId}" IsReadOnly="True" Visibility="Hidden"/>
+                <DataGridTextColumn x:Name="corr" Header="是否正确" Binding="{Binding correct}" IsReadOnly="True" Width="70" ElementStyle="{StaticResource dgCell}">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Foreground" Value="{Binding textColor, Converter={StaticResource StringToBrushConverter}}"/>
+                            <Setter Property="Background" Value="{Binding textBackColor, Converter={StaticResource BrushBackColorConverter}}"></Setter>
+                            <Setter Property="FontWeight" Value="Normal"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding isBold}" Value="True">
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="文字注释ID" Binding="{Binding noteID}" IsReadOnly="True" Visibility="Hidden"/>
+                <DataGridTextColumn Header="文字注释包含梁数量" Binding="{Binding beamCou}" IsReadOnly="True" Visibility="Hidden"/>
+                <DataGridComboBoxColumn Header="下拉框" x:Name="dataComBox" Visibility="Hidden"/>
+                <DataGridTemplateColumn Header="族类型修改" Width="70">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Button Content="编辑" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Button_Click_3" PreviewMouseLeftButtonDown="Button_PreviewMouseLeftButtonDown"/>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="状态" Binding="{Binding Status}" IsReadOnly="True" ElementStyle="{StaticResource dgCell}"/>
+                <!-- Add more columns as needed -->
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="删除所有文字注释" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Height="43" Width="128" Click="Button_Click"/>
+        <Button Content="删除所有梁标记" HorizontalAlignment="Left" Margin="128,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="43" Width="128" Click="Button_Click_1"/>
+        <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="296" Height="33" x:Name="cb" SelectionChanged="cb_SelectionChanged" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+        <Button Content="文字注释赋色" HorizontalAlignment="Left" Margin="256,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="43" Width="98" Click="Button_Click_2" ToolTip="将视图中文字注释改为红色"/>
+        <Border Grid.Row="3" BorderBrush="LightGray" BorderThickness="0.7" Margin="2">
+            <Grid>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" Content="选择修改版本参数:"/>
+                <CheckBox Visibility="Collapsed" VerticalAlignment="Center" Margin="50,0,0,0" HorizontalAlignment="Left" Content="是否修改参数" IsChecked="True" Name="cb_change_para"/>
+                <ComboBox Width="128" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="126,0,0,0" Name="cb_sel_para" DropDownOpened="cb_sel_para_DropDownOpened"/>
+                <Button Content="一键修改" HorizontalAlignment="Left" Margin="254,0,0,0"  VerticalAlignment="Center" Height="40" Width="98" ToolTip="一键修改编辑后梁的族类型" Click="Button_Click_4"/>
+            </Grid>
+        </Border>
+        
+    </Grid>
+</Window>

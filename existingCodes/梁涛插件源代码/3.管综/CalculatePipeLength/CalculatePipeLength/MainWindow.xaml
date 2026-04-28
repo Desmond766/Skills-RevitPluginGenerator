@@ -1,0 +1,19 @@
+﻿<Window x:Class="CalculatePipeLength.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CalculatePipeLength"
+             mc:Ignorable="d" Height="180" Width="400" WindowStartupLocation="CenterScreen" Topmost="True" Title="获取管道总长度方式">
+    <Grid Margin="0,0,0,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="1" Background="Transparent" BorderBrush="Transparent" BorderThickness="0.3" Margin="20,0" Content="  → 框选管道与管件计算总长度" HorizontalContentAlignment="Left" FontSize="15" IsDefault="True" Click="Button_Click_1"/>
+        <Button Grid.Row="2" Background="Transparent" BorderBrush="Transparent" BorderThickness="0.3" Margin="20,0" Content="  → 点选坐标点计算总长度" HorizontalContentAlignment="Left" FontSize="15" Click="Button_Click_2"/>
+        <Button Grid.Row="0" Visibility="Collapsed" IsCancel="True" Click="Button_Click"/>
+
+    </Grid>
+</Window>
