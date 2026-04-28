@@ -4,7 +4,7 @@
 #   - scripts/                  (build-api-index.ps1, build-index.ps1, helpers)
 #   - existingCodes/            (source corpus for scaffolding samples-index)
 #   - setup.ps1                 (verify / regenerate packaged outputs)
-#   plus README.md and this file.
+#   plus README.md, README.en.md, and this file.
 #
 # Still excluded: RevitAPI.chm (Autodesk redistribution), transient API index
 # rebuild artifacts (bak/new/rename-stage), and decompressed CHM HTML under
@@ -15,6 +15,7 @@
 
 !.gitignore
 !README.md
+!README.en.md
 !setup.ps1
 
 !scripts/

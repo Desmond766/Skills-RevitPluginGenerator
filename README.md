@@ -1,5 +1,7 @@
 # RevitSkills（开发者）
 
+**中文** · [English `README.en.md`](README.en.md)
+
 本分支用于**维护 Cursor 技能**：编辑 `.cursor/skills/`、`existingCodes/` 下的参考源码，并重生成随技能分发出去的打包索引。**面向维护者**：终端使用者请使用仅含打包产物的分发分支（如 `main`）及对应 README。
 
 ## 仓库里有什么（本会跟踪的内容）
@@ -64,7 +66,7 @@ cd RevitSkills
 
 ## `.gitignore` 设计要点（本分支）
 
-- **白名单**：只跟踪 **`README.md`、`.gitignore`、`setup.ps1`、`scripts/`、`existingCodes/`、`.cursor/`**。
+- **白名单**：只跟踪 **`README.md`**、**`README.en.md`**、**`.gitignore`**、**`setup.ps1`**、**`scripts/`**、**`existingCodes/`**、**`.cursor/`**。
 - **API 打包产物**：仓库内跟踪 **`symbols.jsonl`** 与 **`docs/md/**`**；解压后的整棵 `docs/html/` 与 **`RevitAPI.chm`** 不提交（体积与 Autodesk 分发策略）。
 - **临时备份**：`**/symbols.jsonl.bak.*`、`**/symbols.jsonl.new` 等不入库。
 - **`existingCodes/`** 下常见 **`bin/`、`obj/`、`packages/`、`.vs/`** 等已由规则排除。
