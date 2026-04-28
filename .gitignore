@@ -1,9 +1,19 @@
-# -----------------------------------------------------------------------------
-# Revit API docs (skill): strip raw CHM decompress; keep packaged index only
-# -----------------------------------------------------------------------------
+# =============================================================================
+# Repository policy: track ONLY `.cursor/**` (+ this file). All other paths are
+# excluded by the leading `*`. Re-apply exclusions under `.cursor/` for CHM / raw
+# HTML so they are never committed even inside the skills tree.
+# =============================================================================
+
+*
+
+!.gitignore
+
+!.cursor/
+!.cursor/**/*
+
+# --- Revit API skill: keep packaged index only (no CHM / decompressed HTML)
 .cursor/skills/revit-api-lookup/*.chm
 
-# Drop everything under docs/ except the packaged index (see un-ignores below).
 .cursor/skills/revit-api-lookup/docs/*
 
 !.cursor/skills/revit-api-lookup/docs/
@@ -11,41 +21,6 @@
 !.cursor/skills/revit-api-lookup/docs/md/
 !.cursor/skills/revit-api-lookup/docs/md/**
 
-# Tooling side effects (rename / rebuild)
 .cursor/skills/revit-api-lookup/docs/symbols.jsonl.bak.*
 .cursor/skills/revit-api-lookup/docs/symbols.jsonl.new
 .cursor/skills/revit-api-lookup/docs/md/.rename-stage-*/
-
-# -----------------------------------------------------------------------------
-# Full legacy plug-in source tree — only used by maintainers to regenerate
-# samples-index. End users only need .cursor/skills/revit-addin-scaffold/samples-index/
-# -----------------------------------------------------------------------------
-existingCodes/
-
-# -----------------------------------------------------------------------------
-# Local experimental add-ins (scaffold / try-out projects — not part of skills)
-# Put generated plugin folders under one of these paths, or add your own pattern.
-# -----------------------------------------------------------------------------
-experiments/
-sandbox/
-local-addins/
-generated-addins/
-scratch-addins/
-addins/
-
-# If you scaffold directly at repo root, add an extra line here, e.g.:
-# MyTestPlugin/
-
-# -----------------------------------------------------------------------------
-# IDE / build / OS
-# -----------------------------------------------------------------------------
-bin/
-obj/
-*.user
-*.suo
-*.userosscache
-.vs/
-
-Thumbs.db
-Desktop.ini
-.DS_Store
