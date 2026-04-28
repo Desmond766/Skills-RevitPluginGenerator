@@ -23,6 +23,20 @@
 existingCodes/
 
 # -----------------------------------------------------------------------------
+# Local experimental add-ins (scaffold / try-out projects — not part of skills)
+# Put generated plugin folders under one of these paths, or add your own pattern.
+# -----------------------------------------------------------------------------
+experiments/
+sandbox/
+local-addins/
+generated-addins/
+scratch-addins/
+addins/
+
+# If you scaffold directly at repo root, add an extra line here, e.g.:
+# MyTestPlugin/
+
+# -----------------------------------------------------------------------------
 # IDE / build / OS
 # -----------------------------------------------------------------------------
 bin/
