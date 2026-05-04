@@ -5,12 +5,13 @@ description: Build a Revit 2024 C# add-in with MSBuild and install it to Revit's
 
 # Revit Add-in Build & Deploy
 
-Compile an SDK-style .NET Framework 4.8 Revit add-in and drop the DLL + `.addin` manifest into `%AppData%\Autodesk\Revit\Addins\2024\`.
+Compile an SDK-style .NET Framework 4.8 Revit add-in and drop the DLL + `.addin` manifest into the user's saved deploy folder.
 
 ## Cline
 
 - Turn on **Settings → Features → Skills** so Cline can load this skill on demand (metadata always visible; full instructions load when the task matches this skill’s `description`).
 - Treat repo paths below as **relative to the workspace root**. This repository keeps skills under `.cursor/skills/`; commands use that layout unchanged.
+- **First use**: ask the user where compiled add-ins should be deployed. Pass that folder with `-AddinsDir`; the script saves it in `%AppData%\RevitSkills\revit-addin-build-deploy.json` and reuses it for later builds.
 - **Run** `deploy-addin.ps1` via the terminal tool from the workspace root (or pass absolute paths). Rely on script exit codes and stdout/stderr; paste only the lines the user needs to fix failures.
 - **Do not** paste large logs into chat; summarize and quote the actionable MSBuild or copy error.
 - Quick reference: [`docs/setup.md`](./docs/setup.md), [`docs/troubleshooting.md`](./docs/troubleshooting.md), deploy defaults in [`templates/config.yaml`](./templates/config.yaml).
@@ -40,17 +41,19 @@ This skill's inputs/outputs are file paths and exit codes, so bilingual handling
   3. `dotnet` CLI (uses its bundled MSBuild; works on SDK-style csproj targeting `net48` when the .NET Framework 4.8 targeting pack is installed)
 - .NET Framework 4.8 targeting pack at `C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8`
 - Closed Revit before deploying (it holds locks on loaded DLLs)
+- A saved deploy destination in `%AppData%\RevitSkills\revit-addin-build-deploy.json`, created automatically on first use
 
 ## Workflow
 
 Copy this checklist:
 
 ```
-- [ ] Step 1: Build (Release x64, net48) via MSBuild
-- [ ] Step 2: Rewrite the <Assembly> path in the .addin manifest to the deployed DLL location
-- [ ] Step 3: Copy DLL + .addin to %AppData%\Autodesk\Revit\Addins\2024\
-- [ ] Step 4: Prompt user to (re)launch Revit
-- [ ] Step 5: If it fails to appear, check Revit's Journal file
+- [ ] Step 1: If no saved deploy destination exists, ask the user where compiled add-ins should be placed
+- [ ] Step 2: Build (Release x64, net48) via MSBuild
+- [ ] Step 3: Rewrite the <Assembly> path in the .addin manifest to the deployed DLL location
+- [ ] Step 4: Copy DLL + .addin to the saved deploy folder
+- [ ] Step 5: Prompt user to (re)launch Revit
+- [ ] Step 6: If it fails to appear, check Revit's Journal file
 ```
 
 ### Step 1 + 2 + 3: One command
@@ -61,21 +64,29 @@ powershell -ExecutionPolicy Bypass -File .cursor/skills/revit-addin-build-deploy
 
 (Use `pwsh` instead of `powershell` if PowerShell 7 is installed.)
 
+First run behavior:
+
+- Ask the user: **"Where should compiled Revit add-ins be deployed?"**
+- Pass the answer once with `-AddinsDir "C:\path\to\folder"`.
+- The script saves that folder to `%AppData%\RevitSkills\revit-addin-build-deploy.json`.
+- Future runs can omit `-AddinsDir`; the saved folder is reused automatically.
+- If no saved folder exists and `-AddinsDir` is omitted, the script prompts in PowerShell and offers `%AppData%\Autodesk\Revit\Addins\2024\` as the default.
+
 Flags:
 
 | Flag | Default | Meaning |
 |---|---|---|
 | `-ProjectPath <csproj>` | *(required)* | Path to the SDK-style .csproj |
 | `-Configuration` | `Release` | `Debug` or `Release` |
-| `-RevitVersion` | `2024` | Targets `%AppData%\Autodesk\Revit\Addins\<ver>\` |
-| `-AddinsDir` | `%AppData%\Autodesk\Revit\Addins\2024` | Override destination |
+| `-RevitVersion` | `2024` | Revit version used only for the first-run default destination |
+| `-AddinsDir` | saved user folder | Override destination and save it for future runs |
 | `-SkipBuild` | off | Deploy existing bin output without rebuilding |
 
 What the script does:
 1. Restores + builds the project (`msbuild /t:Restore;Build /p:Configuration=...;Platform=x64`).
 2. Finds the output DLL and the sibling `.addin` file.
 3. Rewrites `<Assembly>...</Assembly>` inside the `.addin` to the absolute path of the deployed DLL.
-4. Copies the DLL (and its PDB, if present) + the rewritten `.addin` to the Addins directory.
+4. Copies the DLL (and its PDB, if present) + the rewritten `.addin` to the saved deploy directory.
 
 ### Step 4: Launch Revit
 
@@ -85,7 +96,7 @@ Instruct the user: *"Open Revit 2024. Your add-in will appear under the ribbon t
 
 If the command doesn't appear in Revit:
 
-1. **Check the `.addin` landed**: `dir "$env:AppData\Autodesk\Revit\Addins\2024"`.
+1. **Check the `.addin` landed** in the saved deploy folder. The saved path is in `%AppData%\RevitSkills\revit-addin-build-deploy.json`.
 2. **Check the DLL path inside it** matches a real file.
 3. **Check the Revit journal** — latest file in `%LocalAppData%\Autodesk\Revit\Autodesk Revit 2024\Journals\`. Grep it for the add-in name or `Exception`:
 

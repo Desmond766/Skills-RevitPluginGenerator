@@ -1,5 +1,5 @@
 # =============================================================================
-# Repository policy: track `.cursor/**`, root `README.md`, and this file.
+# Repository policy: track `.cursor/**`, root `README.md` / `README.zh-CN.md`, and this file.
 # All other paths are excluded by the leading `*`. Re-apply exclusions under
 # `.cursor/` for CHM / raw HTML so they are never committed inside the skills tree.
 # =============================================================================
@@ -8,6 +8,7 @@
 
 !.gitignore
 !README.md
+!README.zh-CN.md
 
 !.cursor/
 !.cursor/**/*

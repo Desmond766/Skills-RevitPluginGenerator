@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Build a Revit 2024 C# add-in and install it into %AppData%\Autodesk\Revit\Addins\<ver>\.
+    Build a Revit 2024 C# add-in and install it into the user's saved deploy folder.
 
 .PARAMETER ProjectPath
     Path to the SDK-style .csproj.
@@ -12,7 +12,9 @@
     Revit version folder under Addins. Default 2024.
 
 .PARAMETER AddinsDir
-    Destination directory. Default %AppData%\Autodesk\Revit\Addins\<RevitVersion>.
+    Destination directory. If omitted, the script uses the saved user choice
+    from %AppData%\RevitSkills\revit-addin-build-deploy.json. On first use it
+    prompts for a destination and saves it for future builds.
 
 .PARAMETER SkipBuild
     Skip MSBuild; deploy whatever is already in bin/.
@@ -32,14 +34,73 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+$configDir = Join-Path $env:AppData 'RevitSkills'
+$configPath = Join-Path $configDir 'revit-addin-build-deploy.json'
+
+function Get-SavedAddinsDir {
+    if (-not (Test-Path -LiteralPath $configPath)) { return $null }
+    try {
+        $config = Get-Content -Raw -LiteralPath $configPath -Encoding UTF8 | ConvertFrom-Json
+        if ($config.addinsDir) { return [string]$config.addinsDir }
+    } catch {
+        Write-Warning "Could not read saved deploy destination at $configPath. It will be recreated."
+    }
+    return $null
+}
+
+function Save-AddinsDir {
+    param([Parameter(Mandatory = $true)][string]$Path)
+
+    if (-not (Test-Path -LiteralPath $configDir)) {
+        New-Item -ItemType Directory -Path $configDir -Force | Out-Null
+    }
+
+    $payload = [ordered]@{
+        addinsDir = $Path
+        savedAt = (Get-Date).ToString('o')
+    }
+    $payload | ConvertTo-Json | Set-Content -LiteralPath $configPath -Encoding UTF8
+}
+
+function Resolve-AddinsDir {
+    param(
+        [string]$RequestedPath,
+        [string]$Version
+    )
+
+    if ($RequestedPath) {
+        $resolved = [Environment]::ExpandEnvironmentVariables($RequestedPath)
+        Save-AddinsDir -Path $resolved
+        Write-Host "Saved deploy destination: $configPath" -ForegroundColor DarkGray
+        return $resolved
+    }
+
+    $saved = Get-SavedAddinsDir
+    if ($saved) {
+        Write-Host "Using saved deploy destination: $saved" -ForegroundColor DarkGray
+        return [Environment]::ExpandEnvironmentVariables($saved)
+    }
+
+    $default = Join-Path $env:AppData "Autodesk\Revit\Addins\$Version"
+    Write-Host "First run: choose where compiled add-ins should be deployed." -ForegroundColor Yellow
+    Write-Host "Press Enter to use the Revit user Addins folder:" -ForegroundColor Yellow
+    Write-Host "  $default" -ForegroundColor Yellow
+    $answer = Read-Host "Deploy destination"
+    if ([string]::IsNullOrWhiteSpace($answer)) {
+        $answer = $default
+    }
+    $resolved = [Environment]::ExpandEnvironmentVariables($answer.Trim('"'))
+    Save-AddinsDir -Path $resolved
+    Write-Host "Saved deploy destination: $configPath" -ForegroundColor DarkGray
+    return $resolved
+}
+
 if (-not (Test-Path $ProjectPath)) { Write-Error "csproj not found: $ProjectPath"; exit 1 }
 $ProjectPath = (Resolve-Path $ProjectPath).Path
 $projDir = Split-Path $ProjectPath -Parent
 $projName = [IO.Path]::GetFileNameWithoutExtension($ProjectPath)
 
-if (-not $AddinsDir) {
-    $AddinsDir = Join-Path $env:AppData "Autodesk\Revit\Addins\$RevitVersion"
-}
+$AddinsDir = Resolve-AddinsDir -RequestedPath $AddinsDir -Version $RevitVersion
 if (-not (Test-Path $AddinsDir)) {
     New-Item -ItemType Directory -Path $AddinsDir -Force | Out-Null
 }

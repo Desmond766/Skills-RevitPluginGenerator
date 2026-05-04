@@ -1,4 +1,0 @@
-# Defaults for search-api.ps1 (reference; use script flags to override)
-lookup:
-  top: 8
-  # glossaryPath: null  # default: ../../glossary.zh-en.md from skill root
