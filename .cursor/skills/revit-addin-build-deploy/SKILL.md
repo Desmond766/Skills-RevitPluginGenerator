@@ -1,11 +1,18 @@
 ---
 name: revit-addin-build-deploy
-description: Build a Revit 2024 C# add-in with MSBuild and install it to Revit's Addins folder so it loads on next Revit launch. Use when the user asks to build, compile, deploy, install, register, or test a Revit add-in, or when revit-addin-scaffold hands off a finished project.
+description: Build a Revit 2024 C# add-in with MSBuild and install it to Revit's Addins folder so it loads on next Revit launch. Use with Cline when the user asks to build, compile, deploy, install, register, or test a Revit add-in, or when revit-addin-scaffold hands off a finished project.
 ---
 
 # Revit Add-in Build & Deploy
 
 Compile an SDK-style .NET Framework 4.8 Revit add-in and drop the DLL + `.addin` manifest into `%AppData%\Autodesk\Revit\Addins\2024\`.
+
+## Cline
+
+- Turn on **Settings → Features → Skills** so Cline can load this skill on demand (metadata always visible; full instructions load when the task matches this skill’s `description`).
+- Treat repo paths below as **relative to the workspace root**. This repository keeps skills under `.cursor/skills/`; commands use that layout unchanged.
+- **Run** `deploy-addin.ps1` via the terminal tool from the workspace root (or pass absolute paths). Rely on script exit codes and stdout/stderr; paste only the lines the user needs to fix failures.
+- **Do not** paste large logs into chat; summarize and quote the actionable MSBuild or copy error.
 
 ## When to use this skill
 

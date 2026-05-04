@@ -1,11 +1,19 @@
 ---
 name: revit-addin-scaffold
-description: Scaffold a Revit 2024 C# add-in project (.NET Framework 4.8) from a natural-language request. Produces a working .csproj, .addin manifest, IExternalCommand/IExternalApplication classes, and wires references to RevitAPI.dll. Use when the user asks to create, generate, or start a new Revit add-in, Revit plug-in, IExternalCommand, IExternalApplication, or Revit ribbon tool.
+description: Scaffold a Revit 2024 C# add-in project (.NET Framework 4.8) from a natural-language request. Produces a working .csproj, .addin manifest, IExternalCommand/IExternalApplication classes, and wires references to RevitAPI.dll. Use with Cline when the user asks to create, generate, or start a new Revit add-in, Revit plug-in, IExternalCommand, IExternalApplication, or Revit ribbon tool.
 ---
 
 # Revit Add-in Scaffold
 
 Generate a compile-ready Revit 2024 C# add-in from a plain-English description.
+
+## Cline
+
+- Enable **Settings → Features → Skills** so Cline can activate this skill when the user’s request matches the YAML `description`.
+- Paths like `.cursor/skills/...` are **relative to the workspace root** (this repo’s skill bundle lives there).
+- **Read** [`template/`](./template/), [`patterns.md`](./patterns.md), and snippets under `samples-index/` with the read tool only when needed—Cline loads the full `SKILL.md` after activation, not every bundled file at once.
+- For API uncertainty, follow the hand-off to `revit-api-lookup` in this doc before inventing calls.
+- After implementation, hand off build/deploy to `revit-addin-build-deploy` and **run** its PowerShell script from the terminal when the user wants a real build.
 
 ## When to use this skill
 

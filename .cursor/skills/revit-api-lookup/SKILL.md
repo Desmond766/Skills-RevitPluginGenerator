@@ -1,11 +1,18 @@
 ---
 name: revit-api-lookup
-description: Search the packaged Revit 2024 API index for classes, methods, enums, and usage. Use when the user or another skill needs to find a Revit API signature, figure out which method to call, look up a BuiltInParameter/BuiltInCategory, or verify an overload before writing code.
+description: Search the packaged Revit 2024 API index for classes, methods, enums, and usage. Use with Cline when the user or revit-addin-scaffold needs a Revit API signature, which method to call, a BuiltInParameter/BuiltInCategory, or an overload verified before writing code.
 ---
 
 # Revit API Lookup
 
 Structured index-based lookup over a packaged Revit 2024 API symbol index. Normal users do **not** need to download `RevitAPI.chm` or run CHM decompilation: the skill ships with `docs/symbols.jsonl` plus clean markdown sidecars under `docs/md/`. Typical lookup is ~10x fewer tokens than raw-HTML grep and much higher precision, because the packaged index contains no navigation chrome.
+
+## Cline
+
+- Enable **Settings → Features → Skills** so Cline can attach this skill when API lookup fits the user’s question.
+- **Prefer** running `scripts/search-api.ps1` from the terminal (symbol mode first). Only open individual `docs/md/*.md` sidecars when you need extra context the script did not print.
+- Paths such as `.cursor/skills/revit-api-lookup/...` are **relative to the workspace root**.
+- Keep responses token-efficient: quote the C# signature and a short summary—do not dump whole sidecars into chat.
 
 ## When to use this skill
 
@@ -24,7 +31,7 @@ The Revit API is English-only, but users prompt in both English and Chinese. Thi
 - **Glossary-driven query expansion.** `search-api.ps1` detects CJK in `-Query` and expands it via `.cursor/skills/glossary.zh-en.md` into the matching English / API identifiers (e.g. `墙` → `Wall`, `OST_Walls`). Results still show the original English signature, since that's what the add-in code must call.
 - **`zh` hints on records.** The packaged index contains `"zh":"墙、墙体"` on JSONL records (and a `**中文**: ...` line in sidecars) whose `name` or `parent` maps to a glossary term. A pure-CJK query like `-Query 墙` hits via the `zh` field even without translation.
 
-Practical rules for the agent:
+Practical rules for Cline:
 
 1. **Pass the user's term verbatim**, in whatever language they used, to `-Query`. Don't manually translate — the script does it better because it sees the current glossary.
 2. **If you get no results on a CJK query**, add a row to `glossary.zh-en.md` mapping that term to the correct English API name(s), then retry. The glossary is editable at runtime.
@@ -35,7 +42,7 @@ Practical rules for the agent:
 Normal users should find these files already present:
 
 - `docs/symbols.jsonl` - ~38K rows, one per class/method/property/field/event/enum-member.
-- `docs/md/*.md` - one clean markdown sidecar per symbol (~500 B each). File names are derived from `Microsoft.Help.Id` (e.g. `Autodesk_Revit_DB_Wall_Width.md`), not CHM GUIDs, so you can grep/edit by API name. If you ever receive an index with GUID filenames (legacy), run `scripts/rename-api-md-sidecars.ps1` once to rewrite names and `symbols.jsonl` together.
+- `docs/md/*.md` - one clean markdown sidecar per symbol (~500 B each). Sidecar files use **short names** `md/s<hex>.md` (prefix of SHA256 over the symbol `id` in `symbols.jsonl`, grown on collision). Do not rely on the file name for API identity—use `search-api.ps1` or the JSONL `id` / sidecar YAML `id` header. To convert a legacy tree with long `Autodesk_Revit_....md` names, run `scripts/shorten-md-sidecars.ps1`.
 
 Do not ask users to download `RevitAPI.chm` for normal lookup. `RevitAPI.chm` and raw decompiled HTML are maintainer-only inputs used when refreshing the packaged index.
 
@@ -119,7 +126,7 @@ Only maintainers need this when updating the packaged Revit API index:
 
 - Check the [cheatsheet](./cheatsheet.md) for common patterns — faster than any grep.
 - Public mirror: `https://www.revitapidocs.com/2024/`.
-- Some internal types have no HelpId (fall through to fulltext mode).
+- Some internal types have no HTML Help id (fall through to fulltext mode).
 
 ## Cheatsheet
 
