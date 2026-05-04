@@ -11,7 +11,7 @@ Generate a compile-ready Revit 2024 C# add-in from a plain-English description.
 
 - Enable **Settings → Features → Skills** so Cline can activate this skill when the user’s request matches the YAML `description`.
 - Paths like `.cursor/skills/...` are **relative to the workspace root** (this repo’s skill bundle lives there).
-- **Read** [`template/`](./template/), [`patterns.md`](./patterns.md), and snippets under `samples-index/` with the read tool only when needed—Cline loads the full `SKILL.md` after activation, not every bundled file at once.
+- **Read** [`docs/setup.md`](./docs/setup.md), [`templates/`](./templates/), [`docs/patterns.md`](./docs/patterns.md), and snippets under `docs/samples-index/` with the read tool only when needed—Cline loads the full `SKILL.md` after activation, not every bundled file at once.
 - For API uncertainty, follow the hand-off to `revit-api-lookup` in this doc before inventing calls.
 - After implementation, hand off build/deploy to `revit-addin-build-deploy` and **run** its PowerShell script from the terminal when the user wants a real build.
 
@@ -33,9 +33,9 @@ Prompts and packaged sample indexes mix Chinese and English; the Revit API is En
 1. **Consult the glossary once per session**: `.cursor/skills/glossary.zh-en.md`. It maps ~150 Revit domain terms across `en ↔ zh ↔ api`.
 2. **For every keyword you would grep, also grep the other language.** Combine into a single regex with `|`:
    ```powershell
-   rg -i "pipe|管道|pipeline|管线"  .cursor\skills\revit-addin-scaffold\samples-index\INDEX.md -A 8
-   rg -i "hanger|吊架"              .cursor\skills\revit-addin-scaffold\samples-index\INDEX.md -A 8
-   rg -i "wall.*area|墙.*面积"       .cursor\skills\revit-addin-scaffold\samples-index\INDEX.md -A 8
+   rg -i "pipe|管道|pipeline|管线"  .cursor\skills\revit-addin-scaffold\docs\samples-index\INDEX.md -A 8
+   rg -i "hanger|吊架"              .cursor\skills\revit-addin-scaffold\docs\samples-index\INDEX.md -A 8
+   rg -i "wall.*area|墙.*面积"       .cursor\skills\revit-addin-scaffold\docs\samples-index\INDEX.md -A 8
    ```
    The regenerated `INDEX.md` now contains a `Tags:` line per entry unioning EN+ZH synonyms from the glossary, so either-language grep hits the same records.
 3. **When writing strings the user will see** (dialog titles, ribbon button text, transaction labels): match the language of the user's prompt. A user who prompted in Chinese expects Chinese UI; a user who prompted in English expects English UI.
@@ -46,10 +46,10 @@ Prompts and packaged sample indexes mix Chinese and English; the Revit API is En
 Copy this checklist and track progress:
 
 ```
-- [ ] Step 1: Find the closest packaged reference in ./samples-index/
+- [ ] Step 1: Find the closest packaged reference in ./docs/samples-index/
 - [ ] Step 2: Pick a project name, namespace, and command GUID
 - [ ] Step 3: Decide Command vs Application (ribbon UI)
-- [ ] Step 4: Copy templates from ./template/ and fill placeholders
+- [ ] Step 4: Copy templates from ./templates/ and fill placeholders
 - [ ] Step 5: Port/adapt logic from the closest sample; upgrade API refs to Revit 2024
 - [ ] Step 6: Implement Execute() body (use revit-api-lookup if API unclear)
 - [ ] Step 7: Create README.zh-CN.md with functionality, usage, and implementation notes
@@ -58,32 +58,32 @@ Copy this checklist and track progress:
 
 ### Step 1: Find the closest packaged reference
 
-The skill ships with a packaged reference catalog at `.cursor/skills/revit-addin-scaffold/samples-index/INDEX.md`, generated from the maintainer's existing plug-ins. Normal users do **not** need the full `existingCodes/` tree. **Always grep this packaged INDEX.md first** — each entry lists the plug-in's actions (in the authors' own words, often Chinese), target categories, parameters, APIs, UI framework, tags, and a compact snippet path when available.
+The skill ships with a packaged reference catalog at `.cursor/skills/revit-addin-scaffold/docs/samples-index/INDEX.md`, generated from the maintainer's existing plug-ins. Normal users do **not** need the full `existingCodes/` tree. **Always grep this packaged INDEX.md first** — each entry lists the plug-in's actions (in the authors' own words, often Chinese), target categories, parameters, APIs, UI framework, tags, and a compact snippet path when available.
 
 **Step 1a — grep packaged INDEX.md**. Union English + Chinese synonyms in the regex (see Bilingual prompt protocol above). The `Tags:` line on each entry carries the glossary's EN+ZH union, so either language hits the same records:
 
 ```powershell
 # Run from the workspace root. Bilingual regex, 8 lines of context per hit:
-rg -i "wall|墙.*material|材质"   .cursor\skills\revit-addin-scaffold\samples-index\INDEX.md -A 8
-rg -i "pipe|管道.*elevation|高程" .cursor\skills\revit-addin-scaffold\samples-index\INDEX.md -A 8
-rg -i "hanger|吊架"              .cursor\skills\revit-addin-scaffold\samples-index\INDEX.md -A 8
+rg -i "wall|墙.*material|材质"   .cursor\skills\revit-addin-scaffold\docs\samples-index\INDEX.md -A 8
+rg -i "pipe|管道.*elevation|高程" .cursor\skills\revit-addin-scaffold\docs\samples-index\INDEX.md -A 8
+rg -i "hanger|吊架"              .cursor\skills\revit-addin-scaffold\docs\samples-index\INDEX.md -A 8
 
 # Narrow to a domain section:
-rg -i "## MEP|## Architecture" .cursor\skills\revit-addin-scaffold\samples-index\INDEX.md -A 0
+rg -i "## MEP|## Architecture" .cursor\skills\revit-addin-scaffold\docs\samples-index\INDEX.md -A 0
 
 # Filter by API pattern:
-rg -i "Modeless.*ExternalEvent" .cursor\skills\revit-addin-scaffold\samples-index\INDEX.md -B 5
+rg -i "Modeless.*ExternalEvent" .cursor\skills\revit-addin-scaffold\docs\samples-index\INDEX.md -B 5
 ```
 
 Look for entries whose **Actions** / **Dialogs** / **Categories** / **Tags** best match the request. Pick the top 1–2 candidates.
 
-**Step 1b — Read the packaged snippet**. Only after INDEX.md narrows the field, read the matched entry's `Snippet:` file under `samples-index/snippets/`. Use it to learn the command structure, transaction pattern, helper style, UI framework, and key API calls without needing the complete source tree.
+**Step 1b — Read the packaged snippet**. Only after INDEX.md narrows the field, read the matched entry's `Snippet:` file under `docs/samples-index/snippets/`. Use it to learn the command structure, transaction pattern, helper style, UI framework, and key API calls without needing the complete source tree.
 
 If a maintainer workspace also has full `existingCodes/`, you may optionally read the matched `Path:` for deeper migration work. Do this only when the packaged snippet is insufficient or the user explicitly asks to port a full legacy add-in.
 
 ```powershell
 # Read the matched compact reference:
-Get-Content .cursor\skills\revit-addin-scaffold\samples-index\snippets\<matched-snippet>.md -Raw
+Get-Content .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\<matched-snippet>.md -Raw
 ```
 
 Then use the snippet and index entry to learn:
@@ -93,13 +93,13 @@ Then use the snippet and index entry to learn:
 - UI framework (INDEX.md's `UI:` field already tells you WinForms vs WPF at a glance)
 - Helper class patterns (often `Utils.cs`, `UIRibbon.cs`, `ErrorCollector.cs`)
 
-**If packaged `samples-index/INDEX.md` is missing**, do not ask ordinary users to download `existingCodes/`. Tell maintainers to regenerate the packaged index from their private/reference source tree:
+**If packaged `docs/samples-index/INDEX.md` is missing**, do not ask ordinary users to download `existingCodes/`. Tell maintainers to regenerate the packaged index from their private/reference source tree:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/build-index.ps1
 ```
 
-Then proceed. **If still no match**, use `patterns.md`, `revit-api-lookup`, and the templates in `./template/`. Only fall back to full `existingCodes/` discovery in a maintainer workspace where that directory actually exists.
+Then proceed. **If still no match**, use `docs/patterns.md`, `revit-api-lookup`, and the files in `./templates/`. Only fall back to full `existingCodes/` discovery in a maintainer workspace where that directory actually exists.
 
 ### Important: Revit version migration
 
@@ -132,7 +132,7 @@ For ribbon UIs, include both `Command.cs` and `Application.cs`.
 
 ### Step 4: Fill templates
 
-The `./template/` folder contains placeholder files. Copy them into the new project directory and replace tokens:
+The `./templates/` folder contains placeholder files (`*.template`) plus optional [`config.yaml`](./templates/config.yaml) defaults. Copy the `.template` files into the new project directory and replace tokens:
 
 | Token | Meaning |
 |---|---|
@@ -170,7 +170,7 @@ If the request needs specific API calls you are unsure about, switch to the `rev
 
 ### Step 7: Create Chinese technical documentation
 
-After the add-in code is generated, create `<ProjectName>/README.zh-CN.md`. This is required for every scaffolded plug-in, even small one-command tools. Use `template/README.zh-CN.md.template` as the starting structure, but replace every placeholder with concrete details from the generated project.
+After the add-in code is generated, create `<ProjectName>/README.zh-CN.md`. This is required for every scaffolded plug-in, even small one-command tools. Use `templates/README.zh-CN.md.template` as the starting structure, but replace every placeholder with concrete details from the generated project.
 
 The document must be written in Chinese and include:
 
@@ -188,11 +188,17 @@ Once the code compiles conceptually, delegate to `revit-addin-build-deploy` to r
 
 ## Templates
 
-See [`template/`](./template/) for the project, manifest, command, application, and Chinese README templates. Read them when scaffolding.
+See [`templates/`](./templates/) for the project, manifest, command, application, and Chinese README templates. Read them when scaffolding.
 
 ## Common patterns
 
-See [`patterns.md`](./patterns.md) for condensed recipes (selection filters, transaction groups, failure handlers, ribbon panel creation).
+See [`docs/patterns.md`](./docs/patterns.md) for condensed recipes (selection filters, transaction groups, failure handlers, ribbon panel creation).
+
+## Docs & layout
+
+- [`docs/setup.md`](./docs/setup.md) — prerequisites and folder overview  
+- [`docs/troubleshooting.md`](./docs/troubleshooting.md) — common scaffold issues  
+- [`scripts/README.md`](./scripts/README.md) — why this skill has no required scripts
 
 ## Anti-patterns to avoid
 

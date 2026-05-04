@@ -21,6 +21,12 @@
 !.cursor/skills/revit-api-lookup/docs/symbols.jsonl
 !.cursor/skills/revit-api-lookup/docs/md/
 !.cursor/skills/revit-api-lookup/docs/md/**
+!.cursor/skills/revit-api-lookup/docs/setup.md
+!.cursor/skills/revit-api-lookup/docs/troubleshooting.md
+!.cursor/skills/revit-api-lookup/docs/cheatsheet.md
+
+!.cursor/skills/revit-api-lookup/templates/
+!.cursor/skills/revit-api-lookup/templates/**
 
 .cursor/skills/revit-api-lookup/docs/symbols.jsonl.bak.*
 .cursor/skills/revit-api-lookup/docs/symbols.jsonl.new

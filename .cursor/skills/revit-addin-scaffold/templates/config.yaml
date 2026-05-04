@@ -1,0 +1,10 @@
+# Defaults when scaffolding a new add-in (agents may override per user request)
+revit:
+  version: 2024
+  installPath: "C:\\Program Files\\Autodesk\\Revit 2024"
+project:
+  targetFramework: net48
+  platform: x64
+vendor:
+  id: ACME
+  description: ACME Studio

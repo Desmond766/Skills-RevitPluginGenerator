@@ -187,15 +187,15 @@ panel.AddItem(btn);
 ## Learning from packaged plug-in references
 
 The skill ships with a packaged catalog generated from existing plug-ins:
-`.cursor/skills/revit-addin-scaffold/samples-index/INDEX.md`. Normal users do **not** need the full `existingCodes/` tree. **Always search the packaged index first**:
+`.cursor/skills/revit-addin-scaffold/docs/samples-index/INDEX.md`. Normal users do **not** need the full `existingCodes/` tree. **Always search the packaged index first**:
 
 ```powershell
-rg -i "<keyword>" .cursor\skills\revit-addin-scaffold\samples-index\INDEX.md -A 7
+rg -i "<keyword>" .cursor\skills\revit-addin-scaffold\docs\samples-index\INDEX.md -A 7
 ```
 
 INDEX.md entries carry the author's own Action/Dialog labels (often Chinese), BuiltInCategories, BuiltInParameters, APIs, UI framework, integrations, bilingual tags, and a `Snippet:` path. Most requests can be matched from INDEX.md plus the compact snippet without reading full source.
 
-When an entry has a strong match, read its `Snippet:` markdown under `samples-index/snippets/` to borrow structure and API usage. Only search full source directly in a maintainer workspace that actually has `existingCodes/`, or when the user explicitly asks to migrate a complete old project:
+When an entry has a strong match, read its `Snippet:` markdown under `docs/samples-index/snippets/` to borrow structure and API usage. Only search full source directly in a maintainer workspace that actually has `existingCodes/`, or when the user explicitly asks to migrate a complete old project:
 
 ```powershell
 # Selection / filter helpers

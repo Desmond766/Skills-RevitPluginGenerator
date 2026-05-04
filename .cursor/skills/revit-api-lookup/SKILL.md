@@ -10,7 +10,7 @@ Structured index-based lookup over a packaged Revit 2024 API symbol index. Norma
 ## Cline
 
 - Enable **Settings → Features → Skills** so Cline can attach this skill when API lookup fits the user’s question.
-- **Prefer** running `scripts/search-api.ps1` from the terminal (symbol mode first). Only open individual `docs/md/*.md` sidecars when you need extra context the script did not print.
+- **Prefer** running `scripts/search-api.ps1` from the terminal (symbol mode first). Only open individual `docs/md/*.md` sidecars when you need extra context the script did not print. Optional defaults live in [`templates/config.yaml`](./templates/config.yaml).
 - Paths such as `.cursor/skills/revit-api-lookup/...` are **relative to the workspace root**.
 - Keep responses token-efficient: quote the C# signature and a short summary—do not dump whole sidecars into chat.
 
@@ -42,7 +42,7 @@ Practical rules for Cline:
 Normal users should find these files already present:
 
 - `docs/symbols.jsonl` - ~38K rows, one per class/method/property/field/event/enum-member.
-- `docs/md/*.md` - one clean markdown sidecar per symbol (~500 B each). Sidecar files use **short names** `md/s<hex>.md` (prefix of SHA256 over the symbol `id` in `symbols.jsonl`, grown on collision). Do not rely on the file name for API identity—use `search-api.ps1` or the JSONL `id` / sidecar YAML `id` header. To convert a legacy tree with long `Autodesk_Revit_....md` names, run `scripts/shorten-md-sidecars.ps1`.
+- `docs/md/*.md` - one clean markdown sidecar per symbol (~500 B each). Sidecar files use **short names** `s<hex>.md` under `docs/md/` (prefix of SHA256 over the symbol `id` in `symbols.jsonl`, grown on collision). JSONL still stores paths as `md/s<hex>.md` relative to the `docs/` folder. Do not rely on the file name for API identity—use `search-api.ps1` or the JSONL `id` / sidecar YAML `id` header. To convert a legacy tree with long `Autodesk_Revit_....md` names, run `scripts/shorten-md-sidecars.ps1`.
 
 Do not ask users to download `RevitAPI.chm` for normal lookup. `RevitAPI.chm` and raw decompiled HTML are maintainer-only inputs used when refreshing the packaged index.
 
@@ -105,7 +105,7 @@ Flags:
 
 ### Fulltext mode (maintainer-only fallback for prose queries)
 
-When the query isn't a symbol name ("how does ExternalEvent work", "explain transaction regeneration"), raw HTML fulltext can help, but it requires a local maintainer-generated `docs/html/` folder from `RevitAPI.chm`. Do not require this from ordinary users; prefer symbol mode plus `cheatsheet.md` for packaged-skill use.
+When the query isn't a symbol name ("how does ExternalEvent work", "explain transaction regeneration"), raw HTML fulltext can help, but it requires a local maintainer-generated `docs/html/` folder from `RevitAPI.chm`. Do not require this from ordinary users; prefer symbol mode plus [`docs/cheatsheet.md`](./docs/cheatsheet.md) for packaged-skill use.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .cursor/skills/revit-api-lookup/scripts/search-api.ps1 "ExternalEvent Raise" -Fulltext
@@ -124,13 +124,19 @@ Only maintainers need this when updating the packaged Revit API index:
 
 ### When both fail
 
-- Check the [cheatsheet](./cheatsheet.md) for common patterns — faster than any grep.
+- Check the [cheatsheet](./docs/cheatsheet.md) for common patterns — faster than any grep.
 - Public mirror: `https://www.revitapidocs.com/2024/`.
 - Some internal types have no HTML Help id (fall through to fulltext mode).
 
 ## Cheatsheet
 
-For the 20% of APIs used 80% of the time (collectors, transactions, selection, parameters, units, events) see [`cheatsheet.md`](./cheatsheet.md).
+For the 20% of APIs used 80% of the time (collectors, transactions, selection, parameters, units, events) see [`docs/cheatsheet.md`](./docs/cheatsheet.md).
+
+## Docs & layout
+
+- [`docs/setup.md`](./docs/setup.md) — index layout, tools, first query  
+- [`docs/troubleshooting.md`](./docs/troubleshooting.md) — missing `rg`, empty CJK hits, fulltext caveats  
+- [`templates/config.yaml`](./templates/config.yaml) — suggested lookup defaults  
 
 ## What NOT to do
 

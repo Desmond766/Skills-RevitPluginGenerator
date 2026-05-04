@@ -14,10 +14,10 @@ that unions English and Chinese synonyms, so either-language grep finds the same
 
 ```powershell
 # Bilingual regex: English OR Chinese term, both hit the same entries.
-rg -i "wall|墙.*material|材质" .cursor\skills\revit-addin-scaffold\samples-index\INDEX.md -A 8
-rg -i "pipe|管道.*elevation|高程"  .cursor\skills\revit-addin-scaffold\samples-index\INDEX.md -A 8
-rg -i "excel|表格"                  .cursor\skills\revit-addin-scaffold\samples-index\INDEX.md -A 8
-rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\samples-index\INDEX.md -A 8
+rg -i "wall|墙.*material|材质" .cursor\skills\revit-addin-scaffold\docs\samples-index\INDEX.md -A 8
+rg -i "pipe|管道.*elevation|高程"  .cursor\skills\revit-addin-scaffold\docs\samples-index\INDEX.md -A 8
+rg -i "excel|表格"                  .cursor\skills\revit-addin-scaffold\docs\samples-index\INDEX.md -A 8
+rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\docs\samples-index\INDEX.md -A 8
 ```
 
 ## Architecture (17)
@@ -30,7 +30,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_Views, OST_Rooms, OST_PipeCurves, OST_Floors, OST_Ceilings
 - APIs: FilteredElementCollector, TransactionGroup, RayCast / ReferenceIntersector
 - Tags: assign, ceiling, curve, dialog, element, floor, form, foundation, line, link, linked model, message, parameter, pipe, prompt, room, set value, shared parameter, slab, taskdialog, view, window, 板, 参数, 窗口, 窗体, 弹窗, 地板, 吊顶, 对话框, 房间, 赋值, 共享参数, 构件, 管道, 管线, 基础, 链接, 链接模型, 楼板, 曲线, 设置值, 视图, 水管, 提示, 天花板, 图元, 线, 消息, 消息框, 写入, 元素, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0162-AddPipelineInformation.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0162-AddPipelineInformation.md
 - Description: TODO (hand-edit)
 
 ### AnalysisOfNetHeightIssues
@@ -43,7 +43,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), Modeless (ExternalEvent), RayCast / ReferenceIntersector
 - UI: WinForms
 - Tags: ceiling, curve, duct, floor, height, link, linked model, model, slab, 板, 地板, 吊顶, 风管, 高度, 链接, 链接模型, 楼板, 模型, 曲线, 天花板
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0145-AnalysisOfNetHeightIssues.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0145-AnalysisOfNetHeightIssues.md
 - Description: TODO (hand-edit)
 
 ### ChangeDoorSymbolAngle
@@ -54,7 +54,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_Doors
 - APIs: FilteredElementCollector
 - Tags: batch, bulk, change, degree, door, modify, type, update, 调整, 度, 更改, 更新, 角度, 类型, 门, 批量, 修改
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0087-ChangeDoorSymbolAngle.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0087-ChangeDoorSymbolAngle.md
 - Description: TODO (hand-edit)
 
 ### ClosedFloorLine
@@ -64,7 +64,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Dialogs: "BIMTRANS", "Error", "re", "revit"
 - APIs: Pick (Selection)
 - Tags: create, error, floor, generate, line, model, new, slab, 板, 报错, 创建, 错误, 地板, 建立, 楼板, 模型, 生成, 线, 新建, 新增, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0116-ClosedFloorLine.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0116-ClosedFloorLine.md
 - Description: TODO (hand-edit)
 
 ### ColoringOfStructuralPlates
@@ -76,7 +76,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: BASEPOINT_ELEVATION_PARAM, FLOOR_ATTR_THICKNESS_PARAM, STRUCTURAL_ELEVATION_AT_TOP, CEILING_HEIGHTABOVELEVEL_PARAM, INVALID
 - APIs: FilteredElementCollector, Pick (Selection), Modeless (ExternalEvent)
 - Tags: ceiling, change, color, colour, elevation, floor, height, level, message, model, modify, paint, point, project, prompt, slab, taskdialog, thickness, update, 板, 标高, 弹窗, 地板, 点, 吊顶, 调整, 高程, 高度, 更改, 更新, 厚度, 楼板, 模型, 染色, 上色, 提示, 天花板, 填色, 项目, 消息, 消息框, 修改, 着色
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0088-ColoringOfStructuralPlates.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0088-ColoringOfStructuralPlates.md
 - Description: TODO (hand-edit)
 
 ### CreateThresholdStone
@@ -88,7 +88,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: FLOOR_ATTR_DEFAULT_THICKNESS_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), RayCast / ReferenceIntersector
 - Tags: create, door, floor, generate, new, slab, thickness, 板, 创建, 地板, 厚度, 建立, 楼板, 门, 生成, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0091-CreateThresholdStone.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0091-CreateThresholdStone.md
 - Description: TODO (hand-edit)
 
 ### CutBox
@@ -101,7 +101,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection)
 - UI: WinForms
 - Tags: base constraint, column, dialog, door, family, floor, form, height, level, offset, slab, top constraint, type, wall, window, 板, 标高, 窗, 窗户, 窗口, 窗体, 地板, 底部限制条件, 顶部限制条件, 对话框, 高度, 类型, 楼板, 门, 偏移, 偏移量, 墙, 墙体, 柱, 柱子, 族
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0075-CutBox.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0075-CutBox.md
 - Description: TODO (hand-edit)
 
 ### CutFloor
@@ -112,7 +112,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: FLOOR_PARAM_IS_STRUCTURAL, FLOOR_HEIGHTABOVELEVEL_PARAM
 - APIs: Pick (Selection), TransactionGroup, Shared parameters
 - Tags: break, delete, error, floor, height, level, remove, slab, split, 板, 报错, 标高, 拆分, 错误, 打断, 地板, 分割, 高度, 楼板, 删除, 移除
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0126-CutFloor.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0126-CutFloor.md
 - Description: TODO (hand-edit)
 
 ### DoorReview
@@ -124,7 +124,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: FURNITURE_WIDTH, FAMILY_HEIGHT_PARAM
 - APIs: FilteredElementCollector, Modeless (ExternalEvent)
 - Tags: annotate, door, family, furniture, height, note, type, view, width, 高度, 家具, 宽度, 类型, 门, 视图, 文字注释, 注释, 族
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0093-DoorReview.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0093-DoorReview.md
 - Description: TODO (hand-edit)
 
 ### FlippingDoor
@@ -136,7 +136,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: INSTANCE_SILL_HEIGHT_PARAM, FURNITURE_WIDTH, FAMILY_HEIGHT_PARAM, FLOOR_HEIGHTABOVELEVEL_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), Element creation, Modeless (ExternalEvent), TransactionGroup, RayCast / ReferenceIntersector
 - Tags: annotate, change, create, degree, delete, door, error, family, family symbol, family type, floor, furniture, generate, height, hide, level, line, message, model, modify, new, note, prompt, remove, show, slab, taskdialog, type, unhide, update, view, wall, width, 板, 报错, 标高, 创建, 错误, 弹窗, 地板, 调整, 度, 高度, 更改, 更新, 家具, 建立, 角度, 宽度, 类型, 楼板, 门, 模型, 墙, 墙体, 取消隐藏, 删除, 生成, 视图, 提示, 文字注释, 显示, 线, 消息, 消息框, 新建, 新增, 修改, 移除, 隐藏, 直线, 注释, 族, 族符号, 族类型
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0095-FlippingDoor.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0095-FlippingDoor.md
 - Description: TODO (hand-edit)
 
 ### FlippingFloor
@@ -149,7 +149,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), Modeless (ExternalEvent), TransactionGroup, RayCast / ReferenceIntersector
 - Integrations: Database
 - Tags: annotate, change, comments, create, delete, error, floor, generate, level, line, message, model, modify, new, note, prompt, remove, slab, taskdialog, type, update, view, 板, 报错, 备注, 标高, 创建, 错误, 弹窗, 地板, 调整, 更改, 更新, 建立, 类型, 楼板, 模型, 删除, 生成, 视图, 提示, 文字注释, 线, 消息, 消息框, 新建, 新增, 修改, 移除, 直线, 注释
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0147-FlippingFloor.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0147-FlippingFloor.md
 - Description: TODO (hand-edit)
 
 ### FlippingFloorTiling
@@ -161,7 +161,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), Element creation, TransactionGroup
 - Integrations: HTTP
 - Tags: create, delete, floor, generate, line, message, model, new, prompt, remove, slab, taskdialog, 板, 创建, 弹窗, 地板, 建立, 楼板, 模型, 删除, 生成, 提示, 线, 消息, 消息框, 新建, 新增, 移除, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0096-FlippingFloorTiling.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0096-FlippingFloorTiling.md
 - Description: TODO (hand-edit)
 
 ### FloorReview
@@ -174,7 +174,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Modeless (ExternalEvent)
 - Integrations: Database
 - Tags: annotate, change, comments, delete, elevation, error, family, family symbol, family type, floor, level, modify, note, remove, slab, type, update, view, 板, 报错, 备注, 标高, 错误, 地板, 调整, 高程, 更改, 更新, 类型, 楼板, 删除, 视图, 文字注释, 修改, 移除, 注释, 族, 族符号, 族类型
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0148-FloorReview.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0148-FloorReview.md
 - Description: TODO (hand-edit)
 
 ### NewFlippingFloor
@@ -185,7 +185,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_Levels, OST_Floors
 - APIs: FilteredElementCollector, Pick (Selection)
 - Tags: create, error, floor, generate, level, new, slab, 板, 报错, 标高, 创建, 错误, 地板, 建立, 楼板, 生成, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0150-NewFlippingFloor.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0150-NewFlippingFloor.md
 - Description: TODO (hand-edit)
 
 ### RampArrowParallelFloor
@@ -196,7 +196,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_GenericModel
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, TransactionGroup, RayCast / ReferenceIntersector
 - Tags: create, degree, delete, element, family, floor, generate, message, model, new, prompt, remove, rotate, section view, slab, taskdialog, 板, 创建, 弹窗, 地板, 度, 构件, 建立, 角度, 楼板, 模型, 剖面, 剖面视图, 删除, 生成, 提示, 图元, 消息, 消息框, 新建, 新增, 旋转, 移除, 元素, 族
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0097-RampArrowParallelFloor.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0097-RampArrowParallelFloor.md
 - Description: TODO (hand-edit)
 
 ### WallOffsetAndJoin
@@ -208,7 +208,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: WALL_BASE_CONSTRAINT, WALL_BASE_OFFSET, WALL_HEIGHT_TYPE, WALL_USER_HEIGHT_PARAM, WALL_TOP_OFFSET
 - APIs: FilteredElementCollector, Pick (Selection)
 - Tags: base constraint, beam, connect, elevation, floor, height, join, level, offset, slab, thickness, top constraint, type, wall, 板, 标高, 地板, 底部限制条件, 顶部限制条件, 高程, 高度, 合并, 厚度, 类型, 连接, 梁, 楼板, 偏移, 偏移量, 墙, 墙体
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0012-WallOffsetAndJoin.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0012-WallOffsetAndJoin.md
 - Description: TODO (hand-edit)
 
 ### WallReview
@@ -218,7 +218,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_Walls
 - APIs: FilteredElementCollector, Modeless (ExternalEvent)
 - Tags: error, message, prompt, taskdialog, view, wall, 报错, 错误, 弹窗, 墙, 墙体, 视图, 提示, 消息, 消息框
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0104-WallReview.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0104-WallReview.md
 - Description: TODO (hand-edit)
 
 ## Structural (33)
@@ -231,7 +231,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_Views, OST_PipeCurves, OST_Floors, OST_Ceilings, OST_StructuralFoundation
 - APIs: FilteredElementCollector, RayCast / ReferenceIntersector
 - Tags: assign, ceiling, curve, floor, foundation, link, linked model, message, parameter, pipe, prompt, set value, shared parameter, slab, taskdialog, view, 板, 参数, 弹窗, 地板, 吊顶, 赋值, 共享参数, 管道, 管线, 基础, 链接, 链接模型, 楼板, 曲线, 设置值, 视图, 水管, 提示, 天花板, 消息, 消息框, 写入
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0161-AddParaToBuriedPipe.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0161-AddParaToBuriedPipe.md
 - Description: TODO (hand-edit)
 
 ### ARC_BeamMaterial
@@ -244,7 +244,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector
 - UI: WinForms
 - Tags: arc, beam, color, colour, height, material, millimeter, mm, paint, 材料, 材质, 高度, 毫米, 弧, 梁, 染色, 上色, 填色, 圆弧, 着色
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0003-ARC_BeamMaterial.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0003-ARC_BeamMaterial.md
 - Description: TODO (hand-edit)
 
 ### ARC_ClearBeam
@@ -256,7 +256,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: STRUCTURAL_MATERIAL_PARAM
 - APIs: FilteredElementCollector
 - Tags: arc, beam, material, 材料, 材质, 弧, 梁, 圆弧
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0004-ARC_ClearBeam.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0004-ARC_ClearBeam.md
 - Description: TODO (hand-edit)
 
 ### ARC_ColumnConnect
@@ -265,7 +265,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Dialogs: "a", "提示"
 - APIs: FilteredElementCollector, Pick (Selection), Element creation
 - Tags: arc, column, connect, join, message, prompt, taskdialog, 弹窗, 合并, 弧, 连接, 提示, 消息, 消息框, 圆弧, 柱, 柱子
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0005-ARC_ColumnConnect.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0005-ARC_ColumnConnect.md
 - Description: TODO (hand-edit)
 
 ### ARC_SlopeBeam
@@ -277,7 +277,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: Z_OFFSET_VALUE, STRUCTURAL_BEAM_END0_ELEVATION, STRUCTURAL_BEAM_END1_ELEVATION, SCHEDULE_TOP_LEVEL_PARAM, SCHEDULE_TOP_LEVEL_OFFSET_PARAM
 - APIs: FilteredElementCollector, RayCast / ReferenceIntersector
 - Tags: arc, beam, ceiling, column, elevation, floor, foundation, level, link, linked model, offset, roof, schedule, slab, slope, 板, 标高, 地板, 吊顶, 高程, 弧, 基础, 链接, 链接模型, 梁, 楼板, 明细表, 偏移, 偏移量, 坡度, 天花板, 屋顶, 圆弧, 柱, 柱子
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0006-ARC_SlopeBeam.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0006-ARC_SlopeBeam.md
 - Description: TODO (hand-edit)
 
 ### AutomaticallyGenerateDimensions
@@ -288,7 +288,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_StructuralFraming, OST_SpecialityEquipment
 - APIs: FilteredElementCollector, ElementTransformUtils
 - Tags: create, dimension, generate, new, 标注, 尺寸标注, 创建, 建立, 生成, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0105-AutomaticallyGenerateDimensions.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0105-AutomaticallyGenerateDimensions.md
 - Description: TODO (hand-edit)
 
 ### BeamColor
@@ -300,7 +300,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Ribbon (IExternalApplication), Modeless (ExternalEvent), RayCast / ReferenceIntersector
 - UI: WinForms
 - Tags: beam, ceiling, color, colour, floor, level, link, linked model, message, paint, prompt, slab, taskdialog, 板, 标高, 弹窗, 地板, 吊顶, 链接, 链接模型, 梁, 楼板, 染色, 上色, 提示, 天花板, 填色, 消息, 消息框, 着色
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0068-BeamColor.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0068-BeamColor.md
 - Description: TODO (hand-edit)
 
 ### BeamColorInLink
@@ -312,7 +312,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils, Modeless (ExternalEvent), RayCast / ReferenceIntersector
 - UI: WinForms
 - Tags: beam, ceiling, color, colour, floor, foundation, link, linked model, mark, message, paint, prompt, slab, tag, taskdialog, 板, 标记, 标签, 打标, 弹窗, 地板, 吊顶, 基础, 链接, 链接模型, 梁, 楼板, 染色, 上色, 提示, 天花板, 填色, 消息, 消息框, 着色
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0069-BeamColorInLink.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0069-BeamColorInLink.md
 - Description: TODO (hand-edit)
 
 ### CADPointReview
@@ -322,7 +322,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_FireAlarmDevices, OST_CommunicationDevices, OST_DataDevices, OST_SecurityDevices, OST_LightingFixtures
 - APIs: FilteredElementCollector, Pick (Selection), RayCast / ReferenceIntersector
 - Tags: ceiling, column, floor, foundation, link, linked model, message, millimeter, mm, point, prompt, slab, taskdialog, view, 板, 弹窗, 地板, 点, 吊顶, 毫米, 基础, 链接, 链接模型, 楼板, 视图, 提示, 天花板, 消息, 消息框, 柱, 柱子
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0086-CADPointReview.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0086-CADPointReview.md
 - Description: TODO (hand-edit)
 
 ### ColumnCornerProtectorDirectionAdjustment
@@ -333,7 +333,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_Floors, OST_StructuralColumns, OST_StructuralFoundation
 - APIs: FilteredElementCollector, Pick (Selection), TransactionGroup
 - Tags: change, column, floor, foundation, modify, slab, update, 板, 地板, 调整, 更改, 更新, 基础, 楼板, 修改, 柱, 柱子
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0089-ColumnCornerProtectorDirectionAdjustment.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0089-ColumnCornerProtectorDirectionAdjustment.md
 - Description: TODO (hand-edit)
 
 ### CreateDimensions
@@ -345,7 +345,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: WALL_ATTR_WIDTH_PARAM
 - APIs: Pick (Selection), TransactionGroup
 - Tags: column, create, dimension, generate, hanger, line, model, new, support, wall, width, 标注, 尺寸标注, 创建, 吊架, 建立, 宽度, 模型, 墙, 墙体, 生成, 线, 新建, 新增, 支吊架, 直线, 柱, 柱子
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0137-CreateDimensions.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0137-CreateDimensions.md
 - Description: TODO (hand-edit)
 
 ### CreateHorizontalProfileFrame
@@ -356,7 +356,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: WALL_USER_HEIGHT_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils
 - Tags: create, door, generate, height, new, wall, 创建, 高度, 建立, 门, 墙, 墙体, 生成, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0188-CreateHorizontalProfileFrame.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0188-CreateHorizontalProfileFrame.md
 - Description: TODO (hand-edit)
 
 ### CreateIrregularColumns
@@ -368,7 +368,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: STRUCTURAL_MATERIAL_PARAM, MATERIAL_ID_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), Element creation, FamilyManager (family editor)
 - Tags: arc, column, create, family, generate, level, material, message, new, parameter, prompt, shared parameter, taskdialog, 标高, 材料, 材质, 参数, 创建, 弹窗, 共享参数, 弧, 建立, 生成, 提示, 消息, 消息框, 新建, 新增, 圆弧, 柱, 柱子, 族
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0090-CreateIrregularColumns.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0090-CreateIrregularColumns.md
 - Description: TODO (hand-edit)
 
 ### CreateVerticalProfileFrame
@@ -379,7 +379,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: WALL_USER_HEIGHT_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils
 - Tags: create, door, generate, height, new, wall, 创建, 高度, 建立, 门, 墙, 墙体, 生成, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0187-CreateVerticalProfileFrame.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0187-CreateVerticalProfileFrame.md
 - Description: TODO (hand-edit)
 
 ### CutInstance
@@ -390,7 +390,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_StructuralFraming, OST_Walls, OST_StructuralColumns
 - APIs: FilteredElementCollector, Pick (Selection)
 - Tags: column, wall, 墙, 墙体, 柱, 柱子
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0092-CutInstance.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0092-CutInstance.md
 - Description: TODO (hand-edit)
 
 ### Demo02
@@ -403,7 +403,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, Ribbon (IExternalApplication), Modeless (ExternalEvent), RayCast / ReferenceIntersector
 - Integrations: Excel interop
 - Tags: change, create, dimension, family, family symbol, family type, generate, length, line, meter, modify, new, offset, parameter, pipe, shared parameter, sheet, tag, tee, template, type, update, view, 标记, 标签, 标注, 参数, 尺寸标注, 创建, 打标, 调整, 更改, 更新, 共享参数, 管道, 管线, 建立, 类型, 米, 模板, 偏移, 偏移量, 三通, 生成, 视图, 水管, 图纸, 线, 新建, 新增, 修改, 长度, 直线, 族, 族符号, 族类型
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0111-Demo02.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0111-Demo02.md
 - Description: TODO (hand-edit)
 
 ### FlippingBeam
@@ -414,7 +414,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_StructuralFraming, OST_TextNotes, OST_StructuralFramingTags, OST_StructuralFoundation, OST_GenericModel
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, Ribbon (IExternalApplication), Modeless (ExternalEvent)
 - Tags: annotate, batch, beam, bulk, change, comments, create, degree, delete, dialog, family, family symbol, family type, form, foundation, generate, height, mark, message, model, modify, new, note, prompt, remove, tag, taskdialog, type, update, window, 备注, 标记, 标签, 窗口, 窗体, 创建, 打标, 弹窗, 调整, 度, 对话框, 高度, 更改, 更新, 基础, 建立, 角度, 类型, 梁, 模型, 批量, 删除, 生成, 提示, 文字注释, 消息, 消息框, 新建, 新增, 修改, 移除, 注释, 族, 族符号, 族类型
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0094-FlippingBeam.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0094-FlippingBeam.md
 - Description: TODO (hand-edit)
 
 ### MEP_SlopeWithFloor
@@ -426,7 +426,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, RayCast / ReferenceIntersector
 - UI: WinForms
 - Tags: cable tray, ceiling, conduit, curve, diameter, floor, foundation, height, level, link, linked model, mep, meter, partition, pipe, pipe size, slab, slope, start offset, width, 板, 标高, 地板, 吊顶, 分区, 高度, 管道, 管径, 管线, 机电, 基础, 宽度, 链接, 链接模型, 楼板, 米, 坡度, 起点偏移, 桥架, 曲线, 水电, 水管, 天花板, 线槽, 线管, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0037-MEP_SlopeWithFloor.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0037-MEP_SlopeWithFloor.md
 - Description: TODO (hand-edit)
 
 ### MEP_VerticalLocation
@@ -438,7 +438,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, RayCast / ReferenceIntersector
 - UI: WinForms
 - Tags: ceiling, element, floor, foundation, link, linked model, mep, offset, slab, tee, 板, 地板, 吊顶, 构件, 机电, 基础, 链接, 链接模型, 楼板, 偏移, 偏移量, 三通, 水电, 天花板, 图元, 元素
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0055-MEP_VerticalLocation.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0055-MEP_VerticalLocation.md
 - Description: TODO (hand-edit)
 
 ### ModifyTheElevationOfThePointLocation
@@ -450,7 +450,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: FLOOR_ATTR_THICKNESS_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), TransactionGroup, RayCast / ReferenceIntersector
 - Tags: ceiling, change, elevation, floor, foundation, level, link, linked model, message, modify, point, prompt, slab, taskdialog, thickness, update, 板, 标高, 弹窗, 地板, 点, 吊顶, 调整, 高程, 更改, 更新, 厚度, 基础, 链接, 链接模型, 楼板, 提示, 天花板, 消息, 消息框, 修改
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0179-ModifyTheElevationOfThePointLocation.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0179-ModifyTheElevationOfThePointLocation.md
 - Description: TODO (hand-edit)
 
 ### NetHeightDim
@@ -462,7 +462,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, RayCast / ReferenceIntersector
 - UI: WinForms
 - Tags: ceiling, create, delete, dimension, floor, foundation, generate, height, link, linked model, new, remove, slab, 板, 标注, 尺寸标注, 创建, 地板, 吊顶, 高度, 基础, 建立, 链接, 链接模型, 楼板, 删除, 生成, 天花板, 新建, 新增, 移除
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0081-NetHeightDim.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0081-NetHeightDim.md
 - Description: TODO (hand-edit)
 
 ### NewCreatVerticalCableTray
@@ -474,7 +474,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_START_LEVEL_PARAM, FLOOR_ATTR_THICKNESS_PARAM, RBS_CABLETRAY_WIDTH_PARAM, RBS_CABLETRAY_HEIGHT_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, RayCast / ReferenceIntersector
 - Tags: cable tray, ceiling, create, floor, foundation, generate, height, level, link, linked model, message, new, prompt, slab, start offset, taskdialog, thickness, view, width, 板, 标高, 创建, 弹窗, 地板, 吊顶, 高度, 厚度, 基础, 建立, 宽度, 链接, 链接模型, 楼板, 起点偏移, 桥架, 生成, 视图, 提示, 天花板, 线槽, 消息, 消息框, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0180-NewCreatVerticalCableTray.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0180-NewCreatVerticalCableTray.md
 - Description: TODO (hand-edit)
 
 ### PipeSetSlopeWithTerrian
@@ -486,7 +486,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils, RayCast / ReferenceIntersector
 - UI: WinForms
 - Tags: cable tray, ceiling, conduit, curve, diameter, floor, foundation, height, level, link, linked model, meter, millimeter, mm, partition, pipe, pipe size, slab, slope, start offset, width, 板, 标高, 地板, 吊顶, 分区, 高度, 管道, 管径, 管线, 毫米, 基础, 宽度, 链接, 链接模型, 楼板, 米, 坡度, 起点偏移, 桥架, 曲线, 水管, 天花板, 线槽, 线管, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0010-PipeSetSlopeWithTerrian.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0010-PipeSetSlopeWithTerrian.md
 - Description: TODO (hand-edit)
 
 ### ReplaceParkingPlace
@@ -497,7 +497,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_GenericModel, OST_StructuralColumns
 - APIs: FilteredElementCollector, Pick (Selection), Element creation
 - Tags: arrange, column, element, family, family instance, layout, message, model, place, prompt, taskdialog, 布局, 布置, 弹窗, 构件, 模型, 排布, 排列, 提示, 图元, 消息, 消息框, 元素, 柱, 柱子, 族, 族实例
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0123-ReplaceParkingPlace.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0123-ReplaceParkingPlace.md
 - Description: TODO (hand-edit)
 
 ### ReplaceSleeve
@@ -509,7 +509,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, TransactionGroup
 - UI: WinForms
 - Tags: arrange, casing, column, error, family, family symbol, family type, layout, place, sleeve, type, 报错, 布局, 布置, 错误, 类型, 排布, 排列, 套管, 柱, 柱子, 族, 族符号, 族类型
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0098-ReplaceSleeve.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0098-ReplaceSleeve.md
 - Description: TODO (hand-edit)
 
 ### ReviewDoorClearHeight
@@ -521,7 +521,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: WALL_ATTR_WIDTH_PARAM, FURNITURE_WIDTH, FAMILY_HEIGHT_PARAM
 - APIs: FilteredElementCollector, Pick (Selection)
 - Tags: create, door, family, floor, foundation, furniture, generate, height, new, slab, view, wall, width, 板, 创建, 地板, 高度, 基础, 家具, 建立, 宽度, 楼板, 门, 墙, 墙体, 生成, 视图, 新建, 新增, 族
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0100-ReviewDoorClearHeight.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0100-ReviewDoorClearHeight.md
 - Description: TODO (hand-edit)
 
 ### ReviewParkingSpaceSpacing
@@ -531,7 +531,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_StructuralColumns, OST_Walls
 - APIs: FilteredElementCollector, Pick (Selection)
 - Tags: column, view, wall, 墙, 墙体, 视图, 柱, 柱子
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0101-ReviewParkingSpaceSpacing.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0101-ReviewParkingSpaceSpacing.md
 - Description: TODO (hand-edit)
 
 ### SplitSubSlab
@@ -543,7 +543,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: LEVEL_PARAM, FLOOR_HEIGHTABOVELEVEL_PARAM
 - APIs: Pick (Selection), RayCast / ReferenceIntersector
 - Tags: break, ceiling, create, floor, foundation, generate, height, level, link, linked model, new, slab, split, 板, 标高, 拆分, 创建, 打断, 地板, 吊顶, 分割, 高度, 基础, 建立, 链接, 链接模型, 楼板, 生成, 天花板, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0011-SplitSubSlab.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0011-SplitSubSlab.md
 - Description: TODO (hand-edit)
 
 ### SplitSubSlab
@@ -554,7 +554,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: LEVEL_PARAM, FLOOR_HEIGHTABOVELEVEL_PARAM, SPECIFY_SLOPE_OR_OFFSET, ROOF_SLOPE
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, TransactionGroup, RayCast / ReferenceIntersector
 - Tags: break, create, degree, error, floor, generate, height, level, new, offset, roof, slab, slope, split, 板, 报错, 标高, 拆分, 创建, 错误, 打断, 地板, 度, 分割, 高度, 建立, 角度, 楼板, 偏移, 偏移量, 坡度, 生成, 屋顶, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0151-SplitSubSlab.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0151-SplitSubSlab.md
 - Description: TODO (hand-edit)
 
 ### SupplySleeperBeam
@@ -566,7 +566,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: INSTANCE_REFERENCE_LEVEL_PARAM, WALL_ATTR_WIDTH_PARAM, STRUCTURAL_BEAM_END0_ELEVATION, Z_OFFSET_VALUE, Z_JUSTIFICATION
 - APIs: FilteredElementCollector, Pick (Selection), Element creation
 - Tags: beam, elevation, error, floor, height, level, offset, slab, thickness, wall, width, 板, 报错, 标高, 错误, 地板, 高程, 高度, 厚度, 宽度, 梁, 楼板, 偏移, 偏移量, 墙, 墙体
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0102-SupplySleeperBeam.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0102-SupplySleeperBeam.md
 - Description: TODO (hand-edit)
 
 ### VerticalPipeElevationAdjustment
@@ -578,7 +578,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: FLOOR_ATTR_THICKNESS_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), TransactionGroup, RayCast / ReferenceIntersector
 - Tags: adjust elevation, ceiling, change, elevation, floor, foundation, level, link, linked model, message, modify, pipe, prompt, riser, slab, taskdialog, thickness, update, vertical pipe, view, 板, 标高, 标高调整, 弹窗, 地板, 吊顶, 调整, 高程, 更改, 更新, 管道, 管线, 厚度, 基础, 立管, 链接, 链接模型, 楼板, 视图, 水管, 提示, 天花板, 消息, 消息框, 修改
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0183-VerticalPipeElevationAdjustment.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0183-VerticalPipeElevationAdjustment.md
 - Description: TODO (hand-edit)
 
 ### ViewScaling
@@ -590,7 +590,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: DIM_TOTAL_LENGTH
 - APIs: FilteredElementCollector, Pick (Selection), TransactionGroup
 - Tags: annotate, change, dimension, error, length, line, modify, move, note, tag, update, view, 报错, 标记, 标签, 标注, 尺寸标注, 错误, 打标, 调整, 更改, 更新, 视图, 文字注释, 线, 修改, 移动, 长度, 直线, 注释
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0114-ViewScaling.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0114-ViewScaling.md
 - Description: TODO (hand-edit)
 
 ### WallColumnLevelBeamFloor
@@ -602,7 +602,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: FLOOR_PARAM_IS_STRUCTURAL, FLOOR_ATTR_THICKNESS_PARAM, FAMILY_BASE_LEVEL_PARAM, FAMILY_BASE_LEVEL_OFFSET_PARAM, WALL_BASE_CONSTRAINT
 - APIs: FilteredElementCollector, Pick (Selection), TransactionGroup, RayCast / ReferenceIntersector
 - Tags: base constraint, beam, column, elevation, family, floor, height, level, link, linked model, offset, slab, thickness, top constraint, type, view, wall, 板, 标高, 地板, 底部限制条件, 顶部限制条件, 高程, 高度, 厚度, 类型, 链接, 链接模型, 梁, 楼板, 偏移, 偏移量, 墙, 墙体, 视图, 柱, 柱子, 族
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0103-WallColumnLevelBeamFloor.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0103-WallColumnLevelBeamFloor.md
 - Description: TODO (hand-edit)
 
 ## MEP (104)
@@ -617,7 +617,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, RayCast / ReferenceIntersector
 - UI: WinForms
 - Tags: cable tray, ceiling, conduit, curve, diameter, duct, family, family name, floor, foundation, hanger, height, insulation, insulation thickness, link, linked model, meter, pipe, pipe size, slab, support, thickness, width, 板, 保温, 保温厚度, 地板, 吊顶, 吊架, 风管, 高度, 隔热, 管道, 管径, 管线, 厚度, 基础, 绝缘, 宽度, 链接, 链接模型, 楼板, 米, 桥架, 曲线, 水管, 天花板, 线槽, 线管, 支吊架, 直径, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0013-AddHanger.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0013-AddHanger.md
 - Description: TODO (hand-edit)
 
 ### AddHanger4GY
@@ -629,7 +629,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: ELEM_FAMILY_PARAM, RBS_REFERENCE_INSULATION_THICKNESS, RBS_CURVE_WIDTH_PARAM, RBS_PIPE_OUTER_DIAMETER, RBS_CABLETRAY_WIDTH_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, RayCast / ReferenceIntersector
 - Tags: cable tray, ceiling, conduit, curve, diameter, duct, family, family name, floor, foundation, hanger, height, insulation, insulation thickness, link, linked model, meter, pipe, pipe size, slab, support, thickness, width, 板, 保温, 保温厚度, 地板, 吊顶, 吊架, 风管, 高度, 隔热, 管道, 管径, 管线, 厚度, 基础, 绝缘, 宽度, 链接, 链接模型, 楼板, 米, 桥架, 曲线, 水管, 天花板, 线槽, 线管, 支吊架, 直径, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0014-AddHanger4GY.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0014-AddHanger4GY.md
 - Description: TODO (hand-edit)
 
 ### AddHanger4PLZM
@@ -641,7 +641,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: ELEM_FAMILY_PARAM, RBS_PIPE_DIAMETER_PARAM, RBS_CABLETRAY_WIDTH_PARAM, RBS_CABLETRAY_HEIGHT_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, RayCast / ReferenceIntersector
 - Tags: cable tray, ceiling, curve, diameter, family, family name, floor, foundation, hanger, height, link, linked model, meter, pipe, pipe size, slab, support, width, 板, 地板, 吊顶, 吊架, 高度, 管道, 管径, 管线, 基础, 宽度, 链接, 链接模型, 楼板, 米, 桥架, 曲线, 水管, 天花板, 线槽, 支吊架, 直径, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0015-AddHanger4PLZM.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0015-AddHanger4PLZM.md
 - Description: TODO (hand-edit)
 
 ### AddHangerOrHangers
@@ -653,7 +653,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: ELEM_FAMILY_PARAM, RBS_CABLETRAY_WIDTH_PARAM, RBS_CABLETRAY_HEIGHT_PARAM, RBS_CURVE_WIDTH_PARAM, RBS_CURVE_HEIGHT_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, RayCast / ReferenceIntersector
 - Tags: cable tray, ceiling, conduit, curve, diameter, duct, family, family name, floor, foundation, hanger, height, link, linked model, message, meter, pipe, pipe size, prompt, slab, support, taskdialog, width, 板, 弹窗, 地板, 吊顶, 吊架, 风管, 高度, 管道, 管径, 管线, 基础, 宽度, 链接, 链接模型, 楼板, 米, 桥架, 曲线, 水管, 提示, 天花板, 线槽, 线管, 消息, 消息框, 支吊架, 直径, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0131-AddHangerOrHangers.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0131-AddHangerOrHangers.md
 - Description: TODO (hand-edit)
 
 ### AddInfoBetweenPointLocation
@@ -666,7 +666,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection)
 - Integrations: Excel interop
 - Tags: assign, conduit, create, csv, diameter, error, generate, line, meter, new, pipe size, point, set value, 报错, 创建, 错误, 点, 赋值, 管径, 建立, 米, 设置值, 生成, 线, 线管, 写入, 新建, 新增, 直径, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0159-AddInfoBetweenPointLocation.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0159-AddInfoBetweenPointLocation.md
 - Description: TODO (hand-edit)
 
 ### AddLightsAccordingToCAD
@@ -678,7 +678,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_START_LEVEL_PARAM, INSTANCE_SCHEDULE_ONLY_LEVEL_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, RayCast / ReferenceIntersector
 - Tags: cable tray, change, error, level, lighting fixture, modify, schedule, start offset, update, 报错, 标高, 错误, 灯具, 调整, 更改, 更新, 明细表, 起点偏移, 桥架, 线槽, 修改
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0118-AddLightsAccordingToCAD.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0118-AddLightsAccordingToCAD.md
 - Description: TODO (hand-edit)
 
 ### AddParaBySymbol
@@ -689,7 +689,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_MechanicalEquipment, OST_DuctAccessory, OST_PipeAccessory
 - APIs: FilteredElementCollector
 - Tags: duct, mechanical equipment, message, parameter, pipe, prompt, shared parameter, taskdialog, 参数, 弹窗, 风管, 共享参数, 管道, 管线, 机械设备, 设备, 水管, 提示, 消息, 消息框
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0160-AddParaBySymbol.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0160-AddParaBySymbol.md
 - Description: TODO (hand-edit)
 
 ### AddSleeveDiameter
@@ -701,7 +701,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_PIPE_DIAMETER_PARAM
 - APIs: FilteredElementCollector, Pick (Selection)
 - Tags: assign, casing, curve, diameter, meter, parameter, pipe, pipe size, set value, shared parameter, sleeve, 参数, 赋值, 共享参数, 管道, 管径, 管线, 米, 曲线, 设置值, 水管, 套管, 写入, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0163-AddSleeveDiameter.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0163-AddSleeveDiameter.md
 - Description: TODO (hand-edit)
 
 ### AdjustCableTray
@@ -712,7 +712,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_StairsRailing, OST_CableTray
 - APIs: FilteredElementCollector, Pick (Selection)
 - Tags: cable tray, change, line, message, modify, move, prompt, railing, stair, taskdialog, update, 弹窗, 调整, 更改, 更新, 栏杆, 楼梯, 桥架, 提示, 线, 线槽, 消息, 消息框, 修改, 移动, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0164-AdjustCableTray.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0164-AdjustCableTray.md
 - Description: TODO (hand-edit)
 
 ### AlignmentOfPipelineBends
@@ -723,7 +723,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_PipeFitting, OST_CableTrayFitting, OST_DuctFitting
 - APIs: Pick (Selection), ElementTransformUtils
 - Tags: align, bend, cable tray, duct, elbow, line, message, pipe, pipe fitting, prompt, taskdialog, 弹窗, 对齐, 风管, 管道, 管件, 管线, 桥架, 三通, 水管, 提示, 弯头, 线, 线槽, 消息, 消息框, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0124-AlignmentOfPipelineBends.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0124-AlignmentOfPipelineBends.md
 - Description: TODO (hand-edit)
 
 ### ArrangeHangerAccordingToNozzle
@@ -735,7 +735,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_PIPE_DIAMETER_PARAM, CURVE_ELEM_LENGTH, RBS_START_LEVEL_PARAM, RBS_END_OFFSET_PARAM, INSTANCE_FREE_HOST_OFFSET_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, Ribbon (IExternalApplication), RayCast / ReferenceIntersector
 - Tags: arrange, cable tray, ceiling, curve, diameter, duct, elevation, floor, foundation, hanger, layout, length, level, link, linked model, message, meter, offset, pipe, pipe size, place, prompt, slab, sprinkler, start offset, support, taskdialog, thickness, wall, width, 板, 标高, 布局, 布置, 弹窗, 地板, 吊顶, 吊架, 风管, 高程, 管道, 管径, 管线, 厚度, 基础, 宽度, 链接, 链接模型, 楼板, 米, 排布, 排列, 喷淋, 喷头, 偏移, 偏移量, 起点偏移, 墙, 墙体, 桥架, 曲线, 水管, 提示, 天花板, 线槽, 消息, 消息框, 长度, 支吊架, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0132-ArrangeHangerAccordingToNozzle.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0132-ArrangeHangerAccordingToNozzle.md
 - Description: TODO (hand-edit)
 
 ### ArrangeHangerAccordingToNozzle
@@ -747,7 +747,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: CURVE_ELEM_LENGTH, RBS_START_LEVEL_PARAM, RBS_PIPE_DIAMETER_PARAM, RBS_END_OFFSET_PARAM, INSTANCE_FREE_HOST_OFFSET_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, RayCast / ReferenceIntersector
 - Tags: arrange, cable tray, ceiling, curve, diameter, duct, elevation, floor, foundation, hanger, layout, length, level, link, linked model, message, meter, offset, pipe, pipe size, place, prompt, slab, start offset, support, taskdialog, thickness, wall, width, 板, 标高, 布局, 布置, 弹窗, 地板, 吊顶, 吊架, 风管, 高程, 管道, 管径, 管线, 厚度, 基础, 宽度, 链接, 链接模型, 楼板, 米, 排布, 排列, 偏移, 偏移量, 起点偏移, 墙, 墙体, 桥架, 曲线, 水管, 提示, 天花板, 线槽, 消息, 消息框, 长度, 支吊架, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0133-ArrangeHangerAccordingToNozzle.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0133-ArrangeHangerAccordingToNozzle.md
 - Description: TODO (hand-edit)
 
 ### ArrangeSingleOrMultiplePipeHangersInTheLinkedModel
@@ -759,7 +759,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: ELEM_FAMILY_PARAM, RBS_CABLETRAY_WIDTH_PARAM, RBS_CABLETRAY_HEIGHT_PARAM, RBS_CURVE_WIDTH_PARAM, RBS_CURVE_HEIGHT_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, RayCast / ReferenceIntersector
 - Tags: arrange, cable tray, ceiling, conduit, curve, diameter, duct, family, family name, floor, foundation, hanger, height, layout, link, linked model, message, meter, model, pipe, pipe size, place, prompt, slab, support, taskdialog, width, 板, 布局, 布置, 弹窗, 地板, 吊顶, 吊架, 风管, 高度, 管道, 管径, 管线, 基础, 宽度, 链接, 链接模型, 楼板, 米, 模型, 排布, 排列, 桥架, 曲线, 水管, 提示, 天花板, 线槽, 线管, 消息, 消息框, 支吊架, 直径, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0134-ArrangeSingleOrMultiplePipeHangersInTheLinkedModel.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0134-ArrangeSingleOrMultiplePipeHangersInTheLinkedModel.md
 - Description: TODO (hand-edit)
 
 ### AttributeAssignmentOfConduitPath
@@ -772,7 +772,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector
 - Integrations: Excel interop
 - Tags: assign, conduit, diameter, line, meter, partition, pipe size, set value, 分区, 赋值, 管径, 米, 设置值, 线, 线管, 写入, 直径, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0165-AttributeAssignmentOfConduitPath.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0165-AttributeAssignmentOfConduitPath.md
 - Description: TODO (hand-edit)
 
 ### BatchArrangementOfHangersBetweenBeams
@@ -783,7 +783,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_START_LEVEL_PARAM, RBS_CURVE_WIDTH_PARAM, RBS_PIPE_OUTER_DIAMETER, RBS_CABLETRAY_WIDTH_PARAM, RBS_CURVE_HEIGHT_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, Modeless (ExternalEvent), RayCast / ReferenceIntersector
 - Tags: arrange, batch, beam, bulk, cable tray, ceiling, curve, diameter, duct, floor, foundation, hanger, height, layout, level, link, linked model, message, meter, pipe, pipe size, place, prompt, slab, start offset, support, taskdialog, width, 板, 标高, 布局, 布置, 弹窗, 地板, 吊顶, 吊架, 风管, 高度, 管道, 管径, 管线, 基础, 宽度, 链接, 链接模型, 梁, 楼板, 米, 排布, 排列, 批量, 起点偏移, 桥架, 曲线, 水管, 提示, 天花板, 线槽, 消息, 消息框, 支吊架, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0115-BatchArrangementOfHangersBetweenBeams.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0115-BatchArrangementOfHangersBetweenBeams.md
 - Description: TODO (hand-edit)
 
 ### CalculatePipeLength
@@ -792,7 +792,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: CURVE_ELEM_LENGTH
 - APIs: Pick (Selection)
 - Tags: curve, length, pipe, 管道, 管线, 曲线, 水管, 长度
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0125-CalculatePipeLength.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0125-CalculatePipeLength.md
 - Description: TODO (hand-edit)
 
 ### CEGRegister
@@ -806,7 +806,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - UI: WinForms
 - Integrations: JSON, HTTP
 - Tags: annotate, cable tray, ceiling, comments, conduit, create, curve, diameter, dimension, duct, element, error, family, family name, floor, foundation, generate, hanger, height, link, linked model, mark, message, meter, new, note, offset, pipe, pipe size, prompt, sheet, slab, support, tag, taskdialog, tee, type, view, width, 板, 报错, 备注, 标记, 标签, 标注, 尺寸标注, 创建, 错误, 打标, 弹窗, 地板, 吊顶, 吊架, 风管, 高度, 构件, 管道, 管径, 管线, 基础, 建立, 宽度, 类型, 链接, 链接模型, 楼板, 米, 偏移, 偏移量, 桥架, 曲线, 三通, 生成, 视图, 水管, 提示, 天花板, 图元, 图纸, 文字注释, 线槽, 线管, 消息, 消息框, 新建, 新增, 元素, 支吊架, 直径, 注释, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0106-CEGRegister.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0106-CEGRegister.md
 - Description: TODO (hand-edit)
 
 ### ConnectConduitByNode
@@ -817,7 +817,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_GenericModel
 - APIs: FilteredElementCollector, Pick (Selection), Element creation, TransactionGroup
 - Tags: conduit, connect, error, family, join, line, message, model, prompt, taskdialog, 报错, 错误, 弹窗, 合并, 连接, 模型, 提示, 线, 线管, 消息, 消息框, 直线, 族
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0166-ConnectConduitByNode.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0166-ConnectConduitByNode.md
 - Description: TODO (hand-edit)
 
 ### CopyParameterValue
@@ -828,7 +828,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_ElectricalEquipment
 - APIs: FilteredElementCollector
 - Tags: assign, copy, message, meter, parameter, prompt, set value, shared parameter, taskdialog, 参数, 弹窗, 复制, 赋值, 共享参数, 米, 设置值, 提示, 消息, 消息框, 写入
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0167-CopyParameterValue.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0167-CopyParameterValue.md
 - Description: TODO (hand-edit)
 
 ### CopySameParameterValue
@@ -839,7 +839,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_MechanicalEquipment, OST_ElectricalEquipment, OST_PipeAccessory, OST_DuctAccessory
 - APIs: FilteredElementCollector
 - Tags: copy, duct, mep, meter, parameter, pipe, shared parameter, 参数, 风管, 复制, 共享参数, 管道, 管线, 机电, 米, 水电, 水管
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0146-CopySameParameterValue.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0146-CopySameParameterValue.md
 - Description: TODO (hand-edit)
 
 ### CorrectionOfCasingAngle
@@ -850,7 +850,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_PipeFitting, OST_MechanicalEquipment, OST_PipeCurves, OST_CableTray
 - APIs: FilteredElementCollector, ElementTransformUtils
 - Tags: cable tray, casing, curve, degree, elbow, message, pipe, pipe fitting, prompt, sleeve, taskdialog, 弹窗, 度, 管道, 管件, 管线, 角度, 桥架, 曲线, 三通, 水管, 套管, 提示, 弯头, 线槽, 消息, 消息框
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0109-CorrectionOfCasingAngle.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0109-CorrectionOfCasingAngle.md
 - Description: TODO (hand-edit)
 
 ### CorrectionOfJunctionBoxHeight
@@ -863,7 +863,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Ribbon (IExternalApplication), TransactionGroup, RayCast / ReferenceIntersector
 - Integrations: Excel interop
 - Tags: ceiling, conduit, degree, dimension, floor, foundation, height, line, link, linked model, mechanical equipment, message, millimeter, mm, prompt, rotate, slab, taskdialog, thickness, view, wall, 板, 标注, 尺寸标注, 弹窗, 地板, 吊顶, 度, 高度, 毫米, 厚度, 机械设备, 基础, 角度, 链接, 链接模型, 楼板, 墙, 墙体, 设备, 视图, 提示, 天花板, 线, 线管, 消息, 消息框, 旋转, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0168-CorrectionOfJunctionBoxHeight.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0168-CorrectionOfJunctionBoxHeight.md
 - Description: TODO (hand-edit)
 
 ### CreateBoxByPointLocation
@@ -875,7 +875,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, ElementTransformUtils, Element creation
 - Integrations: Excel interop
 - Tags: create, generate, line, message, millimeter, mm, new, point, prompt, taskdialog, 创建, 弹窗, 点, 毫米, 建立, 生成, 提示, 线, 消息, 消息框, 新建, 新增, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0169-CreateBoxByPointLocation.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0169-CreateBoxByPointLocation.md
 - Description: TODO (hand-edit)
 
 ### CreateBoxCabletrayOrConduit
@@ -888,7 +888,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, TransactionGroup
 - Integrations: Excel interop
 - Tags: cable tray, conduit, create, diameter, elevation, error, generate, level, line, meter, new, pipe size, start offset, width, 报错, 标高, 创建, 错误, 高程, 管径, 建立, 宽度, 米, 起点偏移, 桥架, 生成, 线, 线槽, 线管, 新建, 新增, 直径, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0170-CreateBoxCabletrayOrConduit.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0170-CreateBoxCabletrayOrConduit.md
 - Description: TODO (hand-edit)
 
 ### CreateDimensionsForVerticalPoleHanger
@@ -898,7 +898,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_MechanicalEquipment
 - APIs: FilteredElementCollector
 - Tags: create, dimension, generate, hanger, new, support, 标注, 尺寸标注, 创建, 吊架, 建立, 生成, 新建, 新增, 支吊架
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0138-CreateDimensionsForVerticalPoleHanger.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0138-CreateDimensionsForVerticalPoleHanger.md
 - Description: TODO (hand-edit)
 
 ### CreateMaskByHeight
@@ -910,7 +910,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), RayCast / ReferenceIntersector
 - UI: WinForms
 - Tags: cable tray, create, curve, diameter, duct, floor, generate, height, meter, new, pipe, pipe size, slab, wall, width, 板, 创建, 地板, 风管, 高度, 管道, 管径, 管线, 建立, 宽度, 楼板, 米, 墙, 墙体, 桥架, 曲线, 生成, 水管, 线槽, 新建, 新增, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0195-CreateMaskByHeight.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0195-CreateMaskByHeight.md
 - Description: TODO (hand-edit)
 
 ### CreateSteelPipes
@@ -921,7 +921,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_SpecialityEquipment
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation
 - Tags: create, generate, new, pipe, tee, 创建, 管道, 管线, 建立, 三通, 生成, 水管, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0110-CreateSteelPipes.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0110-CreateSteelPipes.md
 - Description: TODO (hand-edit)
 
 ### CreateTextAnnotationsForHangerHeight
@@ -933,7 +933,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: LEADER_OFFSET_SHEET, TEXT_SIZE
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, RayCast / ReferenceIntersector
 - Tags: annotate, comments, create, elevation, floor, generate, hanger, height, level, message, new, note, offset, prompt, sheet, slab, support, tag, taskdialog, view, 板, 备注, 标高, 标记, 标签, 创建, 打标, 弹窗, 地板, 吊架, 高程, 高度, 建立, 楼板, 偏移, 偏移量, 生成, 视图, 提示, 图纸, 文字注释, 消息, 消息框, 新建, 新增, 支吊架, 注释
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0139-CreateTextAnnotationsForHangerHeight.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0139-CreateTextAnnotationsForHangerHeight.md
 - Description: TODO (hand-edit)
 
 ### CreateTextForBothEndsOfPipeline
@@ -944,7 +944,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: LEADER_OFFSET_SHEET
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils
 - Tags: annotate, comments, create, elevation, generate, line, new, note, offset, pipe, sheet, 备注, 标高, 创建, 高程, 管道, 管线, 建立, 偏移, 偏移量, 生成, 水管, 图纸, 文字注释, 线, 新建, 新增, 直线, 注释
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0140-CreateTextForBothEndsOfPipeline.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0140-CreateTextForBothEndsOfPipeline.md
 - Description: TODO (hand-edit)
 
 ### CreateVerticalBridges
@@ -956,7 +956,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_CABLETRAY_WIDTH_PARAM, RBS_CABLETRAY_HEIGHT_PARAM, RBS_END_OFFSET_PARAM, RBS_CTC_TOP_ELEVATION, RBS_OFFSET_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, Modeless (ExternalEvent), TransactionGroup
 - Tags: align, bend, cable tray, create, curve, elbow, elevation, family, generate, height, length, level, line, message, move, new, offset, pipe fitting, prompt, start offset, taskdialog, tee, type, width, 标高, 创建, 弹窗, 对齐, 高程, 高度, 管件, 建立, 宽度, 类型, 偏移, 偏移量, 起点偏移, 桥架, 曲线, 三通, 生成, 提示, 弯头, 线, 线槽, 消息, 消息框, 新建, 新增, 移动, 长度, 直线, 族
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0189-CreateVerticalBridges.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0189-CreateVerticalBridges.md
 - Description: TODO (hand-edit)
 
 ### CreateVerticalConduitForJunctionBox
@@ -969,7 +969,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, RayCast / ReferenceIntersector
 - Integrations: Excel interop
 - Tags: ceiling, conduit, create, diameter, floor, foundation, generate, line, link, linked model, message, meter, new, partition, pipe size, prompt, slab, taskdialog, view, wall, 板, 创建, 弹窗, 地板, 吊顶, 分区, 管径, 基础, 建立, 链接, 链接模型, 楼板, 米, 墙, 墙体, 生成, 视图, 提示, 天花板, 线, 线管, 消息, 消息框, 新建, 新增, 直径, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0172-CreateVerticalConduitForJunctionBox.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0172-CreateVerticalConduitForJunctionBox.md
 - Description: TODO (hand-edit)
 
 ### DuctAndCableTrayDetailCurve
@@ -979,7 +979,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_DuctCurves, OST_CableTray
 - APIs: Pick (Selection)
 - Tags: cable tray, curve, duct, line, 风管, 桥架, 曲线, 线, 线槽, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0016-DuctAndCableTrayDetailCurve.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0016-DuctAndCableTrayDetailCurve.md
 - Description: TODO (hand-edit)
 
 ### FindBrokenCableTrays
@@ -988,7 +988,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_CableTray
 - APIs: FilteredElementCollector
 - Tags: cable tray, 桥架, 线槽
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0174-FindBrokenCableTrays.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0174-FindBrokenCableTrays.md
 - Description: TODO (hand-edit)
 
 ### FindLightPath
@@ -1002,7 +1002,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - UI: WinForms
 - Integrations: Excel interop
 - Tags: assign, break, cable tray, comments, conduit, connect, copy, create, delete, diameter, elbow, error, family, family symbol, family type, foundation, generate, hide, join, level, lighting fixture, line, message, meter, millimeter, mm, model, new, parameter, pipe, pipe fitting, pipe size, point, project, project parameter, prompt, remove, rename, set value, shared parameter, split, start offset, taskdialog, tee, type, 报错, 备注, 标高, 参数, 拆分, 创建, 错误, 打断, 弹窗, 灯具, 点, 分割, 复制, 赋值, 共享参数, 管道, 管件, 管径, 管线, 毫米, 合并, 基础, 建立, 类型, 连接, 米, 模型, 起点偏移, 桥架, 三通, 删除, 设置值, 生成, 水管, 提示, 弯头, 线, 线槽, 线管, 项目, 项目参数, 消息, 消息框, 写入, 新建, 新增, 移除, 隐藏, 直径, 直线, 重命名, 注释, 族, 族符号, 族类型
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0175-FindLightPath.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0175-FindLightPath.md
 - Description: TODO (hand-edit)
 
 ### GateValvePressureCorrection
@@ -1013,7 +1013,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_PipeAccessory
 - APIs: FilteredElementCollector
 - Tags: message, pipe, pipe accessory, prompt, taskdialog, valve, 弹窗, 阀门, 管道, 管道附件, 管线, 水管, 提示, 消息, 消息框
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0176-GateValvePressureCorrection.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0176-GateValvePressureCorrection.md
 - Description: TODO (hand-edit)
 
 ### HangerAlignment
@@ -1025,7 +1025,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: align, hanger, message, prompt, support, taskdialog, 弹窗, 吊架, 对齐, 提示, 消息, 消息框, 支吊架
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0190-HangerAlignment.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0190-HangerAlignment.md
 - Description: TODO (hand-edit)
 
 ### HangerClassificationAnnotation
@@ -1037,7 +1037,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: LEADER_OFFSET_SHEET, TEXT_SIZE
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Modeless (ExternalEvent), FamilyManager (family editor)
 - Tags: change, hanger, mark, message, modify, move, offset, prompt, sheet, support, tag, taskdialog, update, 标记, 标签, 打标, 弹窗, 吊架, 调整, 更改, 更新, 偏移, 偏移量, 提示, 图纸, 消息, 消息框, 修改, 移动, 支吊架
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0191-HangerClassificationAnnotation.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0191-HangerClassificationAnnotation.md
 - Description: TODO (hand-edit)
 
 ### HangerUpdate
@@ -1050,7 +1050,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, TransactionGroup
 - UI: WinForms
 - Tags: 3d view, 3d视图, align, cable tray, ceiling, change, curve, degree, diameter, floor, foundation, hanger, height, level, line, link, linked model, meter, modify, offset, pipe, pipe size, slab, start offset, support, update, view, 板, 标高, 地板, 吊顶, 吊架, 调整, 度, 对齐, 高度, 更改, 更新, 管道, 管径, 管线, 基础, 角度, 链接, 链接模型, 楼板, 米, 偏移, 偏移量, 起点偏移, 桥架, 曲线, 三维视图, 视图, 水管, 天花板, 线, 线槽, 修改, 支吊架, 直径, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0135-HangerUpdate.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0135-HangerUpdate.md
 - Description: TODO (hand-edit)
 
 ### HeightOFSprayPipeToTopPlate
@@ -1061,7 +1061,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_PIPE_DIAMETER_PARAM, RBS_PIPING_SYSTEM_TYPE_PARAM
 - APIs: FilteredElementCollector, Modeless (ExternalEvent), RayCast / ReferenceIntersector
 - Tags: curve, diameter, error, floor, height, message, meter, pipe, pipe size, prompt, slab, system, system type, taskdialog, type, 板, 报错, 错误, 弹窗, 地板, 高度, 管道, 管径, 管线, 类型, 楼板, 米, 曲线, 水管, 提示, 系统, 系统类型, 消息, 消息框, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0193-HeightOFSprayPipeToTopPlate.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0193-HeightOFSprayPipeToTopPlate.md
 - Description: TODO (hand-edit)
 
 ### ImproveEquipmentInformation
@@ -1073,7 +1073,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector
 - Integrations: Excel interop
 - Tags: dialog, form, mechanical equipment, message, prompt, taskdialog, view, window, 窗口, 窗体, 弹窗, 对话框, 机械设备, 设备, 视图, 提示, 消息, 消息框
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0178-ImproveEquipmentInformation.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0178-ImproveEquipmentInformation.md
 - Description: TODO (hand-edit)
 
 ### InspectionWellElevationAdjustment
@@ -1084,7 +1084,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_PipeCurves, OST_GenericModel
 - APIs: FilteredElementCollector, Pick (Selection)
 - Tags: adjust elevation, audit, change, check, curve, elevation, level, model, modify, pipe, update, validate, 标高, 标高调整, 调整, 高程, 更改, 更新, 管道, 管线, 检查, 模型, 曲线, 审查, 水管, 校验, 修改
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0119-InspectionWellElevationAdjustment.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0119-InspectionWellElevationAdjustment.md
 - Description: TODO (hand-edit)
 
 ### MarkBothEndsOfTheRampPipeline
@@ -1094,7 +1094,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Dialogs: "Revit", "提示", "ww", "ll"
 - APIs: FilteredElementCollector, Pick (Selection)
 - Tags: dimension, line, mark, message, pipe, prompt, taskdialog, 标记, 标注, 尺寸标注, 弹窗, 管道, 管线, 水管, 提示, 线, 消息, 消息框, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0149-MarkBothEndsOfTheRampPipeline.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0149-MarkBothEndsOfTheRampPipeline.md
 - Description: TODO (hand-edit)
 
 ### MEP_3DViewCreater
@@ -1106,7 +1106,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector
 - UI: WinForms
 - Tags: create, generate, mep, message, new, prompt, taskdialog, view, 创建, 弹窗, 机电, 建立, 生成, 视图, 水电, 提示, 消息, 消息框, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0017-MEP_3DViewCreater.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0017-MEP_3DViewCreater.md
 - Description: TODO (hand-edit)
 
 ### MEP_AddSEblow
@@ -1118,7 +1118,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: ELEM_FAMILY_PARAM, RBS_PIPING_SYSTEM_TYPE_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), Element creation
 - Tags: family, family name, mep, pipe, system, system type, type, 管道, 管线, 机电, 类型, 水电, 水管, 系统, 系统类型, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0018-MEP_AddSEblow.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0018-MEP_AddSEblow.md
 - Description: TODO (hand-edit)
 
 ### MEP_AlignIn3D
@@ -1129,7 +1129,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: align, cable tray, conduit, curve, diameter, height, mep, meter, partition, pipe, pipe size, width, 对齐, 分区, 高度, 管道, 管径, 管线, 机电, 宽度, 米, 桥架, 曲线, 水电, 水管, 线槽, 线管, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0019-MEP_AlignIn3D.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0019-MEP_AlignIn3D.md
 - Description: TODO (hand-edit)
 
 ### MEP_Connecter
@@ -1140,7 +1140,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_PIPE_DIAMETER_PARAM, ELEM_PARTITION_PARAM, RBS_CURVE_WIDTH_PARAM, RBS_CURVE_HEIGHT_PARAM, RBS_CURVE_DIAMETER_PARAM
 - APIs: Pick (Selection)
 - Tags: cable tray, conduit, connect, curve, diameter, elbow, height, join, mep, meter, partition, pipe, pipe fitting, pipe size, rotate, tee, width, 分区, 高度, 管道, 管件, 管径, 管线, 合并, 机电, 宽度, 连接, 米, 桥架, 曲线, 三通, 水电, 水管, 弯头, 线槽, 线管, 旋转, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0020-MEP_Connecter.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0020-MEP_Connecter.md
 - Description: TODO (hand-edit)
 
 ### MEP_CreateSectionViewParallelToPipe
@@ -1149,7 +1149,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection)
 - UI: WinForms
 - Tags: create, generate, mep, new, pipe, view, 创建, 管道, 管线, 机电, 建立, 生成, 视图, 水电, 水管, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0021-MEP_CreateSectionViewParallelToPipe.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0021-MEP_CreateSectionViewParallelToPipe.md
 - Description: TODO (hand-edit)
 
 ### MEP_CreateSectionViewPerpendicularToPipe
@@ -1158,7 +1158,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection)
 - UI: WinForms
 - Tags: create, generate, mep, new, pipe, view, 创建, 管道, 管线, 机电, 建立, 生成, 视图, 水电, 水管, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0022-MEP_CreateSectionViewPerpendicularToPipe.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0022-MEP_CreateSectionViewPerpendicularToPipe.md
 - Description: TODO (hand-edit)
 
 ### MEP_FittingOffset
@@ -1170,7 +1170,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, height, level, line, mep, meter, offset, offset pipe, partition, pipe, pipe size, start offset, warning, width, 避让, 标高, 分区, 高度, 管道, 管道偏移, 管径, 管线, 机电, 警告, 宽度, 米, 偏移, 偏移量, 起点偏移, 桥架, 曲线, 水电, 水管, 线, 线槽, 线管, 直径, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0023-MEP_FittingOffset.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0023-MEP_FittingOffset.md
 - Description: TODO (hand-edit)
 
 ### MEP_FittingOffset_Smart
@@ -1181,7 +1181,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_START_LEVEL_PARAM, ELEM_PARTITION_PARAM, RBS_PIPE_DIAMETER_PARAM, RBS_CURVE_WIDTH_PARAM, RBS_CURVE_HEIGHT_PARAM
 - APIs: Pick (Selection), ElementTransformUtils
 - Tags: cable tray, conduit, curve, diameter, height, level, line, mep, message, meter, offset, offset pipe, partition, pipe, pipe size, prompt, start offset, taskdialog, warning, width, 避让, 标高, 弹窗, 分区, 高度, 管道, 管道偏移, 管径, 管线, 机电, 警告, 宽度, 米, 偏移, 偏移量, 起点偏移, 桥架, 曲线, 水电, 水管, 提示, 线, 线槽, 线管, 消息, 消息框, 直径, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0026-MEP_FittingOffset_Smart.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0026-MEP_FittingOffset_Smart.md
 - Description: TODO (hand-edit)
 
 ### MEP_FittingOffsetFour
@@ -1193,7 +1193,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, height, level, line, mep, meter, offset, offset pipe, partition, pipe, pipe size, start offset, warning, width, 避让, 标高, 分区, 高度, 管道, 管道偏移, 管径, 管线, 机电, 警告, 宽度, 米, 偏移, 偏移量, 起点偏移, 桥架, 曲线, 水电, 水管, 线, 线槽, 线管, 直径, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0024-MEP_FittingOffsetFour.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0024-MEP_FittingOffsetFour.md
 - Description: TODO (hand-edit)
 
 ### MEP_FittingOffsetSlope
@@ -1206,7 +1206,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, duct, height, level, line, mep, meter, offset, offset pipe, partition, pipe, pipe size, slope, start offset, width, 避让, 标高, 分区, 风管, 高度, 管道, 管道偏移, 管径, 管线, 机电, 宽度, 米, 偏移, 偏移量, 坡度, 起点偏移, 桥架, 曲线, 水电, 水管, 线, 线槽, 线管, 直径, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0025-MEP_FittingOffsetSlope.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0025-MEP_FittingOffsetSlope.md
 - Description: TODO (hand-edit)
 
 ### MEP_MEPCurvePlaceExchange
@@ -1217,7 +1217,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_CableTray, OST_DuctCurves, OST_PipeCurves, OST_Conduit
 - APIs: Pick (Selection)
 - Tags: arrange, cable tray, change, conduit, curve, duct, layout, mep, modify, pipe, place, update, warning, 布局, 布置, 调整, 风管, 更改, 更新, 管道, 管线, 机电, 警告, 排布, 排列, 桥架, 曲线, 水电, 水管, 线槽, 线管, 修改
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0027-MEP_MEPCurvePlaceExchange.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0027-MEP_MEPCurvePlaceExchange.md
 - Description: TODO (hand-edit)
 
 ### MEP_MEPNETH
@@ -1230,7 +1230,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), RayCast / ReferenceIntersector
 - UI: WinForms
 - Tags: cable tray, ceiling, curve, duct, error, floor, foundation, line, link, linked model, mark, mep, message, offset, pipe, prompt, slab, start offset, tag, taskdialog, 板, 报错, 标记, 标签, 错误, 打标, 弹窗, 地板, 吊顶, 风管, 管道, 管线, 机电, 基础, 链接, 链接模型, 楼板, 偏移, 偏移量, 起点偏移, 桥架, 曲线, 水电, 水管, 提示, 天花板, 线, 线槽, 消息, 消息框, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0028-MEP_MEPNETH.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0028-MEP_MEPNETH.md
 - Description: TODO (hand-edit)
 
 ### MEP_Offset
@@ -1242,7 +1242,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, height, level, line, mep, meter, offset, offset pipe, partition, pipe, pipe size, start offset, warning, width, 避让, 标高, 分区, 高度, 管道, 管道偏移, 管径, 管线, 机电, 警告, 宽度, 米, 偏移, 偏移量, 起点偏移, 桥架, 曲线, 水电, 水管, 线, 线槽, 线管, 直径, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0029-MEP_Offset.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0029-MEP_Offset.md
 - Description: TODO (hand-edit)
 
 ### MEP_OffsetCanceller
@@ -1253,7 +1253,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_START_LEVEL_PARAM, RBS_OFFSET_PARAM, ELEM_PARTITION_PARAM, RBS_PIPE_DIAMETER_PARAM, RBS_CURVE_WIDTH_PARAM
 - APIs: Pick (Selection), ElementTransformUtils
 - Tags: cable tray, conduit, curve, diameter, elbow, height, level, mep, message, meter, offset, partition, pipe, pipe fitting, pipe size, prompt, start offset, taskdialog, tee, width, 标高, 弹窗, 分区, 高度, 管道, 管件, 管径, 管线, 机电, 宽度, 米, 偏移, 偏移量, 起点偏移, 桥架, 曲线, 三通, 水电, 水管, 提示, 弯头, 线槽, 线管, 消息, 消息框, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0030-MEP_OffsetCanceller.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0030-MEP_OffsetCanceller.md
 - Description: TODO (hand-edit)
 
 ### MEP_OffsetOverturner
@@ -1264,7 +1264,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: ELEM_PARTITION_PARAM, RBS_PIPE_DIAMETER_PARAM, RBS_CURVE_WIDTH_PARAM, RBS_CURVE_HEIGHT_PARAM, RBS_CURVE_DIAMETER_PARAM
 - APIs: Pick (Selection), ElementTransformUtils
 - Tags: cable tray, conduit, curve, diameter, elbow, height, mep, message, meter, offset, partition, pipe, pipe fitting, pipe size, prompt, taskdialog, tee, width, 弹窗, 分区, 高度, 管道, 管件, 管径, 管线, 机电, 宽度, 米, 偏移, 偏移量, 桥架, 曲线, 三通, 水电, 水管, 提示, 弯头, 线槽, 线管, 消息, 消息框, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0031-MEP_OffsetOverturner.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0031-MEP_OffsetOverturner.md
 - Description: TODO (hand-edit)
 
 ### MEP_OffsetPro
@@ -1276,7 +1276,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: diameter, level, mep, message, meter, offset, partition, pipe, pipe size, prompt, sprinkler, start offset, taskdialog, 标高, 弹窗, 分区, 管道, 管径, 管线, 机电, 米, 喷淋, 喷头, 偏移, 偏移量, 起点偏移, 水电, 水管, 提示, 消息, 消息框, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0032-MEP_OffsetPro.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0032-MEP_OffsetPro.md
 - Description: TODO (hand-edit)
 
 ### MEP_OffsetProBefore
@@ -1287,7 +1287,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: diameter, level, mep, meter, offset, partition, pipe, pipe size, sprinkler, start offset, 标高, 分区, 管道, 管径, 管线, 机电, 米, 喷淋, 喷头, 偏移, 偏移量, 起点偏移, 水电, 水管, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0033-MEP_OffsetProBefore.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0033-MEP_OffsetProBefore.md
 - Description: TODO (hand-edit)
 
 ### MEP_ParallelIn3D
@@ -1299,7 +1299,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: curve, length, mep, message, prompt, taskdialog, 弹窗, 机电, 曲线, 水电, 提示, 消息, 消息框, 长度
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0034-MEP_ParallelIn3D.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0034-MEP_ParallelIn3D.md
 - Description: TODO (hand-edit)
 
 ### MEP_ParallelIn3DBasisOfLink
@@ -1312,7 +1312,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection)
 - UI: WinForms
 - Tags: curve, length, link, linked model, mep, message, prompt, taskdialog, wall, warning, 弹窗, 机电, 警告, 链接, 链接模型, 墙, 墙体, 曲线, 水电, 提示, 消息, 消息框, 长度
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0035-MEP_ParallelIn3DBasisOfLink.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0035-MEP_ParallelIn3DBasisOfLink.md
 - Description: TODO (hand-edit)
 
 ### MEP_Replaycer
@@ -1324,7 +1324,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection)
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, duct, elevation, height, level, mep, message, meter, partition, pipe, pipe size, prompt, system, system type, taskdialog, type, width, 标高, 弹窗, 分区, 风管, 高程, 高度, 管道, 管径, 管线, 机电, 宽度, 类型, 米, 桥架, 曲线, 水电, 水管, 提示, 系统, 系统类型, 线槽, 线管, 消息, 消息框, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0036-MEP_Replaycer.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0036-MEP_Replaycer.md
 - Description: TODO (hand-edit)
 
 ### MEP_SectionBox
@@ -1335,7 +1335,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, height, mep, meter, partition, pipe, pipe size, width, 分区, 高度, 管道, 管径, 管线, 机电, 宽度, 米, 桥架, 曲线, 水电, 水管, 线槽, 线管, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0079-MEP_SectionBox.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0079-MEP_SectionBox.md
 - Description: TODO (hand-edit)
 
 ### MEP_SmartMove
@@ -1346,7 +1346,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: cable tray, conduit, create, curve, delete, diameter, generate, height, level, mep, meter, model, move, new, partition, pipe, pipe size, remove, start offset, width, 标高, 创建, 分区, 高度, 管道, 管径, 管线, 机电, 建立, 宽度, 米, 模型, 起点偏移, 桥架, 曲线, 删除, 生成, 水电, 水管, 线槽, 线管, 新建, 新增, 移除, 移动, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0039-MEP_SmartMove.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0039-MEP_SmartMove.md
 - Description: TODO (hand-edit)
 
 ### MEP_SmartOffset
@@ -1358,7 +1358,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, height, level, line, mep, message, meter, offset, offset pipe, partition, pipe, pipe size, prompt, start offset, taskdialog, width, 避让, 标高, 弹窗, 分区, 高度, 管道, 管道偏移, 管径, 管线, 机电, 宽度, 米, 偏移, 偏移量, 起点偏移, 桥架, 曲线, 水电, 水管, 提示, 线, 线槽, 线管, 消息, 消息框, 直径, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0040-MEP_SmartOffset.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0040-MEP_SmartOffset.md
 - Description: TODO (hand-edit)
 
 ### MEP_TagHelperForSlope
@@ -1370,7 +1370,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_PIPE_OUTER_DIAMETER, ELEM_FAMILY_PARAM, RBS_CURVE_DIAMETER_PARAM, TEXT_SIZE
 - APIs: FilteredElementCollector, Pick (Selection), Element creation, RayCast / ReferenceIntersector
 - Tags: cable tray, ceiling, curve, diameter, duct, error, family, family name, floor, foundation, link, linked model, mep, message, meter, pipe, pipe size, prompt, slab, slope, tag, taskdialog, 板, 报错, 标记, 标签, 错误, 打标, 弹窗, 地板, 吊顶, 风管, 管道, 管径, 管线, 机电, 基础, 链接, 链接模型, 楼板, 米, 坡度, 桥架, 曲线, 水电, 水管, 提示, 天花板, 线槽, 消息, 消息框, 直径, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0048-MEP_TagHelperForSlope.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0048-MEP_TagHelperForSlope.md
 - Description: TODO (hand-edit)
 
 ### MEP_TagHelperForSlopeHeight
@@ -1382,7 +1382,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_PIPE_OUTER_DIAMETER, ELEM_FAMILY_PARAM, RBS_CURVE_DIAMETER_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), Element creation, RayCast / ReferenceIntersector
 - Tags: cable tray, ceiling, curve, diameter, duct, error, family, family name, floor, foundation, height, link, linked model, mep, message, meter, pipe, pipe size, prompt, slab, slope, tag, taskdialog, 板, 报错, 标记, 标签, 错误, 打标, 弹窗, 地板, 吊顶, 风管, 高度, 管道, 管径, 管线, 机电, 基础, 链接, 链接模型, 楼板, 米, 坡度, 桥架, 曲线, 水电, 水管, 提示, 天花板, 线槽, 消息, 消息框, 直径, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0049-MEP_TagHelperForSlopeHeight.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0049-MEP_TagHelperForSlopeHeight.md
 - Description: TODO (hand-edit)
 
 ### MEP_TagHelperForSlopForSection
@@ -1394,7 +1394,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: ELEM_FAMILY_PARAM, RBS_PIPE_OUTER_DIAMETER, RBS_CABLETRAY_HEIGHT_PARAM, RBS_CURVE_DIAMETER_PARAM, RBS_CURVE_HEIGHT_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), Element creation, RayCast / ReferenceIntersector
 - Tags: cable tray, ceiling, curve, diameter, duct, error, family, family name, floor, foundation, height, insulation, insulation thickness, link, linked model, mep, message, meter, pipe, pipe size, prompt, slab, tag, taskdialog, thickness, 板, 保温, 保温厚度, 报错, 标记, 标签, 错误, 打标, 弹窗, 地板, 吊顶, 风管, 高度, 隔热, 管道, 管径, 管线, 厚度, 机电, 基础, 绝缘, 链接, 链接模型, 楼板, 米, 桥架, 曲线, 水电, 水管, 提示, 天花板, 线槽, 消息, 消息框, 直径, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0050-MEP_TagHelperForSlopForSection.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0050-MEP_TagHelperForSlopForSection.md
 - Description: TODO (hand-edit)
 
 ### MEP_TeeRoatAndMoveAndConn
@@ -1406,7 +1406,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, elbow, height, level, mep, message, meter, move, partition, pipe, pipe fitting, pipe size, prompt, rotate, start offset, taskdialog, tee, width, 标高, 弹窗, 分区, 高度, 管道, 管件, 管径, 管线, 机电, 宽度, 米, 起点偏移, 桥架, 曲线, 三通, 水电, 水管, 提示, 弯头, 线槽, 线管, 消息, 消息框, 旋转, 移动, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0051-MEP_TeeRoatAndMoveAndConn.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0051-MEP_TeeRoatAndMoveAndConn.md
 - Description: TODO (hand-edit)
 
 ### MEP_TeeRotater
@@ -1417,7 +1417,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, elbow, height, level, mep, meter, partition, pipe, pipe fitting, pipe size, rotate, start offset, tee, width, 标高, 分区, 高度, 管道, 管件, 管径, 管线, 机电, 宽度, 米, 起点偏移, 桥架, 曲线, 三通, 水电, 水管, 弯头, 线槽, 线管, 旋转, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0052-MEP_TeeRotater.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0052-MEP_TeeRotater.md
 - Description: TODO (hand-edit)
 
 ### MEP_TeeRotaterAndConn
@@ -1429,7 +1429,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, elbow, height, level, mep, message, meter, partition, pipe, pipe fitting, pipe size, prompt, rotate, start offset, taskdialog, tee, width, 标高, 弹窗, 分区, 高度, 管道, 管件, 管径, 管线, 机电, 宽度, 米, 起点偏移, 桥架, 曲线, 三通, 水电, 水管, 提示, 弯头, 线槽, 线管, 消息, 消息框, 旋转, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0053-MEP_TeeRotaterAndConn.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0053-MEP_TeeRotaterAndConn.md
 - Description: TODO (hand-edit)
 
 ### MEP_VerticalIn3D
@@ -1441,7 +1441,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection)
 - UI: WinForms
 - Tags: curve, length, mep, message, prompt, taskdialog, 弹窗, 机电, 曲线, 水电, 提示, 消息, 消息框, 长度
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0054-MEP_VerticalIn3D.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0054-MEP_VerticalIn3D.md
 - Description: TODO (hand-edit)
 
 ### MEP_VerticalPipe
@@ -1453,7 +1453,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection)
 - UI: WinForms
 - Tags: diameter, mep, meter, pipe, pipe size, system, 管道, 管径, 管线, 机电, 米, 水电, 水管, 系统, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0056-MEP_VerticalPipe.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0056-MEP_VerticalPipe.md
 - Description: TODO (hand-edit)
 
 ### MEPQuantities
@@ -1467,7 +1467,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - UI: WinForms
 - Integrations: Excel interop
 - Tags: cable tray, change, conduit, curve, diameter, duct, elbow, element, error, family, family name, height, hide, length, mep, meter, millimeter, mm, modify, partition, pipe, pipe fitting, pipe size, plumbing, show, sprinkler, system, system type, type, type name, unhide, update, width, 报错, 错误, 调整, 分区, 风管, 高度, 给排水, 更改, 更新, 构件, 管道, 管件, 管径, 管线, 毫米, 机电, 宽度, 类型, 类型名称, 米, 喷淋, 喷头, 桥架, 曲线, 取消隐藏, 三通, 水电, 水管, 图元, 弯头, 系统, 系统类型, 显示, 线槽, 线管, 修改, 隐藏, 元素, 长度, 直径, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0157-MEPQuantities.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0157-MEPQuantities.md
 - Description: TODO (hand-edit)
 
 ### MEPQuantities
@@ -1481,7 +1481,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - UI: WinForms
 - Integrations: Excel interop
 - Tags: cable tray, change, conduit, curve, diameter, duct, elbow, element, error, family, family name, height, hide, length, mep, meter, millimeter, mm, modify, partition, pipe, pipe fitting, pipe size, plumbing, show, sprinkler, system, system type, type, type name, unhide, update, width, 报错, 错误, 调整, 分区, 风管, 高度, 给排水, 更改, 更新, 构件, 管道, 管件, 管径, 管线, 毫米, 机电, 宽度, 类型, 类型名称, 米, 喷淋, 喷头, 桥架, 曲线, 取消隐藏, 三通, 水电, 水管, 图元, 弯头, 系统, 系统类型, 显示, 线槽, 线管, 修改, 隐藏, 元素, 长度, 直径, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0001-MEPQuantities.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0001-MEPQuantities.md
 - Description: TODO (hand-edit)
 
 ### MoveLR
@@ -1494,7 +1494,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), Ribbon (IExternalApplication)
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, duct, meter, move, pipe, pipe size, warning, width, 风管, 管道, 管径, 管线, 警告, 宽度, 米, 桥架, 曲线, 水管, 线槽, 线管, 移动, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0057-MoveLR.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0057-MoveLR.md
 - Description: TODO (hand-edit)
 
 ### MoveLR_Smart
@@ -1505,7 +1505,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection)
 - UI: WinForms
 - Tags: cable tray, conduit, curve, duct, move, pipe, 风管, 管道, 管线, 桥架, 曲线, 水管, 线槽, 线管, 移动
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0061-MoveLR_Smart.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0061-MoveLR_Smart.md
 - Description: TODO (hand-edit)
 
 ### MoveLRBasisOfLink
@@ -1518,7 +1518,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), Ribbon (IExternalApplication)
 - UI: WinForms
 - Tags: cable tray, conduit, curve, duct, link, linked model, move, pipe, wall, warning, width, 风管, 管道, 管线, 警告, 宽度, 链接, 链接模型, 墙, 墙体, 桥架, 曲线, 水管, 线槽, 线管, 移动
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0058-MoveLRBasisOfLink.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0058-MoveLRBasisOfLink.md
 - Description: TODO (hand-edit)
 
 ### MoveLRMiddle
@@ -1531,7 +1531,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection)
 - UI: WinForms
 - Tags: cable tray, conduit, curve, duct, material, message, move, pipe, prompt, taskdialog, warning, 材料, 材质, 弹窗, 风管, 管道, 管线, 警告, 桥架, 曲线, 水管, 提示, 线槽, 线管, 消息, 消息框, 移动
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0059-MoveLRMiddle.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0059-MoveLRMiddle.md
 - Description: TODO (hand-edit)
 
 ### MoveLRMiddleBasisOfLink
@@ -1544,7 +1544,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection)
 - UI: WinForms
 - Tags: cable tray, conduit, curve, duct, link, linked model, move, pipe, wall, warning, width, 风管, 管道, 管线, 警告, 宽度, 链接, 链接模型, 墙, 墙体, 桥架, 曲线, 水管, 线槽, 线管, 移动
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0060-MoveLRMiddleBasisOfLink.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0060-MoveLRMiddleBasisOfLink.md
 - Description: TODO (hand-edit)
 
 ### MoveParkingNumber
@@ -1556,7 +1556,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: ELEM_TYPE_PARAM
 - APIs: FilteredElementCollector, ElementTransformUtils, RayCast / ReferenceIntersector
 - Tags: cable tray, change, column, link, linked model, message, modify, move, prompt, taskdialog, type, update, 弹窗, 调整, 更改, 更新, 类型, 链接, 链接模型, 桥架, 提示, 线槽, 消息, 消息框, 修改, 移动, 柱, 柱子
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0120-MoveParkingNumber.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0120-MoveParkingNumber.md
 - Description: TODO (hand-edit)
 
 ### MoveUD
@@ -1568,7 +1568,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), Ribbon (IExternalApplication)
 - UI: WinForms
 - Tags: cable tray, conduit, curve, duct, move, pipe, warning, 风管, 管道, 管线, 警告, 桥架, 曲线, 水管, 线槽, 线管, 移动
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0062-MoveUD.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0062-MoveUD.md
 - Description: TODO (hand-edit)
 
 ### MoveUDBasisOfLink
@@ -1581,7 +1581,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), Ribbon (IExternalApplication)
 - UI: WinForms
 - Tags: cable tray, conduit, curve, duct, level, link, linked model, message, move, pipe, prompt, start offset, taskdialog, warning, 标高, 弹窗, 风管, 管道, 管线, 警告, 链接, 链接模型, 起点偏移, 桥架, 曲线, 水管, 提示, 线槽, 线管, 消息, 消息框, 移动
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0063-MoveUDBasisOfLink.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0063-MoveUDBasisOfLink.md
 - Description: TODO (hand-edit)
 
 ### NetHeightAnalysis
@@ -1592,7 +1592,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_DetailComponents, OST_PipeCurves, OST_PipeAccessory, OST_PipeFitting, OST_PipeInsulations
 - APIs: FilteredElementCollector, Pick (Selection), Modeless (ExternalEvent)
 - Tags: cable tray, create, curve, dimension, duct, elbow, floor, generate, height, insulation, message, model, new, pipe, pipe fitting, prompt, slab, sprinkler, stair, taskdialog, 板, 保温, 标注, 尺寸标注, 创建, 弹窗, 地板, 风管, 高度, 隔热, 管道, 管件, 管线, 建立, 绝缘, 楼板, 楼梯, 模型, 喷淋, 喷头, 桥架, 曲线, 三通, 生成, 水管, 提示, 弯头, 线槽, 消息, 消息框, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0122-NetHeightAnalysis.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0122-NetHeightAnalysis.md
 - Description: TODO (hand-edit)
 
 ### NewHangerUpdate
@@ -1605,7 +1605,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), TransactionGroup
 - UI: WinForms
 - Tags: 3d view, 3d视图, align, cable tray, ceiling, change, create, curve, degree, diameter, duct, floor, foundation, generate, hanger, level, link, linked model, message, meter, modify, move, new, pipe, pipe size, prompt, slab, support, taskdialog, update, view, 板, 标高, 创建, 弹窗, 地板, 吊顶, 吊架, 调整, 度, 对齐, 风管, 更改, 更新, 管道, 管径, 管线, 基础, 建立, 角度, 链接, 链接模型, 楼板, 米, 桥架, 曲线, 三维视图, 生成, 视图, 水管, 提示, 天花板, 线槽, 消息, 消息框, 新建, 新增, 修改, 移动, 支吊架, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0136-NewHangerUpdate.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0136-NewHangerUpdate.md
 - Description: TODO (hand-edit)
 
 ### NewMepOffset
@@ -1616,7 +1616,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils
 - UI: WinForms
 - Tags: create, error, generate, line, mep, new, offset, offset pipe, pipe, 报错, 避让, 创建, 错误, 管道, 管道偏移, 管线, 机电, 建立, 偏移, 偏移量, 生成, 水电, 水管, 线, 新建, 新增, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0127-NewMepOffset.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0127-NewMepOffset.md
 - Description: TODO (hand-edit)
 
 ### NewTextNoteForSlope
@@ -1628,7 +1628,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: VIEW_DETAIL_LEVEL, RBS_OFFSET_PARAM, RBS_PIPE_BOTTOM_ELEVATION, RBS_DUCT_PIPE_SYSTEM_ABBREVIATION_PARAM, RBS_PIPE_DIAMETER_PARAM
 - APIs: FilteredElementCollector, Pick (Selection), Element creation, TransactionGroup, RayCast / ReferenceIntersector
 - Tags: annotate, cable tray, ceiling, comments, create, curve, degree, diameter, dimension, duct, elevation, error, family, family name, floor, foundation, generate, height, level, link, linked model, message, meter, move, new, note, offset, pipe, pipe size, prompt, rotate, slab, slope, system, taskdialog, type, view, width, 板, 报错, 备注, 标高, 标注, 尺寸标注, 创建, 错误, 弹窗, 地板, 吊顶, 度, 风管, 高程, 高度, 管道, 管径, 管线, 基础, 建立, 角度, 宽度, 类型, 链接, 链接模型, 楼板, 米, 偏移, 偏移量, 坡度, 桥架, 曲线, 生成, 视图, 水管, 提示, 天花板, 文字注释, 系统, 线槽, 消息, 消息框, 新建, 新增, 旋转, 移动, 直径, 注释, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0141-NewTextNoteForSlope.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0141-NewTextNoteForSlope.md
 - Description: TODO (hand-edit)
 
 ### OffsetPipeByElevationText
@@ -1638,7 +1638,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_PIPE_DIAMETER_PARAM, ELEM_PARTITION_PARAM
 - APIs: FilteredElementCollector, Pick (Selection)
 - Tags: diameter, elevation, meter, offset, partition, pipe, pipe size, slope, 标高, 分区, 高程, 管道, 管径, 管线, 米, 偏移, 偏移量, 坡度, 水管, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0009-OffsetPipeByElevationText.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0009-OffsetPipeByElevationText.md
 - Description: TODO (hand-edit)
 
 ### OptimalCablePathByNode
@@ -1652,7 +1652,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - UI: WinForms
 - Integrations: Excel interop, HTTP
 - Tags: assign, break, cable tray, comments, conduit, connect, copy, create, delete, diameter, elbow, element, error, family, family symbol, family type, foundation, generate, hide, isolate, join, line, message, meter, millimeter, mm, model, new, parameter, pipe, pipe fitting, pipe size, point, project, project parameter, prompt, remove, rename, set value, shared parameter, split, taskdialog, type, 报错, 备注, 参数, 拆分, 创建, 错误, 打断, 弹窗, 点, 分割, 复制, 赋值, 隔离, 共享参数, 构件, 管道, 管件, 管径, 管线, 毫米, 合并, 基础, 建立, 类型, 连接, 米, 模型, 桥架, 三通, 删除, 设置值, 生成, 水管, 提示, 图元, 弯头, 线, 线槽, 线管, 项目, 项目参数, 消息, 消息框, 写入, 新建, 新增, 移除, 隐藏, 元素, 直径, 直线, 重命名, 注释, 族, 族符号, 族类型
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0181-OptimalCablePathByNode.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0181-OptimalCablePathByNode.md
 - Description: TODO (hand-edit)
 
 ### ParameterizedMEPCurveLayout
@@ -1665,7 +1665,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Modeless (ExternalEvent), RayCast / ReferenceIntersector
 - Integrations: Excel interop
 - Tags: align, arrange, break, cable tray, change, column, connect, create, curve, degree, diameter, duct, element, floor, generate, height, hide, join, layout, line, mep, message, meter, modify, new, parameter, pipe, pipe size, place, prompt, section view, shared parameter, show, slab, split, system, system type, taskdialog, type, unhide, update, width, 板, 布局, 布置, 参数, 拆分, 创建, 打断, 弹窗, 地板, 调整, 度, 对齐, 分割, 风管, 高度, 更改, 更新, 共享参数, 构件, 管道, 管径, 管线, 合并, 机电, 建立, 角度, 宽度, 类型, 连接, 楼板, 米, 排布, 排列, 剖面, 剖面视图, 桥架, 曲线, 取消隐藏, 生成, 水电, 水管, 提示, 图元, 系统, 系统类型, 显示, 线, 线槽, 消息, 消息框, 新建, 新增, 修改, 隐藏, 元素, 直径, 直线, 柱, 柱子
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0194-ParameterizedMEPCurveLayout.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0194-ParameterizedMEPCurveLayout.md
 - Description: TODO (hand-edit)
 
 ### PipeFittingParameterInputHanger
@@ -1677,7 +1677,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_CURVE_WIDTH_PARAM, RBS_CURVE_HEIGHT_PARAM, RBS_PIPE_DIAMETER_PARAM, RBS_CABLETRAY_WIDTH_PARAM, LEADER_OFFSET_SHEET
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, TransactionGroup
 - Tags: annotate, cable tray, comments, create, curve, diameter, duct, elbow, generate, hanger, height, message, meter, new, note, offset, parameter, pipe, pipe fitting, pipe size, prompt, shared parameter, sheet, support, taskdialog, type, width, 备注, 参数, 创建, 弹窗, 吊架, 风管, 高度, 共享参数, 管道, 管件, 管径, 管线, 建立, 宽度, 类型, 米, 偏移, 偏移量, 桥架, 曲线, 三通, 生成, 水管, 提示, 图纸, 弯头, 文字注释, 线槽, 消息, 消息框, 新建, 新增, 支吊架, 直径, 注释
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0142-PipeFittingParameterInputHanger.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0142-PipeFittingParameterInputHanger.md
 - Description: TODO (hand-edit)
 
 ### PipelineAlignment
@@ -1688,7 +1688,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_DUCT_TOP_ELEVATION, RBS_PIPE_TOP_ELEVATION, RBS_CTC_TOP_ELEVATION, RBS_REFERENCE_INSULATION_THICKNESS, RBS_OFFSET_PARAM
 - APIs: Pick (Selection), Modeless (ExternalEvent), TransactionGroup
 - Tags: align, duct, elevation, insulation, insulation thickness, line, offset, pipe, thickness, 保温, 保温厚度, 标高, 对齐, 风管, 高程, 隔热, 管道, 管线, 厚度, 绝缘, 偏移, 偏移量, 水管, 线, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0128-PipelineAlignment.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0128-PipelineAlignment.md
 - Description: TODO (hand-edit)
 
 ### PipelineIntervalSort
@@ -1699,7 +1699,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_PIPE_OUTER_DIAMETER
 - APIs: Pick (Selection)
 - Tags: arrange, diameter, layout, line, meter, pipe, pipe size, place, 布局, 布置, 管道, 管径, 管线, 米, 排布, 排列, 水管, 线, 直径, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0129-PipelineIntervalSort.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0129-PipelineIntervalSort.md
 - Description: TODO (hand-edit)
 
 ### PipelineOffset
@@ -1709,7 +1709,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Dialogs: "22", "错误", "lll"
 - APIs: Pick (Selection), ElementTransformUtils, TransactionGroup
 - Tags: break, connect, connector, create, error, generate, join, line, new, offset, pipe, rotate, split, 报错, 拆分, 创建, 错误, 打断, 分割, 管道, 管线, 合并, 建立, 接口, 连接, 连接件, 偏移, 偏移量, 生成, 水管, 线, 新建, 新增, 旋转, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0130-PipelineOffset.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0130-PipelineOffset.md
 - Description: TODO (hand-edit)
 
 ### PositioningMarkingOfCShapedSteelHanger
@@ -1721,7 +1721,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: LEADER_OFFSET_SHEET
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils
 - Tags: annotate, comments, dimension, hanger, mark, note, offset, sheet, support, tag, tee, view, 备注, 标记, 标签, 标注, 尺寸标注, 打标, 吊架, 偏移, 偏移量, 三通, 视图, 图纸, 文字注释, 支吊架, 注释
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0143-PositioningMarkingOfCShapedSteelHanger.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0143-PositioningMarkingOfCShapedSteelHanger.md
 - Description: TODO (hand-edit)
 
 ### QuantityTools
@@ -1735,7 +1735,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - UI: WinForms
 - Integrations: Excel interop, HTTP
 - Tags: adjust elevation, annotate, assign, audit, break, cable tray, casing, ceiling, change, check, column, comments, conduit, connect, copy, create, curve, degree, delete, diameter, drainage, elbow, element, elevation, error, family, family symbol, family type, floor, foundation, generate, height, hide, isolate, join, length, level, lighting fixture, line, link, linked model, mark, mechanical equipment, message, meter, millimeter, mm, model, modify, new, note, parameter, partition, pipe, pipe fitting, pipe size, point, project, project parameter, prompt, remove, rename, riser, room, rotate, sanitary, set value, shared parameter, show, slab, sleeve, split, start offset, system, system type, tag, taskdialog, tee, thickness, type, unhide, update, validate, vertical pipe, view, wall, width, 板, 报错, 备注, 标高, 标高调整, 标记, 标签, 参数, 拆分, 创建, 错误, 打标, 打断, 弹窗, 地板, 灯具, 点, 吊顶, 调整, 度, 房间, 分割, 分区, 复制, 赋值, 高程, 高度, 隔离, 更改, 更新, 共享参数, 构件, 管道, 管件, 管径, 管线, 毫米, 合并, 厚度, 机械设备, 基础, 检查, 建立, 角度, 宽度, 类型, 立管, 连接, 链接, 链接模型, 楼板, 米, 模型, 排水, 起点偏移, 墙, 墙体, 桥架, 曲线, 取消隐藏, 三通, 删除, 设备, 设置值, 审查, 生成, 视图, 水管, 套管, 提示, 天花板, 图元, 弯头, 文字注释, 污水, 系统, 系统类型, 显示, 线, 线槽, 线管, 项目, 项目参数, 消息, 消息框, 校验, 写入, 新建, 新增, 修改, 旋转, 移除, 隐藏, 元素, 长度, 直径, 直线, 重命名, 注释, 柱, 柱子, 族, 族符号, 族类型
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0158-QuantityTools.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0158-QuantityTools.md
 - Description: TODO (hand-edit)
 
 ### ResetPipeSlope
@@ -1746,7 +1746,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - UI: WinForms
 - Integrations: HTTP
 - Tags: batch, bulk, degree, pipe, slope, 度, 管道, 管线, 角度, 批量, 坡度, 水管
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0099-ResetPipeSlope.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0099-ResetPipeSlope.md
 - Description: TODO (hand-edit)
 
 ### RevitUtils
@@ -1759,7 +1759,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, ElementTransformUtils, RayCast / ReferenceIntersector
 - UI: WinForms
 - Tags: cable tray, change, floor, height, level, line, modify, offset, sheet, slab, update, view, wall, 板, 标高, 地板, 调整, 高度, 更改, 更新, 楼板, 偏移, 偏移量, 墙, 墙体, 桥架, 视图, 图纸, 线, 线槽, 修改, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0117-RevitUtils.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0117-RevitUtils.md
 - Description: TODO (hand-edit)
 
 ### RoomComponentInformationAssignment
@@ -1769,7 +1769,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_Rooms, OST_PipeCurves
 - APIs: FilteredElementCollector, TransactionGroup
 - Tags: assign, curve, dialog, element, form, pipe, room, set value, window, 窗口, 窗体, 对话框, 房间, 赋值, 构件, 管道, 管线, 曲线, 设置值, 水管, 图元, 写入, 元素
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0182-RoomComponentInformationAssignment.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0182-RoomComponentInformationAssignment.md
 - Description: TODO (hand-edit)
 
 ### SetFitting
@@ -1779,7 +1779,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_DuctFitting
 - APIs: FilteredElementCollector, Pick (Selection), Element creation
 - Tags: duct, point, 点, 风管
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0002-SetFitting.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0002-SetFitting.md
 - Description: TODO (hand-edit)
 
 ### SystemHide
@@ -1791,7 +1791,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), Ribbon (IExternalApplication)
 - UI: WinForms
 - Tags: cable tray, conduit, curve, duct, elbow, hide, pipe, pipe fitting, system, system type, type, 风管, 管道, 管件, 管线, 类型, 桥架, 曲线, 三通, 水管, 弯头, 系统, 系统类型, 线槽, 线管, 隐藏
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0064-SystemHide.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0064-SystemHide.md
 - Description: TODO (hand-edit)
 
 ### SystemIsolate
@@ -1803,7 +1803,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), Ribbon (IExternalApplication)
 - UI: WinForms
 - Tags: cable tray, conduit, curve, duct, elbow, isolate, pipe, pipe fitting, system, system type, type, 风管, 隔离, 管道, 管件, 管线, 类型, 桥架, 曲线, 三通, 水管, 弯头, 系统, 系统类型, 线槽, 线管
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0065-SystemIsolate.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0065-SystemIsolate.md
 - Description: TODO (hand-edit)
 
 ### TextNoteForSleeveToTopFloor
@@ -1815,7 +1815,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, ElementTransformUtils, RayCast / ReferenceIntersector
 - UI: WinForms
 - Tags: annotate, casing, ceiling, comments, create, elbow, floor, foundation, generate, link, linked model, new, note, offset, pipe, pipe fitting, sheet, slab, sleeve, view, 板, 备注, 创建, 地板, 吊顶, 管道, 管件, 管线, 基础, 建立, 链接, 链接模型, 楼板, 偏移, 偏移量, 三通, 生成, 视图, 水管, 套管, 天花板, 图纸, 弯头, 文字注释, 新建, 新增, 注释
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0144-TextNoteForSleeveToTopFloor.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0144-TextNoteForSleeveToTopFloor.md
 - Description: TODO (hand-edit)
 
 ### VerticalWaterPipeIdentify
@@ -1828,7 +1828,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector
 - Integrations: Database
 - Tags: curve, diameter, drainage, length, message, meter, pipe, pipe size, prompt, riser, sanitary, taskdialog, vertical pipe, 弹窗, 管道, 管径, 管线, 立管, 米, 排水, 曲线, 水管, 提示, 污水, 消息, 消息框, 长度, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0184-VerticalWaterPipeIdentify.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0184-VerticalWaterPipeIdentify.md
 - Description: TODO (hand-edit)
 
 ## Export/IO (3)
@@ -1841,7 +1841,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - UI: WinForms
 - Integrations: Excel interop
 - Tags: export, schedule, 导出, 明细表, 输出
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0077-ExportSchedule.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0077-ExportSchedule.md
 - Description: TODO (hand-edit)
 
 ### LayoutByDwg
@@ -1851,7 +1851,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils, Element creation
 - UI: WinForms
 - Tags: arrange, batch, bulk, dwg, element, layout, place, 布局, 布置, 构件, 排布, 排列, 批量, 图元, 元素
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0078-LayoutByDwg.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0078-LayoutByDwg.md
 - Description: TODO (hand-edit)
 
 ### ModifyingASchedule
@@ -1860,7 +1860,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Actions: "修改参数"
 - Dialogs: "dd"
 - Tags: change, gas, modify, parameter, schedule, shared parameter, update, 参数, 调整, 更改, 更新, 共享参数, 明细表, 燃气, 修改
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0113-ModifyingASchedule.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0113-ModifyingASchedule.md
 - Description: TODO (hand-edit)
 
 ## Utilities (14)
@@ -1875,7 +1875,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, TransactionGroup
 - UI: WinForms
 - Tags: annotate, area, audit, change, check, column, comments, copy, create, curve, dimension, error, generate, height, insulation, length, line, mark, millimeter, mm, model, modify, new, note, offset, rebar, schedule, sheet, tag, type, update, validate, view, volume, width, 保温, 报错, 备注, 标记, 标签, 标注, 尺寸标注, 创建, 错误, 打标, 调整, 复制, 钢筋, 高度, 隔热, 更改, 更新, 毫米, 检查, 建立, 绝缘, 宽度, 类型, 面积, 面积区域, 明细表, 模型, 配筋, 偏移, 偏移量, 曲线, 审查, 生成, 视图, 体积, 图纸, 文字注释, 线, 校验, 新建, 新增, 修改, 长度, 直线, 注释, 柱, 柱子
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0107-CEGShopTicketHelper.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0107-CEGShopTicketHelper.md
 - Description: TODO (hand-edit)
 
 ### DimensionChecker
@@ -1887,7 +1887,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: DIM_TOTAL_LENGTH
 - APIs: Pick (Selection)
 - Tags: audit, check, dimension, length, message, prompt, taskdialog, validate, 标注, 尺寸标注, 弹窗, 检查, 审查, 提示, 消息, 消息框, 校验, 长度
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0076-DimensionChecker.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0076-DimensionChecker.md
 - Description: TODO (hand-edit)
 
 ### DimensionChecking
@@ -1900,14 +1900,14 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector
 - UI: WinForms
 - Tags: audit, check, dimension, length, validate, 标注, 尺寸标注, 检查, 审查, 校验, 长度
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0112-DimensionChecking.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0112-DimensionChecking.md
 - Description: TODO (hand-edit)
 
 ### DWGTools
 - Path: existingCodes\梁涛插件源代码\7.CAD插件\DWGTools\DWGTools
 - Author: 梁涛插件源代码
 - Tags: dwg
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0155-DWGTools.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0155-DWGTools.md
 - Description: TODO (hand-edit)
 
 ### MEP_SmartConnect
@@ -1918,7 +1918,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection)
 - UI: WinForms
 - Tags: cable tray, conduit, connect, curve, diameter, height, join, mep, meter, partition, pipe, pipe size, width, 分区, 高度, 管道, 管径, 管线, 合并, 机电, 宽度, 连接, 米, 桥架, 曲线, 水电, 水管, 线槽, 线管, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0038-MEP_SmartConnect.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0038-MEP_SmartConnect.md
 - Description: TODO (hand-edit)
 
 ### MEP_SmartSplit
@@ -1929,7 +1929,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection)
 - UI: WinForms
 - Tags: break, cable tray, conduit, curve, diameter, height, mep, meter, partition, pipe, pipe size, split, width, 拆分, 打断, 分割, 分区, 高度, 管道, 管径, 管线, 机电, 宽度, 米, 桥架, 曲线, 水电, 水管, 线槽, 线管, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0041-MEP_SmartSplit.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0041-MEP_SmartSplit.md
 - Description: TODO (hand-edit)
 
 ### MEP_SmartSplitTwo
@@ -1940,7 +1940,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection)
 - UI: WinForms
 - Tags: break, cable tray, conduit, curve, diameter, height, mep, meter, partition, pipe, pipe size, split, width, 拆分, 打断, 分割, 分区, 高度, 管道, 管径, 管线, 机电, 宽度, 米, 桥架, 曲线, 水电, 水管, 线槽, 线管, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0042-MEP_SmartSplitTwo.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0042-MEP_SmartSplitTwo.md
 - Description: TODO (hand-edit)
 
 ### MEP_SmartTrim
@@ -1951,7 +1951,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils, TransactionGroup
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, height, level, mep, meter, partition, pipe, pipe size, start offset, trim, width, 标高, 分区, 高度, 管道, 管径, 管线, 机电, 宽度, 米, 起点偏移, 桥架, 曲线, 水电, 水管, 线槽, 线管, 修剪, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0043-MEP_SmartTrim.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0043-MEP_SmartTrim.md
 - Description: TODO (hand-edit)
 
 ### MEP_SmartTrim90
@@ -1962,7 +1962,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection)
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, height, level, mep, meter, partition, pipe, pipe size, start offset, trim, width, 标高, 分区, 高度, 管道, 管径, 管线, 机电, 宽度, 米, 起点偏移, 桥架, 曲线, 水电, 水管, 线槽, 线管, 修剪, 直径
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0044-MEP_SmartTrim90.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0044-MEP_SmartTrim90.md
 - Description: TODO (hand-edit)
 
 ### MEP_SplitByLine
@@ -1972,7 +1972,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: ELEM_PARTITION_PARAM, RBS_PIPE_DIAMETER_PARAM, RBS_CURVE_WIDTH_PARAM, RBS_CURVE_HEIGHT_PARAM, RBS_CABLETRAY_WIDTH_PARAM
 - UI: WinForms
 - Tags: break, cable tray, conduit, curve, diameter, height, line, mep, meter, partition, pipe, pipe size, split, width, 拆分, 打断, 分割, 分区, 高度, 管道, 管径, 管线, 机电, 宽度, 米, 桥架, 曲线, 水电, 水管, 线, 线槽, 线管, 直径, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0045-MEP_SplitByLine.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0045-MEP_SplitByLine.md
 - Description: TODO (hand-edit)
 
 ### MEP_TagHelper
@@ -1982,7 +1982,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Dialogs: "Revit", "提示"
 - APIs: FilteredElementCollector, Pick (Selection), Element creation
 - Tags: mep, message, prompt, tag, taskdialog, 标记, 标签, 打标, 弹窗, 机电, 水电, 提示, 消息, 消息框
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0046-MEP_TagHelper.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0046-MEP_TagHelper.md
 - Description: TODO (hand-edit)
 
 ### MEP_TagHelperForCT
@@ -1992,7 +1992,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Dialogs: "Revit", "提示"
 - APIs: FilteredElementCollector, Pick (Selection), Element creation
 - Tags: mep, message, prompt, tag, taskdialog, 标记, 标签, 打标, 弹窗, 机电, 水电, 提示, 消息, 消息框
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0047-MEP_TagHelperForCT.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0047-MEP_TagHelperForCT.md
 - Description: TODO (hand-edit)
 
 ### Remark
@@ -2002,7 +2002,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Dialogs: "Revit"
 - APIs: FilteredElementCollector, Pick (Selection)
 - Tags: arc, mark, 标记, 弧, 圆弧
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0083-Remark.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0083-Remark.md
 - Description: TODO (hand-edit)
 
 ### TagHelper
@@ -2012,7 +2012,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Dialogs: "Revit"
 - APIs: FilteredElementCollector, Pick (Selection), Element creation
 - Tags: tag, 标记, 标签, 打标
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0066-TagHelper.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0066-TagHelper.md
 - Description: TODO (hand-edit)
 
 ## Uncategorized (26)
@@ -2021,7 +2021,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Path: existingCodes\梁涛插件源代码\7.CAD插件\AdjustLineLayerByLineType\AdjustLineLayerByLineType
 - Author: 梁涛插件源代码
 - Tags: line, type, 类型, 线, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0152-AdjustLineLayerByLineType.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0152-AdjustLineLayerByLineType.md
 - Description: TODO (hand-edit)
 
 ### AssemblyViewCreater
@@ -2034,7 +2034,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation
 - UI: WinForms
 - Tags: change, create, generate, message, modify, new, parameter, prompt, shared parameter, sheet, taskdialog, update, view, 参数, 创建, 弹窗, 调整, 更改, 更新, 共享参数, 建立, 生成, 视图, 提示, 图纸, 消息, 消息框, 新建, 新增, 修改
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0067-AssemblyViewCreater.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0067-AssemblyViewCreater.md
 - Description: TODO (hand-edit)
 
 ### Batchlink
@@ -2043,7 +2043,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Dialogs: "已选择文件："
 - UI: WinForms
 - Tags: batch, bulk, document, link, linked model, pick, select, 链接, 链接模型, 批量, 拾取, 文档, 文件, 选取, 选择
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0197-Batchlink.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0197-Batchlink.md
 - Description: TODO (hand-edit)
 
 ### BatchUnJoin
@@ -2052,7 +2052,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Actions: "取消连接"
 - APIs: FilteredElementCollector, Pick (Selection), TransactionGroup
 - Tags: batch, bulk, connect, join, 合并, 连接, 批量
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0085-BatchUnJoin.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0085-BatchUnJoin.md
 - Description: TODO (hand-edit)
 
 ### BrickBuilder
@@ -2063,7 +2063,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation, RayCast / ReferenceIntersector
 - UI: WinForms
 - Tags: comments, family, family name, height, millimeter, mm, model, offset, wall, 备注, 高度, 毫米, 模型, 偏移, 偏移量, 墙, 墙体, 注释, 族, 族名称
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0007-BrickBuilder.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0007-BrickBuilder.md
 - Description: TODO (hand-edit)
 
 ### BrickPrintBuilder
@@ -2075,7 +2075,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils, Element creation
 - UI: WinForms
 - Tags: offset, wall, 偏移, 偏移量, 墙, 墙体
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0008-BrickPrintBuilder.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0008-BrickPrintBuilder.md
 - Description: TODO (hand-edit)
 
 ### ChangeDimensionText
@@ -2085,14 +2085,14 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Categories: OST_Dimensions
 - APIs: FilteredElementCollector
 - Tags: change, dimension, modify, update, 标注, 尺寸标注, 调整, 更改, 更新, 修改
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0108-ChangeDimensionText.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0108-ChangeDimensionText.md
 - Description: TODO (hand-edit)
 
 ### ChangeLayerText2
 - Path: existingCodes\梁涛插件源代码\7.CAD插件\ChangeLayerText2\ChangeLayerText2
 - Author: 梁涛插件源代码
 - Tags: change, modify, update, 调整, 更改, 更新, 修改
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0153-ChangeLayerText2.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0153-ChangeLayerText2.md
 - Description: TODO (hand-edit)
 
 ### Com_EndPointOffsetTag
@@ -2102,7 +2102,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_START_OFFSET_PARAM, RBS_END_OFFSET_PARAM
 - APIs: Pick (Selection)
 - Tags: offset, point, start offset, tag, 标记, 标签, 打标, 点, 偏移, 偏移量, 起点偏移
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0070-Com_EndPointOffsetTag.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0070-Com_EndPointOffsetTag.md
 - Description: TODO (hand-edit)
 
 ### Com_PointGridLocation
@@ -2114,7 +2114,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: FilteredElementCollector, Pick (Selection)
 - UI: WinForms
 - Tags: cable tray, conduit, curve, diameter, grid, height, message, meter, partition, pipe, pipe size, point, prompt, taskdialog, width, 弹窗, 点, 分区, 高度, 管道, 管径, 管线, 宽度, 米, 桥架, 曲线, 水管, 提示, 线槽, 线管, 消息, 消息框, 直径, 轴网
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0071-Com_PointGridLocation.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0071-Com_PointGridLocation.md
 - Description: TODO (hand-edit)
 
 ### Com_ShowElement
@@ -2123,7 +2123,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Dialogs: "提示"
 - UI: WinForms
 - Tags: element, message, prompt, show, taskdialog, unhide, 弹窗, 构件, 取消隐藏, 提示, 图元, 显示, 消息, 消息框, 元素
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0072-Com_ShowElement.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0072-Com_ShowElement.md
 - Description: TODO (hand-edit)
 
 ### Com_StartPointOffsetTag
@@ -2133,13 +2133,13 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: RBS_START_OFFSET_PARAM, RBS_END_OFFSET_PARAM
 - APIs: Pick (Selection)
 - Tags: offset, point, start offset, tag, 标记, 标签, 打标, 点, 偏移, 偏移量, 起点偏移
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0073-Com_StartPointOffsetTag.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0073-Com_StartPointOffsetTag.md
 - Description: TODO (hand-edit)
 
 ### ConvertToTianzheng
 - Path: existingCodes\梁涛插件源代码\7.CAD插件\ConvertToTianzheng\ConvertToTianzheng
 - Author: 梁涛插件源代码
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0154-ConvertToTianzheng.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0154-ConvertToTianzheng.md
 - Description: TODO (hand-edit)
 
 ### CopyUUID
@@ -2148,7 +2148,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection)
 - UI: WinForms
 - Tags: copy, 复制
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0074-CopyUUID.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0074-CopyUUID.md
 - Description: TODO (hand-edit)
 
 ### CreateFakeConnectBridge
@@ -2158,7 +2158,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Dialogs: "Revit"
 - APIs: Pick (Selection), ElementTransformUtils
 - Tags: cable tray, connect, create, generate, join, new, 创建, 合并, 建立, 连接, 桥架, 生成, 线槽, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0171-CreateFakeConnectBridge.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0171-CreateFakeConnectBridge.md
 - Description: TODO (hand-edit)
 
 ### DynamicModelUpdate
@@ -2168,7 +2168,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Dialogs: "提示", "Asdasd"
 - APIs: Pick (Selection), ElementTransformUtils, Modeless (ExternalEvent)
 - Tags: change, message, model, modify, move, prompt, taskdialog, update, 弹窗, 调整, 更改, 更新, 模型, 提示, 消息, 消息框, 修改, 移动
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0192-DynamicModelUpdate.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0192-DynamicModelUpdate.md
 - Description: TODO (hand-edit)
 
 ### FillRoute
@@ -2176,7 +2176,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Author: 梁涛插件源代码
 - Actions: "填充路由"
 - APIs: Pick (Selection)
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0173-FillRoute.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0173-FillRoute.md
 - Description: TODO (hand-edit)
 
 ### HangerQuantity
@@ -2188,7 +2188,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - UI: WinForms
 - Integrations: Excel interop
 - Tags: annotate, error, hanger, note, support, view, 报错, 错误, 吊架, 视图, 文字注释, 支吊架, 注释
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0177-HangerQuantity.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0177-HangerQuantity.md
 - Description: TODO (hand-edit)
 
 ### MovePointElement
@@ -2198,7 +2198,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Dialogs: "revit"
 - APIs: FilteredElementCollector, ElementTransformUtils, Modeless (ExternalEvent)
 - Tags: element, hide, move, point, 点, 构件, 图元, 移动, 隐藏, 元素
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0121-MovePointElement.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0121-MovePointElement.md
 - Description: TODO (hand-edit)
 
 ### MulitLink
@@ -2207,7 +2207,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Actions: "链接模型"
 - UI: WinForms
 - Tags: link, linked model, model, 链接, 链接模型, 模型
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0080-MulitLink.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0080-MulitLink.md
 - Description: TODO (hand-edit)
 
 ### NewBTStore
@@ -2219,14 +2219,14 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - UI: WinForms
 - Integrations: JSON, HTTP
 - Tags: create, error, generate, new, pipe, 报错, 创建, 错误, 管道, 管线, 建立, 生成, 水管, 新建, 新增
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0185-NewBTStore.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0185-NewBTStore.md
 - Description: TODO (hand-edit)
 
 ### NewBTStoreUpdater
 - Path: existingCodes\梁涛插件源代码\9.新品成插件商店\NewBTStoreUpdater\NewBTStoreUpdater
 - Author: 梁涛插件源代码
 - Tags: change, create, generate, modify, new, update, 创建, 调整, 更改, 更新, 建立, 生成, 新建, 新增, 修改
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0186-NewBTStoreUpdater.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0186-NewBTStoreUpdater.md
 - Description: TODO (hand-edit)
 
 ### PlaceByCurve
@@ -2236,7 +2236,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Pick (Selection), ElementTransformUtils, Element creation
 - UI: WinForms
 - Tags: arrange, curve, layout, line, place, 布局, 布置, 排布, 排列, 曲线, 线, 直线
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0082-PlaceByCurve.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0082-PlaceByCurve.md
 - Description: TODO (hand-edit)
 
 ### SectionBoxController
@@ -2247,7 +2247,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - APIs: Modeless (ExternalEvent)
 - UI: WinForms
 - Tags: error, 报错, 错误
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0084-SectionBoxController.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0084-SectionBoxController.md
 - Description: TODO (hand-edit)
 
 ### SingleTubeHangerNotes
@@ -2258,7 +2258,7 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - Parameters: LEADER_OFFSET_SHEET, TEXT_SIZE
 - APIs: FilteredElementCollector, Pick (Selection), ElementTransformUtils
 - Tags: annotate, hanger, mark, note, offset, sheet, support, tag, 标记, 标签, 打标, 吊架, 偏移, 偏移量, 图纸, 文字注释, 支吊架, 注释
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0196-SingleTubeHangerNotes.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0196-SingleTubeHangerNotes.md
 - Description: TODO (hand-edit)
 
 ### TextRecognitionInCAD
@@ -2268,6 +2268,6 @@ rg -i "hanger|吊架"                 .cursor\skills\revit-addin-scaffold\sample
 - UI: WinForms
 - Integrations: Excel interop
 - Tags: error, 报错, 错误
-- Snippet: .cursor\skills\revit-addin-scaffold\samples-index\snippets\0156-TextRecognitionInCAD.md
+- Snippet: .cursor\skills\revit-addin-scaffold\docs\samples-index\snippets\0156-TextRecognitionInCAD.md
 - Description: TODO (hand-edit)
 

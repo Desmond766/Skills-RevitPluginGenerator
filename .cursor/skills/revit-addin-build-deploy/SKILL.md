@@ -13,6 +13,7 @@ Compile an SDK-style .NET Framework 4.8 Revit add-in and drop the DLL + `.addin`
 - Treat repo paths below as **relative to the workspace root**. This repository keeps skills under `.cursor/skills/`; commands use that layout unchanged.
 - **Run** `deploy-addin.ps1` via the terminal tool from the workspace root (or pass absolute paths). Rely on script exit codes and stdout/stderr; paste only the lines the user needs to fix failures.
 - **Do not** paste large logs into chat; summarize and quote the actionable MSBuild or copy error.
+- Quick reference: [`docs/setup.md`](./docs/setup.md), [`docs/troubleshooting.md`](./docs/troubleshooting.md), deploy defaults in [`templates/config.yaml`](./templates/config.yaml).
 
 ## When to use this skill
 

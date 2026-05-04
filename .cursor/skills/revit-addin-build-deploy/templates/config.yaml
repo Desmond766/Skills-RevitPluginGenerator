@@ -1,0 +1,6 @@
+# Default options for deploy-addin.ps1 (reference for agents; pass flags to override)
+deploy:
+  configuration: Release
+  revitVersion: "2024"
+  # addinsDir: null  # default: %AppData%\Autodesk\Revit\Addins\<revitVersion>
+  # skipBuild: false

@@ -85,11 +85,11 @@ Sample patterns in the scaffold skill may mention older Revit versions; the scaf
 RevitSkills/
 ├── .cursor/
 │   └── skills/
-│       ├── revit-addin-scaffold/   SKILL.md, template/, patterns.md, samples-index/
+│       ├── revit-addin-scaffold/   SKILL.md, docs/, templates/, scripts/, etc.
 │       ├── revit-api-lookup/      SKILL.md, scripts/, docs/ (packaged index + md)
 │       └── revit-addin-build-deploy/  SKILL.md, scripts/deploy-addin.ps1
 ├── .gitignore
 └── README.md
 ```
 
-Maintainer-only tooling (regenerating the API index from CHM, mining legacy code into `samples-index/`, etc.) is **not** part of this repo; day-to-day use does not require it—the packaged indexes under `.cursor/skills/` are what Cursor uses.
+Maintainer-only tooling (regenerating the API index from CHM, mining legacy code into `revit-addin-scaffold/docs/samples-index/`, etc.) is **not** part of this repo; day-to-day use does not require it—the packaged indexes under `.cursor/skills/` are what Cursor uses.
